@@ -1,3 +1,4 @@
+rootProject.name = 'ko-prototype'
 include 'eureka-server'
 include 'config-server'
 include 'prototype-core'
