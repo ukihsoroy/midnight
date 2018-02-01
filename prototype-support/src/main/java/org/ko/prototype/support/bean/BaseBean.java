@@ -1,4 +1,4 @@
-package org.ko.prototype.core.bean;
+package org.ko.prototype.support.bean;
 
 import java.io.Serializable;
 

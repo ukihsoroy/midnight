@@ -1,5 +1,7 @@
 dependencies {
-    compile project(':prototype-core')
     compile 'org.springframework.cloud:spring-cloud-starter-feign'
     compile 'org.springframework.cloud:spring-cloud-config-client'
+    compile project(':prototype-support')
+    compile project(':prototype-support')
+    compile project(':prototype-data')
 }

@@ -1,15 +1,7 @@
 # 端口号
 server.port: 8083
 # 定义服务名
-spring:
-  application.name: prototype-admin
-  profiles:
-    active: dev
-
----
-spring:
-  profiles:
-    active: prod
+spring.application.name: prototype-admin
 # 定义注册中心地址
 eureka.client:
   serviceUrl.defaultZone: http://localhost:8081/eureka/

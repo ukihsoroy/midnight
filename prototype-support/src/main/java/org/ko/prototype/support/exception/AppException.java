@@ -1,7 +1,7 @@
-package org.ko.prototype.core.exception;
+package org.ko.prototype.support.exception;
 
 
-import org.ko.prototype.core.type.AppCode;
+import org.ko.prototype.support.type.AppCode;
 
 public class AppException extends Exception {
 

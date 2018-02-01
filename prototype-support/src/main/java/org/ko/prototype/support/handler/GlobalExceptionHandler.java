@@ -1,8 +1,8 @@
-package org.ko.prototype.core.handler;
+package org.ko.prototype.support.handler;
 
-import org.ko.prototype.core.exception.AppException;
-import org.ko.prototype.core.type.AppCode;
-import org.ko.prototype.core.view.View;
+import org.ko.prototype.support.exception.AppException;
+import org.ko.prototype.support.type.AppCode;
+import org.ko.prototype.support.view.View;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

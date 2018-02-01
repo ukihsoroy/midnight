@@ -1,4 +1,4 @@
-package org.ko.prototype.core.type;
+package org.ko.prototype.support.type;
 
 public enum AppCode {
     ERROR("500", "System Error"),

@@ -1,8 +1,8 @@
-package org.ko.prototype.core.view;
+package org.ko.prototype.support.view;
 
 
-import org.ko.prototype.core.bean.BaseBean;
-import org.ko.prototype.core.type.AppCode;
+import org.ko.prototype.support.bean.BaseBean;
+import org.ko.prototype.support.type.AppCode;
 
 public class View<T> extends BaseBean {
 
