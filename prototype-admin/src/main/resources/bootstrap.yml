@@ -1,0 +1,23 @@
+# 端口号
+server:
+  port: 8083
+
+spring:
+  application:
+    name: user    #定义服务名
+  profiles:
+      active: dev #生效的配置文件
+  cloud:
+    config:
+      discovery:
+       enabled: true  #开启通过服务ID访问配置
+       serviceId: config-server #配置中心服务ID
+
+# 定义注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+
+#关闭Actuator security权限验证
+management.security.enabled: false

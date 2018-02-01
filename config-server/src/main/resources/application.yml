@@ -1,0 +1,32 @@
+server:
+  port: 8082 #端口号
+
+spring:
+  application:
+    name: config-server #Spring应用名称-SOA服务名称
+  profiles:
+      active: native  #使用本地文件系统-如使用svn, git去掉此配置
+  cloud:
+    config:
+      server:
+        native:   #使用本地文件系统可以指定文件目录
+          searchLocations: file:D:\tmp\conf-repo  #config搜索配置文件目录
+
+#        使用svn需要引入pom依赖
+#        svn:     #SVN配置
+#          uri:           #SVN仓库位置
+#          search-paths:  #配置仓库路径下相对搜索位置,可配置多个
+#          username:      #SVN仓库用户名
+#          password:      #SVN仓库密码
+
+#        git:     #GIT配置
+#          url:           #GIT仓库位置
+#          search-paths:  #配置仓库路径下相对搜索位置,可配置多个
+#          username:      #GIT仓库用户名
+#          password:      #GIT仓库密码
+
+# 注册中心地址
+eureka.client:
+  serviceUrl.defaultZone: http://localhost:8081/eureka/
+
+

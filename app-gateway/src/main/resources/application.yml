@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: app-gateway #Spring应用名称-SOA服务名
+server:
+  port: 8084 #应用端口号
+
+
+#Zuul路由简单配置-缺点: path和url比较难以维护
+
+#zuul:
+#  routes:
+#    user:
+#      path: /feign/**              #匹配Url格式
+#      url: http://localhost:8083/  #映射Url地址
+#----------------------------------------
+
+
+#Zuul面向服务路由
+
+# 定义注册中心地址
+eureka.client.serviceUrl.defaultZone: http://localhost:8081/eureka/
+# 定义Zuul路由
+zuul:
+  routes:
+    feign:    #eureka-feign实例
+      path: /feign/**
+      serviceId: feign-consumer
+    compute:  #compute-service实例
+      path: /compute/**
+      serviceId: user
