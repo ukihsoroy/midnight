@@ -11,9 +11,9 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 @EnableConfigServer
 //开启Eureka连接
 @EnableDiscoveryClient
-public class ConfigServerApplication {
+public class PrototypeConfigServer {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConfigServerApplication.class, args);
+        SpringApplication.run(PrototypeConfigServer.class, args);
     }
 }

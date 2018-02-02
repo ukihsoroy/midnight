@@ -6,13 +6,9 @@ spring:
   profiles:
     active: dev
 
----
-spring:
-  profiles:
-    active: prod
 # 定义注册中心地址
 eureka.client:
-  serviceUrl.defaultZone: http://localhost:8081/eureka/
+  serviceUrl.defaultZone: http://localhost:8001/eureka/
   register-with-eureka: false #客户端不发布服务
 
 # 开启Feign客户端Hystrix熔断

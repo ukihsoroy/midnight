@@ -1,7 +1,8 @@
 dependencies {
     compile 'org.springframework.cloud:spring-cloud-starter-feign'
+    compile "com.netflix.hystrix:hystrix-javanica:${hystrixJavanica}"
     compile 'org.springframework.cloud:spring-cloud-config-client'
-    compile project(':prototype-support')
+    compile project(':prototype-core')
     compile project(':prototype-support')
     compile project(':prototype-data')
 }

@@ -1,5 +1,5 @@
 server:
-  port: 8081 #注册中心端口
+  port: 8001 #注册中心端口
 spring:
   application:
     name: eureka-server

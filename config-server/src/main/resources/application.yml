@@ -1,5 +1,5 @@
 server:
-  port: 8082 #端口号
+  port: 8002 #端口号
 
 spring:
   application:
@@ -27,6 +27,6 @@ spring:
 
 # 注册中心地址
 eureka.client:
-  serviceUrl.defaultZone: http://localhost:8081/eureka/
+  serviceUrl.defaultZone: http://localhost:8001/eureka/
 
 
