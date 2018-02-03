@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Bean;
 @SpringCloudApplication
 //开启Zuul API网关服务
 @EnableZuulProxy
-public class ApiGatewayApplication {
+public class PrototypeGatewayServer {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApiGatewayApplication.class, args);
+        SpringApplication.run(PrototypeGatewayServer.class, args);
     }
 
     /**

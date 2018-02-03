@@ -11,9 +11,9 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 //向Eureka注册中心发布服务
 @EnableEurekaClient
 @SpringCloudApplication
-public class PrototypeAdminApplication {
+public class PrototypeAdminServer {
 
     public static void main(String[] args) {
-        SpringApplication.run(PrototypeAdminApplication.class, args);
+        SpringApplication.run(PrototypeAdminServer.class, args);
     }
 }
