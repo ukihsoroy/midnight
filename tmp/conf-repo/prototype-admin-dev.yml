@@ -2,3 +2,10 @@ application:
   author: K.O
   email: you_leet@foxmail.com
   url:
+
+master:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///art
+    username: ko
+    password: tiger
