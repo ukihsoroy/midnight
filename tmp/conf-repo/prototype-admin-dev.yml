@@ -6,6 +6,6 @@ application:
 master:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql:///art
+    url: jdbc:mysql:///art-prototype
     username: ko
     password: tiger
