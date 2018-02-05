@@ -1,7 +1,7 @@
 package org.ko.prototype.admin.conf;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.ko.prototype.core.conf.ds.DruidAbstractDataSourceConfig;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,10 +17,10 @@ import javax.sql.DataSource;
 @Configuration
 // 扫描 Mapper 接口并容器管理
 @MapperScan(basePackages = MasterDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "masterSqlSessionFactory")
-public class MasterDataSourceConfig {
+public class MasterDataSourceConfig extends DruidAbstractDataSourceConfig {
 
     // 精确到 master 目录，以便跟其他数据源隔离
-    static final String PACKAGE = "org.ko.data.master.dao";
+    static final String PACKAGE = "org.ko.prototype.data.master.dao";
     static final String MAPPER_LOCATION = "classpath:mapper/master/*.xml";
 
     @Value("${master.datasource.url}")
@@ -37,24 +37,19 @@ public class MasterDataSourceConfig {
 
     @Bean(name = "masterDataSource")
     @Primary
-    public DataSource masterDataSource() {
-        DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setDriverClassName(driverClass);
-        dataSource.setUrl(url);
-        dataSource.setUsername(user);
-        dataSource.setPassword(password);
-        return dataSource;
+    public DataSource dataSource() {
+        return this.buildDataSource(driverClass, url, user, password);
     }
 
     @Bean(name = "masterTransactionManager")
     @Primary
-    public DataSourceTransactionManager masterTransactionManager() {
-        return new DataSourceTransactionManager(masterDataSource());
+    public DataSourceTransactionManager transactionManager() {
+        return new DataSourceTransactionManager(dataSource());
     }
 
     @Bean(name = "masterSqlSessionFactory")
     @Primary
-    public SqlSessionFactory masterSqlSessionFactory(@Qualifier("masterDataSource") DataSource masterDataSource)
+    public SqlSessionFactory sqlSessionFactory(@Qualifier("masterDataSource") DataSource masterDataSource)
             throws Exception {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(masterDataSource);

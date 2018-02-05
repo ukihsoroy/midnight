@@ -1,4 +1,4 @@
-package org.ko.data.master.domain;
+package org.ko.prototype.data.master.domain;
 
 import java.io.Serializable;
 
