@@ -19,6 +19,9 @@ eureka.client:
 # 开启Feign客户端Hystrix熔断
 feign.hystrix.enabled: true
 
+# 关闭管理验证
+management.security.enabled: false
+
 
 # Ribbon全局配置
 ribbon:
