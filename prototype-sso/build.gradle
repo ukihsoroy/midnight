@@ -1,0 +1,4 @@
+dependencies {
+    compile 'org.springframework.cloud:spring-cloud-config-client'
+    compile 'org.springframework.security.oauth:spring-security-oauth2'
+}
