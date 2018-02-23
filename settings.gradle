@@ -8,6 +8,5 @@ include 'prototype-data'
 include 'prototype-sso'
 include 'prototype-admin'
 include 'prototype-api'
-
-
+include 'prototype-generator'
 

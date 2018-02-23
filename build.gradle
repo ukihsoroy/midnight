@@ -24,6 +24,7 @@ allprojects {
 
 subprojects {
 	dependencies {
+		compile 'org.codehaus.groovy:groovy-all:3.0.0-alpha-1'
 		testCompile 'org.springframework.boot:spring-boot-starter-test'
 	}
 
