@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ko.prototype.admin.dao.repository.AdminUserRepository">
+	<!--
+		此文件初版由工具生成，仅需生成一次，请定制开发
+		生成时间: 2018-02-24 13:12:13
+	-->
+	<resultMap id="AdminUserGridResultMap" type="org.ko.prototype.admin.bean.domain.AdminUserGrid" extends="org.ko.prototype.data.dao.mapper.AdminUserMapper.BaseResultMap">
+	</resultMap>
+
+	<sql id="Select">
+		select
+			<include refid="org.ko.prototype.data.dao.mapper.AdminUserMapper.Base_Column_List" />
+		from art_admin_user where 1
+		<foreach collection="_this" index="key" item="value" open="" close="" separator="">
+			<if test="!key.startsWith('_')">
+				<if test="value == null">
+			and ${key} is null
+				</if>
+				<if test="value != null">
+			and ${key} = #{value}
+				</if>
+			</if>
+		</foreach>
+		<if test="_orderBy != null and _orderBy.trim() != ''">
+			order by #{_orderBy}
+		</if>
+	</sql>
+
+	<select id="select" parameterType="map" resultMap="org.ko.prototype.data.dao.mapper.AdminUserMapper.BaseResultMap">
+		<include refid="Select"></include>
+	</select>
+	
+	<select id="count" parameterType="map" resultType="long">
+		select count(*) from (
+		<include refid="Select"></include>
+		) t
+	</select>
+
+	<select id="selectGrid" parameterType="map" resultMap="AdminUserGridResultMap">
+		select 
+			au.id 
+			, au.login_name 
+			, au.password 
+			, au.role_id 
+			, au.mobile 
+			, au.email 
+			, au.full_name 
+			, au.gender 
+			, au.birthday 
+			, au.avatar 
+			, au.last_login_time 
+			, au.last_login_ip 
+			, au.delete_status 
+			, au.trace_code_i 
+			, au.trace_code_u 
+			, au.host_name 
+			, au.create_user_id 
+			, au.create_by 
+			, au.create_date 
+			, au.update_user_id 
+			, au.update_by 
+			, au.update_date 
+		from art_admin_user au 
+		where au.delete_status = 1
+		<if test="id != null">
+			and au.id = #{id}
+		</if>
+		<if test="login_name != null and login_name.trim() != ''">
+			and au.login_name like concat('%', #{login_name}, '%')
+		</if>
+		<if test="password != null and password.trim() != ''">
+			and au.password like concat('%', #{password}, '%')
+		</if>
+		<if test="role_id != null">
+			and au.role_id = #{role_id}
+		</if>
+		<if test="mobile != null and mobile.trim() != ''">
+			and au.mobile like concat('%', #{mobile}, '%')
+		</if>
+		<if test="email != null and email.trim() != ''">
+			and au.email like concat('%', #{email}, '%')
+		</if>
+		<if test="full_name != null and full_name.trim() != ''">
+			and au.full_name like concat('%', #{full_name}, '%')
+		</if>
+		<if test="gender != null">
+			and au.gender = #{gender}
+		</if>
+		<if test="birthday_from != null">
+			and date_format(au.birthday, '%Y-%m-%d') &gt;= #{birthday_from}
+		</if>
+		<if test="birthday_to != null">
+			and date_format(au.birthday, '%Y-%m-%d') &lt;= #{birthday_to}
+		</if>
+		<if test="birthday != null">
+			and date_format(au.birthday, '%Y-%m-%d') = #{birthday}
+		</if>
+		<if test="avatar != null and avatar.trim() != ''">
+			and au.avatar like concat('%', #{avatar}, '%')
+		</if>
+		<if test="last_login_time_from != null">
+			and date_format(au.last_login_time, '%Y-%m-%d') &gt;= #{last_login_time_from}
+		</if>
+		<if test="last_login_time_to != null">
+			and date_format(au.last_login_time, '%Y-%m-%d') &lt;= #{last_login_time_to}
+		</if>
+		<if test="last_login_time != null">
+			and date_format(au.last_login_time, '%Y-%m-%d') = #{last_login_time}
+		</if>
+		<if test="last_login_ip != null and last_login_ip.trim() != ''">
+			and au.last_login_ip like concat('%', #{last_login_ip}, '%')
+		</if>
+		<if test="trace_code_i != null and trace_code_i.trim() != ''">
+			and au.trace_code_i like concat('%', #{trace_code_i}, '%')
+		</if>
+		<if test="trace_code_u != null and trace_code_u.trim() != ''">
+			and au.trace_code_u like concat('%', #{trace_code_u}, '%')
+		</if>
+		<if test="host_name != null and host_name.trim() != ''">
+			and au.host_name like concat('%', #{host_name}, '%')
+		</if>
+		<if test="create_user_id != null">
+			and au.create_user_id = #{create_user_id}
+		</if>
+		<if test="create_by != null and create_by.trim() != ''">
+			and au.create_by like concat('%', #{create_by}, '%')
+		</if>
+		<if test="create_date_from != null">
+			and date_format(au.create_date, '%Y-%m-%d') &gt;= #{create_date_from}
+		</if>
+		<if test="create_date_to != null">
+			and date_format(au.create_date, '%Y-%m-%d') &lt;= #{create_date_to}
+		</if>
+		<if test="create_date != null">
+			and date_format(au.create_date, '%Y-%m-%d') = #{create_date}
+		</if>
+		<if test="update_user_id != null">
+			and au.update_user_id = #{update_user_id}
+		</if>
+		<if test="update_by != null and update_by.trim() != ''">
+			and au.update_by like concat('%', #{update_by}, '%')
+		</if>
+		<if test="update_date_from != null">
+			and date_format(au.update_date, '%Y-%m-%d') &gt;= #{update_date_from}
+		</if>
+		<if test="update_date_to != null">
+			and date_format(au.update_date, '%Y-%m-%d') &lt;= #{update_date_to}
+		</if>
+		<if test="update_date != null">
+			and date_format(au.update_date, '%Y-%m-%d') = #{update_date}
+		</if>
+		order by au.id desc
+	</select>
+
+	<insert id="insert" parameterType="map" useGeneratedKeys="true" keyProperty="id">
+		insert into art_admin_user 
+		<foreach collection="_this" index="key" open="(" close=")" separator=",">
+			<if test="!key.startsWith('_')">
+			${key}
+			</if>
+		</foreach>
+		values
+		<foreach collection="_this" index="key" item="value" open="(" close=")" separator=",">
+			<if test="!key.startsWith('_')">
+			if(length(#{value}) = 0, null, #{value})
+			</if>
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="map">
+		update art_admin_user set
+		<foreach collection="_this" index="key" item="value" open="" close="" separator=",">
+		<if test="key != 'id' and !key.startsWith('_')">
+			${key} = #{value}
+		</if>
+		</foreach>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="map">
+		delete from art_admin_user where 1
+		<foreach collection="_this" index="key" item="value" open="" close="" separator="">
+			<if test="!key.startsWith('_')">
+				<if test="value == null">
+			and ${key} is null
+				</if>
+				<if test="value != null">
+			and ${key} = #{value}
+				</if>
+			</if>
+		</foreach>
+	</delete>
+</mapper>

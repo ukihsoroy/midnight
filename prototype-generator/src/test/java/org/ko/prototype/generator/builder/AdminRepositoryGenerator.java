@@ -44,8 +44,8 @@ public class AdminRepositoryGenerator extends AbstractRepositoryBuilder {
 	
 	@Test public void build() throws Exception {
 		super.withUI = true;
-		buildSingleRepository();
-//		buildAllRepositories();
+//		buildSingleRepository();
+		buildAllRepositories();
 	}
 	
 	private void buildSingleRepository() throws Exception {

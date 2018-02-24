@@ -10,11 +10,11 @@ public final class ConfigFactory {
 	
 	public static DBConfig getConfig(){
 		DBConfig config = new DBConfig();
-		config.setIp("");
+		config.setIp("111.231.224.68");
 		config.setPort(3306);
-		config.setUser("");
-		config.setPassword(".");
-		config.setDb("");
+		config.setUser("root");
+		config.setPassword("tiger");
+		config.setDb("art-prototype");
 		
 		return config;
 	}

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ko.prototype.admin.dao.repository.LinkRepository">
+	<!--
+		此文件初版由工具生成，仅需生成一次，请定制开发
+		生成时间: 2018-02-24 13:12:16
+	-->
+	<resultMap id="LinkGridResultMap" type="org.ko.prototype.admin.bean.domain.LinkGrid" extends="org.ko.prototype.data.dao.mapper.LinkMapper.BaseResultMap">
+	</resultMap>
+
+	<sql id="Select">
+		select
+			<include refid="org.ko.prototype.data.dao.mapper.LinkMapper.Base_Column_List" />
+		from art_link where 1
+		<foreach collection="_this" index="key" item="value" open="" close="" separator="">
+			<if test="!key.startsWith('_')">
+				<if test="value == null">
+			and ${key} is null
+				</if>
+				<if test="value != null">
+			and ${key} = #{value}
+				</if>
+			</if>
+		</foreach>
+		<if test="_orderBy != null and _orderBy.trim() != ''">
+			order by #{_orderBy}
+		</if>
+	</sql>
+
+	<select id="select" parameterType="map" resultMap="org.ko.prototype.data.dao.mapper.LinkMapper.BaseResultMap">
+		<include refid="Select"></include>
+	</select>
+	
+	<select id="count" parameterType="map" resultType="long">
+		select count(*) from (
+		<include refid="Select"></include>
+		) t
+	</select>
+
+	<select id="selectGrid" parameterType="map" resultMap="LinkGridResultMap">
+		select 
+			l.id 
+			, l.email 
+			, l.type 
+			, l.token 
+			, l.url 
+			, l.status 
+			, l.trace_code_i 
+			, l.trace_code_u 
+			, l.host_name 
+			, l.create_user_id 
+			, l.create_by 
+			, l.create_date 
+			, l.update_user_id 
+			, l.update_by 
+			, l.update_date 
+		from art_link l 
+		where 1 = 1
+		<if test="id != null">
+			and l.id = #{id}
+		</if>
+		<if test="email != null and email.trim() != ''">
+			and l.email like concat('%', #{email}, '%')
+		</if>
+		<if test="type != null">
+			and l.type = #{type}
+		</if>
+		<if test="token != null and token.trim() != ''">
+			and l.token like concat('%', #{token}, '%')
+		</if>
+		<if test="url != null and url.trim() != ''">
+			and l.url like concat('%', #{url}, '%')
+		</if>
+		<if test="status != null">
+			and l.status = #{status}
+		</if>
+		<if test="trace_code_i != null and trace_code_i.trim() != ''">
+			and l.trace_code_i like concat('%', #{trace_code_i}, '%')
+		</if>
+		<if test="trace_code_u != null and trace_code_u.trim() != ''">
+			and l.trace_code_u like concat('%', #{trace_code_u}, '%')
+		</if>
+		<if test="host_name != null and host_name.trim() != ''">
+			and l.host_name like concat('%', #{host_name}, '%')
+		</if>
+		<if test="create_user_id != null">
+			and l.create_user_id = #{create_user_id}
+		</if>
+		<if test="create_by != null and create_by.trim() != ''">
+			and l.create_by like concat('%', #{create_by}, '%')
+		</if>
+		<if test="create_date_from != null">
+			and date_format(l.create_date, '%Y-%m-%d') &gt;= #{create_date_from}
+		</if>
+		<if test="create_date_to != null">
+			and date_format(l.create_date, '%Y-%m-%d') &lt;= #{create_date_to}
+		</if>
+		<if test="create_date != null">
+			and date_format(l.create_date, '%Y-%m-%d') = #{create_date}
+		</if>
+		<if test="update_user_id != null">
+			and l.update_user_id = #{update_user_id}
+		</if>
+		<if test="update_by != null and update_by.trim() != ''">
+			and l.update_by like concat('%', #{update_by}, '%')
+		</if>
+		<if test="update_date_from != null">
+			and date_format(l.update_date, '%Y-%m-%d') &gt;= #{update_date_from}
+		</if>
+		<if test="update_date_to != null">
+			and date_format(l.update_date, '%Y-%m-%d') &lt;= #{update_date_to}
+		</if>
+		<if test="update_date != null">
+			and date_format(l.update_date, '%Y-%m-%d') = #{update_date}
+		</if>
+		order by l.id desc
+	</select>
+
+	<insert id="insert" parameterType="map" useGeneratedKeys="true" keyProperty="id">
+		insert into art_link 
+		<foreach collection="_this" index="key" open="(" close=")" separator=",">
+			<if test="!key.startsWith('_')">
+			${key}
+			</if>
+		</foreach>
+		values
+		<foreach collection="_this" index="key" item="value" open="(" close=")" separator=",">
+			<if test="!key.startsWith('_')">
+			if(length(#{value}) = 0, null, #{value})
+			</if>
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="map">
+		update art_link set
+		<foreach collection="_this" index="key" item="value" open="" close="" separator=",">
+		<if test="key != 'id' and !key.startsWith('_')">
+			${key} = #{value}
+		</if>
+		</foreach>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="map">
+		delete from art_link where 1
+		<foreach collection="_this" index="key" item="value" open="" close="" separator="">
+			<if test="!key.startsWith('_')">
+				<if test="value == null">
+			and ${key} is null
+				</if>
+				<if test="value != null">
+			and ${key} = #{value}
+				</if>
+			</if>
+		</foreach>
+	</delete>
+</mapper>

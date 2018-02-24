@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ko.prototype.admin.dao.repository.RequestLogRepository">
+	<!--
+		此文件初版由工具生成，仅需生成一次，请定制开发
+		生成时间: 2018-02-24 13:12:19
+	-->
+	<resultMap id="RequestLogGridResultMap" type="org.ko.prototype.admin.bean.domain.RequestLogGrid" extends="org.ko.prototype.data.dao.mapper.RequestLogMapper.BaseResultMap">
+	</resultMap>
+
+	<sql id="Select">
+		select
+			<include refid="org.ko.prototype.data.dao.mapper.RequestLogMapper.Base_Column_List" />
+		from art_request_log where 1
+		<foreach collection="_this" index="key" item="value" open="" close="" separator="">
+			<if test="!key.startsWith('_')">
+				<if test="value == null">
+			and ${key} is null
+				</if>
+				<if test="value != null">
+			and ${key} = #{value}
+				</if>
+			</if>
+		</foreach>
+		<if test="_orderBy != null and _orderBy.trim() != ''">
+			order by #{_orderBy}
+		</if>
+	</sql>
+
+	<select id="select" parameterType="map" resultMap="org.ko.prototype.data.dao.mapper.RequestLogMapper.BaseResultMap">
+		<include refid="Select"></include>
+	</select>
+	
+	<select id="count" parameterType="map" resultType="long">
+		select count(*) from (
+		<include refid="Select"></include>
+		) t
+	</select>
+
+	<select id="selectGrid" parameterType="map" resultMap="RequestLogGridResultMap">
+		select 
+			rl.id 
+			, rl.user_id 
+			, rl.action_name 
+			, rl.internal_url 
+			, rl.site_url 
+			, rl.request_url 
+			, rl.incoming_date 
+			, rl.outgoing_date 
+			, rl.http_method 
+			, rl.session_code 
+			, rl.thread_code 
+			, rl.page_code 
+			, rl.host_name 
+			, rl.content_type 
+			, rl.content_length 
+			, rl.http_status 
+			, rl.exception_status 
+			, rl.exception_message 
+			, rl.return_code 
+			, rl.return_length 
+			, rl.time_cost 
+			, rl.browser 
+			, rl.protocol 
+			, rl.app_name 
+			, rl.app_version 
+			, rl.node_name 
+			, rl.remote_ip 
+			, rl.channel 
+			, rl.trace_code 
+			, rl.create_user_id 
+			, rl.create_by 
+			, rl.create_date 
+			, rl.update_user_id 
+			, rl.update_by 
+			, rl.update_date 
+		from art_request_log rl 
+		where 1 = 1
+		<if test="id != null">
+			and rl.id = #{id}
+		</if>
+		<if test="user_id != null">
+			and rl.user_id = #{user_id}
+		</if>
+		<if test="action_name != null and action_name.trim() != ''">
+			and rl.action_name like concat('%', #{action_name}, '%')
+		</if>
+		<if test="internal_url != null and internal_url.trim() != ''">
+			and rl.internal_url like concat('%', #{internal_url}, '%')
+		</if>
+		<if test="site_url != null and site_url.trim() != ''">
+			and rl.site_url like concat('%', #{site_url}, '%')
+		</if>
+		<if test="request_url != null and request_url.trim() != ''">
+			and rl.request_url like concat('%', #{request_url}, '%')
+		</if>
+		<if test="incoming_date_from != null">
+			and date_format(rl.incoming_date, '%Y-%m-%d') &gt;= #{incoming_date_from}
+		</if>
+		<if test="incoming_date_to != null">
+			and date_format(rl.incoming_date, '%Y-%m-%d') &lt;= #{incoming_date_to}
+		</if>
+		<if test="incoming_date != null">
+			and date_format(rl.incoming_date, '%Y-%m-%d') = #{incoming_date}
+		</if>
+		<if test="outgoing_date_from != null">
+			and date_format(rl.outgoing_date, '%Y-%m-%d') &gt;= #{outgoing_date_from}
+		</if>
+		<if test="outgoing_date_to != null">
+			and date_format(rl.outgoing_date, '%Y-%m-%d') &lt;= #{outgoing_date_to}
+		</if>
+		<if test="outgoing_date != null">
+			and date_format(rl.outgoing_date, '%Y-%m-%d') = #{outgoing_date}
+		</if>
+		<if test="http_method != null and http_method.trim() != ''">
+			and rl.http_method like concat('%', #{http_method}, '%')
+		</if>
+		<if test="session_code != null and session_code.trim() != ''">
+			and rl.session_code like concat('%', #{session_code}, '%')
+		</if>
+		<if test="thread_code != null and thread_code.trim() != ''">
+			and rl.thread_code like concat('%', #{thread_code}, '%')
+		</if>
+		<if test="page_code != null and page_code.trim() != ''">
+			and rl.page_code like concat('%', #{page_code}, '%')
+		</if>
+		<if test="host_name != null and host_name.trim() != ''">
+			and rl.host_name like concat('%', #{host_name}, '%')
+		</if>
+		<if test="content_type != null and content_type.trim() != ''">
+			and rl.content_type like concat('%', #{content_type}, '%')
+		</if>
+		<if test="content_length != null">
+			and rl.content_length = #{content_length}
+		</if>
+		<if test="http_status != null">
+			and rl.http_status = #{http_status}
+		</if>
+		<if test="exception_status != null">
+			and rl.exception_status = #{exception_status}
+		</if>
+		<if test="exception_message != null and exception_message.trim() != ''">
+			and rl.exception_message like concat('%', #{exception_message}, '%')
+		</if>
+		<if test="return_code != null and return_code.trim() != ''">
+			and rl.return_code like concat('%', #{return_code}, '%')
+		</if>
+		<if test="return_length != null">
+			and rl.return_length = #{return_length}
+		</if>
+		<if test="time_cost != null">
+			and rl.time_cost = #{time_cost}
+		</if>
+		<if test="browser != null and browser.trim() != ''">
+			and rl.browser like concat('%', #{browser}, '%')
+		</if>
+		<if test="protocol != null and protocol.trim() != ''">
+			and rl.protocol like concat('%', #{protocol}, '%')
+		</if>
+		<if test="app_name != null and app_name.trim() != ''">
+			and rl.app_name like concat('%', #{app_name}, '%')
+		</if>
+		<if test="app_version != null and app_version.trim() != ''">
+			and rl.app_version like concat('%', #{app_version}, '%')
+		</if>
+		<if test="node_name != null and node_name.trim() != ''">
+			and rl.node_name like concat('%', #{node_name}, '%')
+		</if>
+		<if test="remote_ip != null and remote_ip.trim() != ''">
+			and rl.remote_ip like concat('%', #{remote_ip}, '%')
+		</if>
+		<if test="channel != null and channel.trim() != ''">
+			and rl.channel like concat('%', #{channel}, '%')
+		</if>
+		<if test="trace_code != null and trace_code.trim() != ''">
+			and rl.trace_code like concat('%', #{trace_code}, '%')
+		</if>
+		<if test="create_user_id != null">
+			and rl.create_user_id = #{create_user_id}
+		</if>
+		<if test="create_by != null and create_by.trim() != ''">
+			and rl.create_by like concat('%', #{create_by}, '%')
+		</if>
+		<if test="create_date_from != null">
+			and date_format(rl.create_date, '%Y-%m-%d') &gt;= #{create_date_from}
+		</if>
+		<if test="create_date_to != null">
+			and date_format(rl.create_date, '%Y-%m-%d') &lt;= #{create_date_to}
+		</if>
+		<if test="create_date != null">
+			and date_format(rl.create_date, '%Y-%m-%d') = #{create_date}
+		</if>
+		<if test="update_user_id != null">
+			and rl.update_user_id = #{update_user_id}
+		</if>
+		<if test="update_by != null and update_by.trim() != ''">
+			and rl.update_by like concat('%', #{update_by}, '%')
+		</if>
+		<if test="update_date_from != null">
+			and date_format(rl.update_date, '%Y-%m-%d') &gt;= #{update_date_from}
+		</if>
+		<if test="update_date_to != null">
+			and date_format(rl.update_date, '%Y-%m-%d') &lt;= #{update_date_to}
+		</if>
+		<if test="update_date != null">
+			and date_format(rl.update_date, '%Y-%m-%d') = #{update_date}
+		</if>
+		order by rl.id desc
+	</select>
+
+	<insert id="insert" parameterType="map" useGeneratedKeys="true" keyProperty="id">
+		insert into art_request_log 
+		<foreach collection="_this" index="key" open="(" close=")" separator=",">
+			<if test="!key.startsWith('_')">
+			${key}
+			</if>
+		</foreach>
+		values
+		<foreach collection="_this" index="key" item="value" open="(" close=")" separator=",">
+			<if test="!key.startsWith('_')">
+			if(length(#{value}) = 0, null, #{value})
+			</if>
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="map">
+		update art_request_log set
+		<foreach collection="_this" index="key" item="value" open="" close="" separator=",">
+		<if test="key != 'id' and !key.startsWith('_')">
+			${key} = #{value}
+		</if>
+		</foreach>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="map">
+		delete from art_request_log where 1
+		<foreach collection="_this" index="key" item="value" open="" close="" separator="">
+			<if test="!key.startsWith('_')">
+				<if test="value == null">
+			and ${key} is null
+				</if>
+				<if test="value != null">
+			and ${key} = #{value}
+				</if>
+			</if>
+		</foreach>
+	</delete>
+</mapper>

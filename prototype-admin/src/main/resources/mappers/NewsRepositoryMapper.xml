@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ko.prototype.admin.dao.repository.NewsRepository">
+	<!--
+		此文件初版由工具生成，仅需生成一次，请定制开发
+		生成时间: 2018-02-24 13:12:18
+	-->
+	<resultMap id="NewsGridResultMap" type="org.ko.prototype.admin.bean.domain.NewsGrid" extends="org.ko.prototype.data.dao.mapper.NewsMapper.BaseResultMap">
+	</resultMap>
+
+	<sql id="Select">
+		select
+			<include refid="org.ko.prototype.data.dao.mapper.NewsMapper.Base_Column_List" />
+		from art_news where 1
+		<foreach collection="_this" index="key" item="value" open="" close="" separator="">
+			<if test="!key.startsWith('_')">
+				<if test="value == null">
+			and ${key} is null
+				</if>
+				<if test="value != null">
+			and ${key} = #{value}
+				</if>
+			</if>
+		</foreach>
+		<if test="_orderBy != null and _orderBy.trim() != ''">
+			order by #{_orderBy}
+		</if>
+	</sql>
+
+	<select id="select" parameterType="map" resultMap="org.ko.prototype.data.dao.mapper.NewsMapper.ResultMapWithBLOBs">
+		<include refid="Select"></include>
+	</select>
+	
+	<select id="count" parameterType="map" resultType="long">
+		select count(*) from (
+		<include refid="Select"></include>
+		) t
+	</select>
+
+	<select id="selectGrid" parameterType="map" resultMap="NewsGridResultMap">
+		select 
+			n.id 
+			, n.title 
+			, n.thumbnail 
+			, n.content 
+			, n.url 
+			, n.local_path 
+			, n.delete_status 
+			, n.trace_code_i 
+			, n.trace_code_u 
+			, n.host_name 
+			, n.create_user_id 
+			, n.create_by 
+			, n.create_date 
+			, n.update_user_id 
+			, n.update_by 
+			, n.update_date 
+		from art_news n 
+		where n.delete_status = 1
+		<if test="id != null">
+			and n.id = #{id}
+		</if>
+		<if test="title != null and title.trim() != ''">
+			and n.title like concat('%', #{title}, '%')
+		</if>
+		<if test="thumbnail != null and thumbnail.trim() != ''">
+			and n.thumbnail like concat('%', #{thumbnail}, '%')
+		</if>
+		<if test="content != null">
+			and n.content = #{content}
+		</if>
+		<if test="url != null and url.trim() != ''">
+			and n.url like concat('%', #{url}, '%')
+		</if>
+		<if test="local_path != null and local_path.trim() != ''">
+			and n.local_path like concat('%', #{local_path}, '%')
+		</if>
+		<if test="trace_code_i != null and trace_code_i.trim() != ''">
+			and n.trace_code_i like concat('%', #{trace_code_i}, '%')
+		</if>
+		<if test="trace_code_u != null and trace_code_u.trim() != ''">
+			and n.trace_code_u like concat('%', #{trace_code_u}, '%')
+		</if>
+		<if test="host_name != null and host_name.trim() != ''">
+			and n.host_name like concat('%', #{host_name}, '%')
+		</if>
+		<if test="create_user_id != null">
+			and n.create_user_id = #{create_user_id}
+		</if>
+		<if test="create_by != null and create_by.trim() != ''">
+			and n.create_by like concat('%', #{create_by}, '%')
+		</if>
+		<if test="create_date_from != null">
+			and date_format(n.create_date, '%Y-%m-%d') &gt;= #{create_date_from}
+		</if>
+		<if test="create_date_to != null">
+			and date_format(n.create_date, '%Y-%m-%d') &lt;= #{create_date_to}
+		</if>
+		<if test="create_date != null">
+			and date_format(n.create_date, '%Y-%m-%d') = #{create_date}
+		</if>
+		<if test="update_user_id != null">
+			and n.update_user_id = #{update_user_id}
+		</if>
+		<if test="update_by != null and update_by.trim() != ''">
+			and n.update_by like concat('%', #{update_by}, '%')
+		</if>
+		<if test="update_date_from != null">
+			and date_format(n.update_date, '%Y-%m-%d') &gt;= #{update_date_from}
+		</if>
+		<if test="update_date_to != null">
+			and date_format(n.update_date, '%Y-%m-%d') &lt;= #{update_date_to}
+		</if>
+		<if test="update_date != null">
+			and date_format(n.update_date, '%Y-%m-%d') = #{update_date}
+		</if>
+		order by n.id desc
+	</select>
+
+	<insert id="insert" parameterType="map" useGeneratedKeys="true" keyProperty="id">
+		insert into art_news 
+		<foreach collection="_this" index="key" open="(" close=")" separator=",">
+			<if test="!key.startsWith('_')">
+			${key}
+			</if>
+		</foreach>
+		values
+		<foreach collection="_this" index="key" item="value" open="(" close=")" separator=",">
+			<if test="!key.startsWith('_')">
+			if(length(#{value}) = 0, null, #{value})
+			</if>
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="map">
+		update art_news set
+		<foreach collection="_this" index="key" item="value" open="" close="" separator=",">
+		<if test="key != 'id' and !key.startsWith('_')">
+			${key} = #{value}
+		</if>
+		</foreach>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="map">
+		delete from art_news where 1
+		<foreach collection="_this" index="key" item="value" open="" close="" separator="">
+			<if test="!key.startsWith('_')">
+				<if test="value == null">
+			and ${key} is null
+				</if>
+				<if test="value != null">
+			and ${key} = #{value}
+				</if>
+			</if>
+		</foreach>
+	</delete>
+</mapper>

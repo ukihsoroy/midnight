@@ -29,8 +29,8 @@ public class MyBatisGenerator extends AbstractMapperBuilder {
 	}
 	
 	@Test public void build() throws Exception {
-		buildSingleMapper();
-//		buildAllMappers();
+//		buildSingleMapper();
+		buildAllMappers();
 	}
 	
 	private void buildSingleMapper() throws Exception {

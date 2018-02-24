@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ko.prototype.admin.dao.repository.MailDateRepository">
+	<!--
+		此文件初版由工具生成，仅需生成一次，请定制开发
+		生成时间: 2018-02-24 13:12:17
+	-->
+	<resultMap id="MailDateGridResultMap" type="org.ko.prototype.admin.bean.domain.MailDateGrid" extends="org.ko.prototype.data.dao.mapper.MailDateMapper.BaseResultMap">
+	</resultMap>
+
+	<sql id="Select">
+		select
+			<include refid="org.ko.prototype.data.dao.mapper.MailDateMapper.Base_Column_List" />
+		from art_mail_date where 1
+		<foreach collection="_this" index="key" item="value" open="" close="" separator="">
+			<if test="!key.startsWith('_')">
+				<if test="value == null">
+			and ${key} is null
+				</if>
+				<if test="value != null">
+			and ${key} = #{value}
+				</if>
+			</if>
+		</foreach>
+		<if test="_orderBy != null and _orderBy.trim() != ''">
+			order by #{_orderBy}
+		</if>
+	</sql>
+
+	<select id="select" parameterType="map" resultMap="org.ko.prototype.data.dao.mapper.MailDateMapper.BaseResultMap">
+		<include refid="Select"></include>
+	</select>
+	
+	<select id="count" parameterType="map" resultType="long">
+		select count(*) from (
+		<include refid="Select"></include>
+		) t
+	</select>
+
+	<select id="selectGrid" parameterType="map" resultMap="MailDateGridResultMap">
+		select 
+			md.id 
+			, md.email 
+			, md.send_time 
+			, md.send_count 
+			, md.trace_code_i 
+			, md.trace_code_u 
+			, md.host_name 
+			, md.create_user_id 
+			, md.create_by 
+			, md.create_date 
+			, md.update_user_id 
+			, md.update_by 
+			, md.update_date 
+		from art_mail_date md 
+		where 1 = 1
+		<if test="id != null">
+			and md.id = #{id}
+		</if>
+		<if test="email != null and email.trim() != ''">
+			and md.email like concat('%', #{email}, '%')
+		</if>
+		<if test="send_time_from != null">
+			and date_format(md.send_time, '%Y-%m-%d') &gt;= #{send_time_from}
+		</if>
+		<if test="send_time_to != null">
+			and date_format(md.send_time, '%Y-%m-%d') &lt;= #{send_time_to}
+		</if>
+		<if test="send_time != null">
+			and date_format(md.send_time, '%Y-%m-%d') = #{send_time}
+		</if>
+		<if test="send_count != null">
+			and md.send_count = #{send_count}
+		</if>
+		<if test="trace_code_i != null and trace_code_i.trim() != ''">
+			and md.trace_code_i like concat('%', #{trace_code_i}, '%')
+		</if>
+		<if test="trace_code_u != null and trace_code_u.trim() != ''">
+			and md.trace_code_u like concat('%', #{trace_code_u}, '%')
+		</if>
+		<if test="host_name != null and host_name.trim() != ''">
+			and md.host_name like concat('%', #{host_name}, '%')
+		</if>
+		<if test="create_user_id != null">
+			and md.create_user_id = #{create_user_id}
+		</if>
+		<if test="create_by != null and create_by.trim() != ''">
+			and md.create_by like concat('%', #{create_by}, '%')
+		</if>
+		<if test="create_date_from != null">
+			and date_format(md.create_date, '%Y-%m-%d') &gt;= #{create_date_from}
+		</if>
+		<if test="create_date_to != null">
+			and date_format(md.create_date, '%Y-%m-%d') &lt;= #{create_date_to}
+		</if>
+		<if test="create_date != null">
+			and date_format(md.create_date, '%Y-%m-%d') = #{create_date}
+		</if>
+		<if test="update_user_id != null">
+			and md.update_user_id = #{update_user_id}
+		</if>
+		<if test="update_by != null and update_by.trim() != ''">
+			and md.update_by like concat('%', #{update_by}, '%')
+		</if>
+		<if test="update_date_from != null">
+			and date_format(md.update_date, '%Y-%m-%d') &gt;= #{update_date_from}
+		</if>
+		<if test="update_date_to != null">
+			and date_format(md.update_date, '%Y-%m-%d') &lt;= #{update_date_to}
+		</if>
+		<if test="update_date != null">
+			and date_format(md.update_date, '%Y-%m-%d') = #{update_date}
+		</if>
+		order by md.id desc
+	</select>
+
+	<insert id="insert" parameterType="map" useGeneratedKeys="true" keyProperty="id">
+		insert into art_mail_date 
+		<foreach collection="_this" index="key" open="(" close=")" separator=",">
+			<if test="!key.startsWith('_')">
+			${key}
+			</if>
+		</foreach>
+		values
+		<foreach collection="_this" index="key" item="value" open="(" close=")" separator=",">
+			<if test="!key.startsWith('_')">
+			if(length(#{value}) = 0, null, #{value})
+			</if>
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="map">
+		update art_mail_date set
+		<foreach collection="_this" index="key" item="value" open="" close="" separator=",">
+		<if test="key != 'id' and !key.startsWith('_')">
+			${key} = #{value}
+		</if>
+		</foreach>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="map">
+		delete from art_mail_date where 1
+		<foreach collection="_this" index="key" item="value" open="" close="" separator="">
+			<if test="!key.startsWith('_')">
+				<if test="value == null">
+			and ${key} is null
+				</if>
+				<if test="value != null">
+			and ${key} = #{value}
+				</if>
+			</if>
+		</foreach>
+	</delete>
+</mapper>

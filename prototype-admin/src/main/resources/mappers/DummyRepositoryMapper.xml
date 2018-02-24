@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ko.prototype.admin.dao.repository.DummyRepository">
+	<!--
+		此文件初版由工具生成，仅需生成一次，请定制开发
+		生成时间: 2018-02-24 13:12:14
+	-->
+	<resultMap id="DummyGridResultMap" type="org.ko.prototype.admin.bean.domain.DummyGrid" extends="org.ko.prototype.data.dao.mapper.DummyMapper.BaseResultMap">
+	</resultMap>
+
+	<sql id="Select">
+		select
+			<include refid="org.ko.prototype.data.dao.mapper.DummyMapper.Base_Column_List" />
+		from art_dummy where 1
+		<foreach collection="_this" index="key" item="value" open="" close="" separator="">
+			<if test="!key.startsWith('_')">
+				<if test="value == null">
+			and ${key} is null
+				</if>
+				<if test="value != null">
+			and ${key} = #{value}
+				</if>
+			</if>
+		</foreach>
+		<if test="_orderBy != null and _orderBy.trim() != ''">
+			order by #{_orderBy}
+		</if>
+	</sql>
+
+	<select id="select" parameterType="map" resultMap="org.ko.prototype.data.dao.mapper.DummyMapper.BaseResultMap">
+		<include refid="Select"></include>
+	</select>
+	
+	<select id="count" parameterType="map" resultType="long">
+		select count(*) from (
+		<include refid="Select"></include>
+		) t
+	</select>
+
+	<select id="selectGrid" parameterType="map" resultMap="DummyGridResultMap">
+		select 
+			d.id 
+			, d.name 
+			, d.dummy_status 
+			, d.description 
+			, d.birthday 
+			, d.start_time 
+			, d.age 
+			, d.balance 
+			, d.facctor 
+			, d.delete_status 
+			, d.trace_code_i 
+			, d.trace_code_u 
+			, d.host_name 
+			, d.create_user_id 
+			, d.create_by 
+			, d.create_date 
+			, d.update_user_id 
+			, d.update_by 
+			, d.update_date 
+		from art_dummy d 
+		where d.delete_status = 1
+		<if test="id != null">
+			and d.id = #{id}
+		</if>
+		<if test="name != null and name.trim() != ''">
+			and d.name like concat('%', #{name}, '%')
+		</if>
+		<if test="dummy_status != null">
+			and d.dummy_status = #{dummy_status}
+		</if>
+		<if test="description != null and description.trim() != ''">
+			and d.description like concat('%', #{description}, '%')
+		</if>
+		<if test="birthday_from != null">
+			and date_format(d.birthday, '%Y-%m-%d') &gt;= #{birthday_from}
+		</if>
+		<if test="birthday_to != null">
+			and date_format(d.birthday, '%Y-%m-%d') &lt;= #{birthday_to}
+		</if>
+		<if test="birthday != null">
+			and date_format(d.birthday, '%Y-%m-%d') = #{birthday}
+		</if>
+		<if test="start_time_from != null">
+			and date_format(d.start_time, '%Y-%m-%d') &gt;= #{start_time_from}
+		</if>
+		<if test="start_time_to != null">
+			and date_format(d.start_time, '%Y-%m-%d') &lt;= #{start_time_to}
+		</if>
+		<if test="start_time != null">
+			and date_format(d.start_time, '%Y-%m-%d') = #{start_time}
+		</if>
+		<if test="age != null">
+			and d.age = #{age}
+		</if>
+		<if test="balance != null">
+			and d.balance = #{balance}
+		</if>
+		<if test="facctor != null">
+			and d.facctor = #{facctor}
+		</if>
+		<if test="trace_code_i != null and trace_code_i.trim() != ''">
+			and d.trace_code_i like concat('%', #{trace_code_i}, '%')
+		</if>
+		<if test="trace_code_u != null and trace_code_u.trim() != ''">
+			and d.trace_code_u like concat('%', #{trace_code_u}, '%')
+		</if>
+		<if test="host_name != null and host_name.trim() != ''">
+			and d.host_name like concat('%', #{host_name}, '%')
+		</if>
+		<if test="create_user_id != null">
+			and d.create_user_id = #{create_user_id}
+		</if>
+		<if test="create_by != null and create_by.trim() != ''">
+			and d.create_by like concat('%', #{create_by}, '%')
+		</if>
+		<if test="create_date_from != null">
+			and date_format(d.create_date, '%Y-%m-%d') &gt;= #{create_date_from}
+		</if>
+		<if test="create_date_to != null">
+			and date_format(d.create_date, '%Y-%m-%d') &lt;= #{create_date_to}
+		</if>
+		<if test="create_date != null">
+			and date_format(d.create_date, '%Y-%m-%d') = #{create_date}
+		</if>
+		<if test="update_user_id != null">
+			and d.update_user_id = #{update_user_id}
+		</if>
+		<if test="update_by != null and update_by.trim() != ''">
+			and d.update_by like concat('%', #{update_by}, '%')
+		</if>
+		<if test="update_date_from != null">
+			and date_format(d.update_date, '%Y-%m-%d') &gt;= #{update_date_from}
+		</if>
+		<if test="update_date_to != null">
+			and date_format(d.update_date, '%Y-%m-%d') &lt;= #{update_date_to}
+		</if>
+		<if test="update_date != null">
+			and date_format(d.update_date, '%Y-%m-%d') = #{update_date}
+		</if>
+		order by d.id desc
+	</select>
+
+	<insert id="insert" parameterType="map" useGeneratedKeys="true" keyProperty="id">
+		insert into art_dummy 
+		<foreach collection="_this" index="key" open="(" close=")" separator=",">
+			<if test="!key.startsWith('_')">
+			${key}
+			</if>
+		</foreach>
+		values
+		<foreach collection="_this" index="key" item="value" open="(" close=")" separator=",">
+			<if test="!key.startsWith('_')">
+			if(length(#{value}) = 0, null, #{value})
+			</if>
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="map">
+		update art_dummy set
+		<foreach collection="_this" index="key" item="value" open="" close="" separator=",">
+		<if test="key != 'id' and !key.startsWith('_')">
+			${key} = #{value}
+		</if>
+		</foreach>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="map">
+		delete from art_dummy where 1
+		<foreach collection="_this" index="key" item="value" open="" close="" separator="">
+			<if test="!key.startsWith('_')">
+				<if test="value == null">
+			and ${key} is null
+				</if>
+				<if test="value != null">
+			and ${key} = #{value}
+				</if>
+			</if>
+		</foreach>
+	</delete>
+</mapper>

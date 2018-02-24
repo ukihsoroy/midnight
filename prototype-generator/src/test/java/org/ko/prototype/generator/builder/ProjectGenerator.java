@@ -23,11 +23,11 @@ public class ProjectGenerator {
 	
 	@Test public void build() throws Exception {
 		// 修改PNAME的项目名称
-		String appName = System.getProperty("PNAME", "yidadata");
+		String appName = System.getProperty("PNAME", "live");
 		out.println("generating app " + appName);
 		
 		File dir = new File(this.getClass().getClassLoader().getResource(".").toString());
-		File source = dir.getParentFile().getParentFile().getParentFile();
+		File source = dir.getParentFile().getParentFile().getParentFile().getParentFile();
 		int index = source.getPath().indexOf("\\");
 		
 		File target = new File(MessageFormat.format(TARGET, new Object[]{appName}));
@@ -38,13 +38,10 @@ public class ProjectGenerator {
 		FileUtils.copyDirectory(
 				new File(source.getPath().substring(index + 1))
 				, target
-				, new FileFilter(){
-					@Override
-					public boolean accept(File pathname) {
-						String name = pathname.getName();
-						return !name.equalsIgnoreCase("target") && !name.startsWith(".");
-					}
-				}
+				, pathname -> {
+                    String name = pathname.getName();
+                    return !name.equalsIgnoreCase("out") && !name.startsWith(".");
+                }
 		);
 		
 		// change dir name

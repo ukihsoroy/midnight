@@ -16,14 +16,13 @@ import java.util.Scanner;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.ko.prototype.generator.bean.DBConfig;
+import org.ko.prototype.generator.bean.QueryElement;
 import org.ko.prototype.generator.bean.SelectOption;
 import org.ko.prototype.generator.bean.TableMetaData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import org.ko.prototype.generator.bean.DBConfig;
-import org.ko.prototype.generator.bean.QueryElement;
 
 import freemarker.template.Template;
 
@@ -69,7 +68,7 @@ public abstract class AbstractRepositoryBuilder extends AbstractBuilder {
 		
 		String dir = new File(this.getClass().getClassLoader().getResource(".").toURI()).getAbsolutePath();
 		
-		int index = dir.indexOf("target");
+		int index = dir.indexOf("out");
 		String moduleRoot = new File(dir.substring(0, index)).getParent().toString();
 		moduleRoot += "\\" + moduleName;
 		
