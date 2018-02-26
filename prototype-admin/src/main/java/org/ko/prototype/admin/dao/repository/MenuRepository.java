@@ -2,15 +2,14 @@ package org.ko.prototype.admin.dao.repository;
 
 import java.util.List;
 
-import org.apache.commons.collections4.CollectionUtils;
+import org.ko.prototype.data.master.dao.mapper.MenuMapper;
+import org.ko.prototype.data.master.dao.repository.GenericRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import org.ko.prototype.data.bean.domain.Menu;
-import org.ko.prototype.data.bean.domain.MenuExample;
-import org.ko.prototype.data.constants.domain.MenuConstants;
-import org.ko.prototype.data.dao.mapper.MenuMapper;
-import org.ko.prototype.data.dao.repository.GenericRepository;
+import org.ko.prototype.data.master.domain.bean.Menu;
+import org.ko.prototype.data.master.domain.bean.MenuExample;
+import org.ko.prototype.data.master.domain.constants.MenuConstants;
 
 /**
  * 此文件初版由工具生成，请定制开发

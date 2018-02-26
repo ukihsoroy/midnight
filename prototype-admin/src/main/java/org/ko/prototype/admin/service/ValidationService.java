@@ -2,8 +2,8 @@ package org.ko.prototype.admin.service;
 
 import org.ko.prototype.admin.bean.domain.AdminUserModel;
 import org.ko.prototype.admin.dao.repository.AdminUserRepository;
-import org.ko.prototype.data.bean.domain.AdminUserExample;
-import org.ko.prototype.data.constants.domain.AdminUserConstants;
+import org.ko.prototype.data.master.domain.bean.AdminUserExample;
+import org.ko.prototype.data.master.domain.constants.AdminUserConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

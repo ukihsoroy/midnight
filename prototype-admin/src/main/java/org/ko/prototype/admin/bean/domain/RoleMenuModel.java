@@ -1,6 +1,6 @@
 package org.ko.prototype.admin.bean.domain;
 
-import org.ko.prototype.data.bean.domain.RoleMenu;
+import org.ko.prototype.data.master.domain.bean.RoleMenu;
 
 /**
  * 此文件初版由工具生成，请定制开发

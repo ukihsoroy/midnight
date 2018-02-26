@@ -400,7 +400,7 @@ public abstract class AbstractRepositoryBuilder extends AbstractBuilder {
 				}else if("no".equalsIgnoreCase(input) || "n".equalsIgnoreCase(input)){
 					pass = false;
 					break;
-				}else if("all".equalsIgnoreCase(input) || "a".equalsIgnoreCase(input)){
+				}else if("all".equalsIgnoreCase(input) || "constants".equalsIgnoreCase(input)){
 					passAll = true;
 					pass = true;
 					break;

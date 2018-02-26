@@ -1,9 +1,9 @@
 package org.ko.prototype.admin.dao.repository;
 
-import org.ko.prototype.data.bean.domain.Link;
-import org.ko.prototype.data.bean.domain.LinkExample;
-import org.ko.prototype.data.dao.mapper.LinkMapper;
-import org.ko.prototype.data.dao.repository.GenericRepository;
+import org.ko.prototype.data.master.dao.mapper.LinkMapper;
+import org.ko.prototype.data.master.dao.repository.GenericRepository;
+import org.ko.prototype.data.master.domain.bean.Link;
+import org.ko.prototype.data.master.domain.bean.LinkExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

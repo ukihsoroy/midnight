@@ -1,10 +1,10 @@
 package org.ko.prototype.admin.dao.repository;
 
-import org.ko.prototype.data.bean.domain.AdminUser;
-import org.ko.prototype.data.bean.domain.AdminUserExample;
-import org.ko.prototype.data.constants.domain.AdminUserConstants;
-import org.ko.prototype.data.dao.mapper.AdminUserMapper;
-import org.ko.prototype.data.dao.repository.GenericRepository;
+import org.ko.prototype.data.master.dao.mapper.AdminUserMapper;
+import org.ko.prototype.data.master.dao.repository.GenericRepository;
+import org.ko.prototype.data.master.domain.bean.AdminUser;
+import org.ko.prototype.data.master.domain.bean.AdminUserExample;
+import org.ko.prototype.data.master.domain.constants.AdminUserConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

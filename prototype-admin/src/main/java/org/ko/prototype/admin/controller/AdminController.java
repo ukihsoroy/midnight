@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,11 @@ public class AdminController {
 	
 	@Autowired
     private AdminService adminService;
+
+	@GetMapping
+	public String get () {
+		return "Hello, World!";
+	}
 	
 //	@ApiResponseObject
 //	@ApiMethod(summary="登录",description="登录，访问 /token/image 查看imageToken")

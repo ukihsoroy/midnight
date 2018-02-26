@@ -1,0 +1,9 @@
+master:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///art-prototype
+    username:
+    password:
+
+
+

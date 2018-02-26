@@ -22,10 +22,10 @@
             <property name="forceBigDecimals" value="false"/>  
         </javaTypeResolver>  
            
-        <javaModelGenerator targetPackage="org.ko.prototype.data.bean.domain" targetProject="../${module}/src/main/java">
+        <javaModelGenerator targetPackage="org.ko.prototype.data.master.domain.bean.domain" targetProject="../${module}/src/main/java">
             <property name="enableSubPackages" value="true"/>  
             <property name="trimStrings" value="true"/>
-            <property name="rootClass" value="org.ko.prototype.data.bean.domain.AbstractDomain"/>
+            <property name="rootClass" value="org.ko.prototype.data.master.domain.bean.AbstractDomain"/>
         </javaModelGenerator>  
         
         <sqlMapGenerator targetPackage="mappers" targetProject="../${module}/src/main/resources">

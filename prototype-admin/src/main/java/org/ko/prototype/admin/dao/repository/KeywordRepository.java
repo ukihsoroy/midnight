@@ -1,9 +1,9 @@
 package org.ko.prototype.admin.dao.repository;
 
-import org.ko.prototype.data.bean.domain.Keyword;
-import org.ko.prototype.data.bean.domain.KeywordExample;
-import org.ko.prototype.data.dao.mapper.KeywordMapper;
-import org.ko.prototype.data.dao.repository.GenericRepository;
+import org.ko.prototype.data.master.dao.mapper.KeywordMapper;
+import org.ko.prototype.data.master.dao.repository.GenericRepository;
+import org.ko.prototype.data.master.domain.bean.Keyword;
+import org.ko.prototype.data.master.domain.bean.KeywordExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

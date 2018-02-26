@@ -1,6 +1,6 @@
 package org.ko.prototype.admin.bean.domain;
 
-import org.ko.prototype.data.bean.domain.UserActionLog;
+import org.ko.prototype.data.master.domain.bean.UserActionLog;
 
 /**
  * 此文件初版由工具生成，请定制开发

@@ -1,9 +1,9 @@
 package org.ko.prototype.admin.dao.repository;
 
-import org.ko.prototype.data.bean.domain.FileLog;
-import org.ko.prototype.data.bean.domain.FileLogExample;
-import org.ko.prototype.data.dao.mapper.FileLogMapper;
-import org.ko.prototype.data.dao.repository.GenericRepository;
+import org.ko.prototype.data.master.dao.mapper.FileLogMapper;
+import org.ko.prototype.data.master.dao.repository.GenericRepository;
+import org.ko.prototype.data.master.domain.bean.FileLog;
+import org.ko.prototype.data.master.domain.bean.FileLogExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

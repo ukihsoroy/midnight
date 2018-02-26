@@ -1,6 +1,6 @@
 package org.ko.${appName}.${componentName}.bean.domain;
 
-import org.ko.prototype.data.bean.domain.${Table};
+import org.ko.prototype.data.master.domain.${Table};
 
 /**
  * 此文件初版由工具生成，请定制开发

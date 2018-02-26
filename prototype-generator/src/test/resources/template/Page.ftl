@@ -87,10 +87,10 @@
 							<!-- 导入按钮 开始-->
 							<!--
 							<div class="col-xs-1">
-								<a href="javascript:void(0)" id="${Table?uncap_first}ImportExcel" class="ace-icon fa fa-upload green" title="导入"></a>
+								<constants href="javascript:void(0)" id="${Table?uncap_first}ImportExcel" class="ace-icon fa fa-upload green" title="导入"></constants>
 							</div>
 							<div class="col-xs-1">
-								<a href="/resources/templates/${Table}.xlsx" class="ace-icon fa fa-file-excel-o green" title="下载导入模板"></a>
+								<constants href="/resources/templates/${Table}.xlsx" class="ace-icon fa fa-file-excel-o green" title="下载导入模板"></constants>
 							</div>
 							-->
 							<!-- 导入按钮 结束-->
@@ -198,10 +198,10 @@
 				<div>
 					<!--
 					<div class="col-xs-1">
-						<a href="javascript:void(0)" class="ace-icon fa fa-download red" title="全部导出" v-on:click="exportAll"></a>
+						<constants href="javascript:void(0)" class="ace-icon fa fa-download red" title="全部导出" v-on:click="exportAll"></constants>
 					</div>
 					<div class="col-xs-1">
-						<a id="${Table?uncap_first}ExportQuery" href="javascript:void(0)" class="ace-icon fa fa-download" title="按查询条件导出" v-on:click="exportQuery"></a>
+						<constants id="${Table?uncap_first}ExportQuery" href="javascript:void(0)" class="ace-icon fa fa-download" title="按查询条件导出" v-on:click="exportQuery"></constants>
 					</div>
 					-->
 					<div class="col-xs-1">

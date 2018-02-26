@@ -6,13 +6,6 @@ spring:
   profiles:
     active: dev
 
-master:
-  datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql:///art-prototype
-    username: root
-    password: tiger
-
 application:
   author: K.O
   email: you_leet@foxmail.com
