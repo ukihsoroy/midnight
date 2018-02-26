@@ -13,6 +13,6 @@ public class MasterDatasourceRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        _LOGGER.info("master datasource run: {}", args);
+        _LOGGER.info("Thread {} run master datasource.", Thread.currentThread().getName());
     }
 }

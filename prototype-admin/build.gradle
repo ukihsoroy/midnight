@@ -1,5 +1,4 @@
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-security'
     compile "io.springfox:springfox-swagger2:${swagger2}"
     compile "io.springfox:springfox-swagger-ui:${swagger2}"
     compile project(':prototype-support')

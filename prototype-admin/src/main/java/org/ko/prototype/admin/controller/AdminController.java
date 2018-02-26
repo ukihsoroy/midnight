@@ -2,13 +2,14 @@ package org.ko.prototype.admin.controller;
 
 import io.swagger.annotations.Api;
 import org.ko.prototype.admin.service.AdminService;
+import org.ko.prototype.data.master.domain.bean.User;
+import org.ko.prototype.support.bean.model.AuthenticationBean;
+import org.ko.prototype.support.view.View;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Api(value = "用户入口",description="AdminController")
 @RestController
@@ -25,6 +26,20 @@ public class AdminController {
 	public String get () {
 		return "Hello, World!";
 	}
+
+	@GetMapping("login")
+	public View<User> login (AuthenticationBean authenticationBean) {
+		View view = new View();
+		User user = new User();
+		view.setModel(user);
+		return view;
+	}
+
+	@GetMapping("home")
+	public View home () {
+		return new View();
+	}
+
 	
 //	@ApiResponseObject
 //	@ApiMethod(summary="登录",description="登录，访问 /token/image 查看imageToken")
