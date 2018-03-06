@@ -1,8 +1,8 @@
 package org.ko.prototype.admin.dao.repository;
 
 import org.apache.commons.collections4.CollectionUtils;
+import org.ko.prototype.core.repository.GenericRepository;
 import org.ko.prototype.data.master.dao.mapper.NewsMapper;
-import org.ko.prototype.data.master.dao.repository.GenericRepository;
 import org.ko.prototype.data.master.domain.bean.News;
 import org.ko.prototype.data.master.domain.bean.NewsExample;
 import org.ko.prototype.data.master.domain.constants.NewsConstants;

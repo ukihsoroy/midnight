@@ -1,4 +1,4 @@
-package org.ko.prototype.data.master.dao.repository;
+package org.ko.prototype.core.repository;
 
 import com.github.pagehelper.Page;
 import org.apache.commons.collections.MapUtils;

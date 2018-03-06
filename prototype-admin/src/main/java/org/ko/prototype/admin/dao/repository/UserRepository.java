@@ -2,8 +2,8 @@ package org.ko.prototype.admin.dao.repository;
 
 import java.util.List;
 
+import org.ko.prototype.core.repository.GenericRepository;
 import org.ko.prototype.data.master.dao.mapper.UserMapper;
-import org.ko.prototype.data.master.dao.repository.GenericRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

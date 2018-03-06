@@ -1,7 +1,7 @@
 package org.ko.prototype.admin.dao.repository;
 
+import org.ko.prototype.core.repository.GenericRepository;
 import org.ko.prototype.data.master.dao.mapper.AdminUserMapper;
-import org.ko.prototype.data.master.dao.repository.GenericRepository;
 import org.ko.prototype.data.master.domain.bean.AdminUser;
 import org.ko.prototype.data.master.domain.bean.AdminUserExample;
 import org.ko.prototype.data.master.domain.constants.AdminUserConstants;

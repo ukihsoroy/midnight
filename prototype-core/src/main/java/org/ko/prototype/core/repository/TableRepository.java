@@ -1,4 +1,4 @@
-package org.ko.prototype.data.master.dao.repository;
+package org.ko.prototype.core.repository;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections4.CollectionUtils;

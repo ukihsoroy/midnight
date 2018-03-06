@@ -1,4 +1,4 @@
-package org.ko.prototype.data.master.dao.repository;
+package org.ko.prototype.core.repository;
 
 import org.apache.commons.collections4.CollectionUtils;
 
@@ -147,125 +147,8 @@ public class GenericRepository<T, E> extends TableRepository {
 		List<Object> objects = template.selectList(buildMapperNameSpace("selectByExample"), normalizeExample(e));
 		return convertType(objects, type);
 	}
-	
-	/**
-	 * 分页查询
-	 * @param e 查询条件
-	 * @param page 分页参数
-	 * @return 查询结果
-	 * @throws Exception
-	 */
-//	public PageRecord<T> find(E e, Page page) throws Exception {
-//		Page p = normalizePage(page);
-//
-//		List<T> records = new ArrayList<>();
-//
-//		long count = 0;
-//		if(StringUtils.isBlank(page.getCountSqlName())){
-//			records = template.selectList(buildMapperNameSpace("selectByExampleWithRowbounds"), e, p.getRowBounds());
-//			count = page.isQueryTotalCount() ? template.selectOne(buildMapperNameSpace("countByExample"), normalizeExample(e)) : 0;
-//		}else{
-//			records = template.selectList(buildMapperNameSpace("selectByExampleWithRowbounds"), e);
-//			count = getCustomSqlCount(page);
-//		}
-//
-//		return new PageRecord<>(records, p.getCurrentPage(), p.getRows(), count);
-//	}
-	
-	/**
-	 * 分页查询
-	 * @param e 查询条件
-	 * @param page 分页参数
-	 * @param type 结果集转换后的类型
-	 * @return 查询结果
-	 * @throws Exception
-	 */
-//	public<V> PageRecord<V> find(E e, Page page, Class<V> type) throws Exception {
-//		Page p = normalizePage(page);
-//
-//		List<Object> objects = new ArrayList<>();
-//
-//		long count = 0;
-//		if(StringUtils.isBlank(page.getCountSqlName())){
-//			objects = template.selectList(buildMapperNameSpace("selectByExampleWithRowbounds"), e, p.getRowBounds());
-//			count = page.isQueryTotalCount() ? template.selectOne(buildMapperNameSpace("countByExample"), normalizeExample(e)) : 0;
-//		}else{
-//			objects = template.selectList(buildMapperNameSpace("selectByExampleWithRowbounds"), e);
-//			count = getCustomSqlCount(page);
-//		}
-//		List<V> records = convertType(objects, type);
-//
-//		return new PageRecord<>(records, p.getCurrentPage(), p.getRows(), count);
-//	}
-	
-	/**
-	 * 分页查询
-	 * @param sqlName mybatis xml中sql id
-	 * @param page 分页参数
-	 * @return 查询结果
-	 * @throws Exception
-	 */
-//	public PageRecord<T> find(String sqlName, Page page) throws Exception {
-//		Page p = normalizePage(page);
-//
-//		Map<String, Object> params = new HashMap<String, Object>();
-//		params.put(Page.PAGE_PARAM_NAME, p);
-//
-//		List<T> records = template.selectList(buildNameSpace(sqlName), convertEmptyValueToNull(params));
-//
-//		if(StringUtils.isBlank(page.getCountSqlName())){
-//			return new PageRecord<>(records, p);
-//		}else{
-//			long count = getCustomSqlCount(page);
-//			return new PageRecord<>(records, p.getCurrentPage(), p.getRows(), count);
-//		}
-//	}
 
-	/**
-	 * 分页查询
-	 * @param sqlName mybatis xml中sql id
-	 * @param params 查询条件，key - 字段列名称； value - 值；
-	 * @param page 分页参数
-	 * @return 查询结果
-	 * @throws Exception
-	 */
-//	public PageRecord<T> find(String sqlName, Map<String, Object> params, Page page) throws Exception {
-//		Page p = normalizePage(page);
-//
-//		params.put(Page.PAGE_PARAM_NAME, p);
-//
-//		List<T> records = template.selectList(buildNameSpace(sqlName), convertEmptyValueToNull(params));
-//
-//		if(StringUtils.isBlank(page.getCountSqlName())){
-//			return new PageRecord<>(records, p);
-//		}else{
-//			long count = getCustomSqlCount(page);
-//			return new PageRecord<>(records, p.getCurrentPage(), p.getRows(), count);
-//		}
-//	}
-	
-	/**
-	 * 分页查询
-	 * @param params 查询条件，key - 字段列名称； value - 值；
-	 * @param page 分页参数
-	 * @return 查询结果
-	 */
-//	public PageRecord<T> find(Map<String, Object> params, Page page){
-//		Page p = normalizePage(page);
-//
-//		params.put(Page.PAGE_PARAM_NAME, p);
-//
-//		List<T> records = template.selectList(buildNameSpace("select"), fill(convertEmptyValueToNull(params)));
-//		unfill(params);
-//
-//		if(StringUtils.isBlank(page.getCountSqlName())){
-//			return new PageRecord<>(records, p);
-//		}else{
-//			long count = getCustomSqlCount(page);
-//			return new PageRecord<>(records, p.getCurrentPage(), p.getRows(), count);
-//		}
-//	}
-	
+
 	/**
 	 * 数据查询
 	 * @param params 查询条件，key - 字段列名称； value - 值；

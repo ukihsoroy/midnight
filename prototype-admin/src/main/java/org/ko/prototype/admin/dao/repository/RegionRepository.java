@@ -1,7 +1,7 @@
 package org.ko.prototype.admin.dao.repository;
 
+import org.ko.prototype.core.repository.GenericRepository;
 import org.ko.prototype.data.master.dao.mapper.RegionMapper;
-import org.ko.prototype.data.master.dao.repository.GenericRepository;
 import org.ko.prototype.data.master.domain.bean.Region;
 import org.ko.prototype.data.master.domain.bean.RegionExample;
 import org.ko.prototype.data.master.domain.constants.RegionConstants;

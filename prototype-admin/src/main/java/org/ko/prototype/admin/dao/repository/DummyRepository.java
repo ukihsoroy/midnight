@@ -1,7 +1,7 @@
 package org.ko.prototype.admin.dao.repository;
 
+import org.ko.prototype.core.repository.GenericRepository;
 import org.ko.prototype.data.master.dao.mapper.DummyMapper;
-import org.ko.prototype.data.master.dao.repository.GenericRepository;
 import org.ko.prototype.data.master.domain.bean.Dummy;
 import org.ko.prototype.data.master.domain.bean.DummyExample;
 import org.ko.prototype.data.master.domain.constants.DummyConstants;

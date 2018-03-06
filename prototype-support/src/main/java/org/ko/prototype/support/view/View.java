@@ -1,10 +1,11 @@
 package org.ko.prototype.support.view;
 
 
-import org.ko.prototype.support.bean.BaseBean;
 import org.ko.prototype.support.type.AppCode;
 
-public class View<T> extends BaseBean {
+import java.io.Serializable;
+
+public class View<T> implements Serializable {
 
     private String code;
 
