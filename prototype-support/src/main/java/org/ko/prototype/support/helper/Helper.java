@@ -1,6 +1,8 @@
 package org.ko.prototype.support.helper;
 
 import org.apache.commons.lang3.StringUtils;
+import org.ko.prototype.core.helper.MD5;
+import org.ko.prototype.support.bean.model.AuthenticationBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -56,6 +58,22 @@ public final class Helper {
 	public static String getBrowser(){
 		HttpServletRequest request = FrameworkHelper.getHttpServletRequest();
 		return request != null ? request.getHeader("user-agent") : null;
+	}
+
+	public static String encryptUserPassword(AuthenticationBean user, String password){
+		return encryptUserPassword(user.getUsername(), password);
+	}
+
+	public static String encryptUserPassword(String username, String password){
+		return MD5.encrypt(password, username.toLowerCase());
+	}
+
+	public static String getCreateBy(AuthenticationBean user){
+		return user == null ? null : StringUtils.trimToEmpty(user.getUsername()).toLowerCase();
+	}
+
+	public static String getUpdateBy(AuthenticationBean user){
+		return user == null ? null : StringUtils.trimToEmpty(user.getUsername()).toLowerCase();
 	}
 
 	private Helper(){}

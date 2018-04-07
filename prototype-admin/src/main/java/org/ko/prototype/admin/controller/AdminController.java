@@ -11,6 +11,7 @@ import org.ko.prototype.admin.service.AdminService;
 import org.ko.prototype.data.master.domain.bean.User;
 import org.ko.prototype.support.bean.model.AuthenticationBean;
 import org.ko.prototype.support.constants.ApiConstraintConstants;
+import org.ko.prototype.support.helper.Helper;
 import org.ko.prototype.support.view.View;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,21 +45,19 @@ public class AdminController {
 //	}
 
 
-	
-	@ApiOperation("登录，访问 /token/image 查看imageToken")
 	@PostMapping("login")
+	@ApiOperation("登录，访问 /token/image 查看imageToken")
 	public View<AdminUserModel> login(
 		@ApiParam(name = "username", value="用户名", required = true) @RequestParam(value="username") @NotBlank(message="用户名不能为空") @Length(max=MaxLength.Username, message="用户名过长") String username,
 		@ApiParam(name = "password", value="密码", required = true) @RequestParam(value="password") @NotBlank(message="密码不能为空") @Length(max=MaxLength.Password,message="密码过长") String password,
 		@ApiParam("验证码") @RequestParam(value="imageToken") @NotBlank(message="验证码不能为空") @Length(max=MaxLength.ImageToken, message="验证码过长") String imageToken,
 		HttpServletRequest request
 	) throws Exception {
-		return adminService.login(username, password, imageToken, Utils.getRemoteIpAddress(request));
+		return adminService.login(username, password, imageToken, Helper.getRemoteIpAddress(request));
 	}
 
-	@ApiResponseObject
-	@ApiMethod(summary="注销",description="注销")
-	@RequestMapping(value="/logout",method= RequestMethod.GET,produces= MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping("logout")
+	@ApiOperation("注销")
 	public View logout() throws Exception {
 		return adminService.logout();
 	}
