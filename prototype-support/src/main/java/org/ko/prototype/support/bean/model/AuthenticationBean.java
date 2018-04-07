@@ -3,7 +3,7 @@ package org.ko.prototype.support.bean.model;
 public class AuthenticationBean {
 
     /**
-     * 主键id
+     * 主键ID
      */
     private Long id;
 
@@ -20,7 +20,7 @@ public class AuthenticationBean {
     /**
      * 角色
      */
-    private String roleId;
+    private Short role;
 
     public Long getId() {
         return id;
@@ -46,11 +46,11 @@ public class AuthenticationBean {
         this.password = password;
     }
 
-    public String getRoleId() {
-        return roleId;
+    public Short getRole() {
+        return role;
     }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
+    public void setRole(Short role) {
+        this.role = role;
     }
 }

@@ -4,8 +4,9 @@ public enum AppCode {
     ERROR("500", "System Error"),
     SUCCESS("0", "SUCCESS"),
     SESSION_TIME_OUT("1", "Session time out"),
-    USER_NOT_EXIST("2", "用户不存在")
-    ;
+    USER_NOT_EXIST("2", "用户不存在"),
+    INVALID_USER_OR_PASSWORD("3", "用户名或密码错误"),
+    NOT_AUTHORIZED("4", "未授权");
 
     /**
      * 错误码

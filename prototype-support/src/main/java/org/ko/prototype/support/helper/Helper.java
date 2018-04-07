@@ -60,12 +60,8 @@ public final class Helper {
 		return request != null ? request.getHeader("user-agent") : null;
 	}
 
-	public static String encryptUserPassword(AuthenticationBean user, String password){
-		return encryptUserPassword(user.getUsername(), password);
-	}
-
-	public static String encryptUserPassword(String username, String password){
-		return MD5.encrypt(password, username.toLowerCase());
+	public static String encryptUserPassword(String loginName, String password){
+		return MD5.encrypt(password, loginName.toLowerCase());
 	}
 
 	public static String getCreateBy(AuthenticationBean user){
