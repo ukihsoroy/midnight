@@ -1,4 +1,4 @@
-rootProject.name = 'ko-prototype'
+rootProject.name = 'framework-prototype'
 include 'eureka-server'
 include 'config-server'
 include 'app-gateway'
