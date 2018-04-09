@@ -1,0 +1,59 @@
+# 端口号
+server.port: 8004
+# 定义服务名
+spring:
+  application.name: prototype-admin
+  profiles:
+    active: dev
+  cloud:
+    config:
+      discovery:
+       enabled: true  #开启通过服务ID访问配置
+       serviceId: config-server #配置中心服务ID
+
+# 定义注册中心地址
+eureka.client:
+  serviceUrl.defaultZone: http://localhost:8001/eureka/
+#  register-with-eureka: false #是否发布服务
+
+# 开启Feign客户端Hystrix熔断
+feign.hystrix.enabled: true
+
+# 关闭管理验证
+management.security.enabled: false
+
+# Ribbon全局配置
+ribbon:
+  ConnectTimeout: 250               #ribbon请求连接的超时时间
+  ReadTimeout: 1000                 #请求处理的超时时间
+  OkToRetryOnAllOperations: true    #对所有操作请求都进行重试
+  MaxAutoRetries: 1                 #对当前实例的重试次数
+  MaxAutoRetriesNextServer: 1       #对下个实例的重试次数
+
+# Hystrix全局超时时间
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2000
+
+# 全局日志配置
+logging:
+  level: debug
+
+#server:
+#    port: 8003
+#    context-path: /ui
+#    session:
+#      cookie:
+#        name: UISESSION
+#security:
+#  basic:
+#    enabled: false
+#  oauth2:
+#    client:
+#      clientId: SampleClientId
+#      clientSecret: secret
+#      accessTokenUri: http://localhost:8081/auth/oauth/token
+#      userAuthorizationUri: http://localhost:8081/auth/oauth/authorize
+#    resource:
+#      userInfoUri: http://localhost:8081/auth/user/me
+#spring:
+#  thymeleaf:
+#    cache: false

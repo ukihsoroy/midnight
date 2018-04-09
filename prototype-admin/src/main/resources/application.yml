@@ -11,9 +11,14 @@ application:
   email: you_leet@foxmail.com
   url:
 
+
 # 关闭管理验证
 management.security.enabled: false
 
 # 全局日志配置
 logging:
   level: debug
+
+security:
+  basic:
+    enabled: false #取消security默认权限管理
