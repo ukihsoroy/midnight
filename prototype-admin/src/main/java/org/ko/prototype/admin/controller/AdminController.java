@@ -5,8 +5,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
-import org.ko.prototype.admin.bean.domain.AdminUserModel;
-import org.ko.prototype.admin.service.AdminService;
 import org.ko.prototype.support.helper.Helper;
 import org.ko.prototype.support.type.AppCode;
 import org.ko.prototype.support.view.View;

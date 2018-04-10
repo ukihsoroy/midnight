@@ -20,11 +20,15 @@ eureka.client:
 logging:
   level: debug
 
-# 开启Feign客户端Hystrix熔断
-#feign.hystrix.enabled: true
-
 # 关闭管理验证
 management.security.enabled: false
+
+security:
+  basic:
+    enabled: false #取消security默认权限管理
+
+# 开启Feign客户端Hystrix熔断
+#feign.hystrix.enabled: true
 
 # Ribbon全局配置
 #ribbon:
@@ -34,12 +38,8 @@ management.security.enabled: false
 #  MaxAutoRetries: 1                 #对当前实例的重试次数
 #  MaxAutoRetriesNextServer: 1       #对下个实例的重试次数
 
-
-
 # Hystrix全局超时时间
 #hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2000
-
-
 
 #server:
 #    port: 8003
