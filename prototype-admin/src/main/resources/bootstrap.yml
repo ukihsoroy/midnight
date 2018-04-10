@@ -27,6 +27,7 @@ security:
   basic:
     enabled: false #取消security默认权限管理
 
+
 # 开启Feign客户端Hystrix熔断
 #feign.hystrix.enabled: true
 

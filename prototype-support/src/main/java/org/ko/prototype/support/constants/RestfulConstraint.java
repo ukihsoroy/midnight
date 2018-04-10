@@ -1,6 +1,6 @@
 package org.ko.prototype.support.constants;
 
-public final class ApiConstraintConstants {
+public final class RestfulConstraint {
 
 	public static final class MaxLength {
 		public static final int Username = 20;
