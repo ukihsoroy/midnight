@@ -22,3 +22,4 @@ logging:
 security:
   basic:
     enabled: false #取消security默认权限管理
+
