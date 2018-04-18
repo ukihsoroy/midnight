@@ -1,4 +1,4 @@
-package org.ko.prototype.support.handler;
+package org.ko.prototype.support.controller;
 
 import org.ko.prototype.support.exception.AppException;
 import org.ko.prototype.support.type.AppCode;

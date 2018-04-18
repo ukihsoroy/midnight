@@ -1,4 +1,4 @@
-package org.ko.prototype.admin;
+package org.ko.prototype;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;

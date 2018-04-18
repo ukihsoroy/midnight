@@ -1,4 +1,4 @@
-package org.ko.prototype.support.filter.security;
+package org.ko.prototype.support.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.ko.prototype.support.bean.model.AuthenticationBean;

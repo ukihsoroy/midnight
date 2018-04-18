@@ -1,4 +1,4 @@
-package org.ko.prototype.support.handler.security;
+package org.ko.prototype.support.security.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

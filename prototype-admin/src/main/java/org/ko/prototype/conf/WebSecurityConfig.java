@@ -1,8 +1,8 @@
-package org.ko.prototype.admin.conf;
+package org.ko.prototype.conf;
 
-import org.ko.prototype.support.filter.security.AuthenticationFilter;
-import org.ko.prototype.support.handler.security.FailureHandler;
-import org.ko.prototype.support.handler.security.SuccessHandler;
+import org.ko.prototype.support.security.AuthenticationFilter;
+import org.ko.prototype.support.security.handler.FailureHandler;
+import org.ko.prototype.support.security.handler.SuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
