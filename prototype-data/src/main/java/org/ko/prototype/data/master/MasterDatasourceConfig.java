@@ -22,7 +22,7 @@ public class MasterDatasourceConfig extends DruidAbstractDataSourceConfig {
 
     // 精确到 master 目录，以便跟其他数据源隔离
     static final String MAPPER_SCAN = "org.ko.prototype.data.master.dao";
-    static final String MAPPER_LOCATION = "classpath:mappers/master/*.xml";
+//    static final String MAPPER_LOCATION = "classpath:mappers/master/*.xml";
 
     @Value("${master.datasource.url}")
     private String url;
@@ -54,8 +54,8 @@ public class MasterDatasourceConfig extends DruidAbstractDataSourceConfig {
             throws Exception {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(masterDataSource);
-        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources(MasterDatasourceConfig.MAPPER_LOCATION));
+//        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
+//                .getResources(MasterDatasourceConfig.MAPPER_LOCATION));
         return sessionFactory.getObject();
     }
 }

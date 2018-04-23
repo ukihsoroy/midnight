@@ -4,6 +4,7 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,7 +13,8 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class AccessFilter extends ZuulFilter {
 
-    private static Logger log = LoggerFactory.getLogger(AccessFilter.class);
+
+    private static Logger _LOGGER = LoggerFactory.getLogger(AccessFilter.class);
 
     private static final String GET = "GET";
 
@@ -57,18 +59,20 @@ public class AccessFilter extends ZuulFilter {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
 
-        log.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
+        _LOGGER.info("{} request to {}", request.getMethod(), request.getRequestURL().toString());
 
         Object accessToken = request.getParameter("accessToken");
 
         //不是GET请求必须有accessToken
         if(accessToken == null && !GET.equals(request.getMethod())) {
-            log.warn("access token is empty");
+            _LOGGER.warn("access token is empty");
             ctx.setSendZuulResponse(false);
             ctx.setResponseStatusCode(401);
-            return null;
+            return "access token is empty";
         }
-        log.info("access token ok");
-        return null;
+        _LOGGER.info("access token ok");
+        return "access token ok";
     }
+
+
 }

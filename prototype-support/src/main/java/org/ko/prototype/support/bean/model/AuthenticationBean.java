@@ -1,11 +1,21 @@
 package org.ko.prototype.support.bean.model;
 
-public class AuthenticationBean {
+import com.fasterxml.jackson.annotation.JsonView;
+import org.ko.prototype.core.adaptor.data.bean.BaseBean;
+
+public class AuthenticationBean extends BaseBean {
+
+    /**
+     * 使用jsonView视图-确认返回数据安全
+     */
+    public interface SecurityJsonView{}
+
+    public interface DetailJsonView extends SecurityJsonView {}
 
     /**
      * 主键ID
      */
-    private Long id;
+    private String id;
 
     /**
      * 用户名
@@ -22,14 +32,16 @@ public class AuthenticationBean {
      */
     private Short role;
 
-    public Long getId() {
+    @JsonView(SecurityJsonView.class)
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
+    @JsonView(SecurityJsonView.class)
     public String getUsername() {
         return username;
     }
@@ -38,6 +50,7 @@ public class AuthenticationBean {
         this.username = username;
     }
 
+    @JsonView(DetailJsonView.class)
     public String getPassword() {
         return password;
     }
@@ -46,6 +59,7 @@ public class AuthenticationBean {
         this.password = password;
     }
 
+    @JsonView(SecurityJsonView.class)
     public Short getRole() {
         return role;
     }

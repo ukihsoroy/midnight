@@ -1,19 +1,25 @@
-# 端口号
-server.port: 8004
-# 定义服务名
-spring:
-  application.name: prototype-admin
-  profiles:
-    active: dev
+## 端口号
+#server.port: 8004
+## 定义服务名
+#spring:
+#  application.name: prototype-admin
+#  profiles:
+#    active: dev
+#
+#application:
+#  author: K.O
+#  email: you_leet@foxmail.com
+#  url:
+#
+#
+## 关闭管理验证
+#management.security.enabled: false
+#
+## 全局日志配置
+#logging:
+#  level: debug
+#
+#security:
+#  basic:
+#    enabled: false #取消security默认权限管理
 
-application:
-  author: K.O
-  email: you_leet@foxmail.com
-  url:
-
-# 关闭管理验证
-management.security.enabled: false
-
-# 全局日志配置
-logging:
-  level: debug
