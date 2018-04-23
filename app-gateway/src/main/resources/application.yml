@@ -2,7 +2,7 @@ spring:
   application:
     name: app-gateway #Spring应用名称-SOA服务名
 server:
-  port: 8083 #应用端口号
+  port: 8003 #应用端口号
 
 
 #Zuul路由简单配置-缺点: path和url比较难以维护

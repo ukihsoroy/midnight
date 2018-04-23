@@ -1,6 +1,9 @@
 package org.ko.prototype.conf;
 
+import org.ko.prototype.properties.PrototypeProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -16,14 +19,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 //boot 配置类
 @Configuration
+@ConditionalOnBean(PrototypeProperties.class)
 public class Swagger2Config {
 
-    @Value("${application.author}") private String author;
 
-    @Value("${application.url}") private String url;
-
-    @Value("${application.email}") private String email;
-
+    @Autowired private PrototypeProperties properties;
 
     /**
      * 通过 createRestApi函数来构建一个DocketBean
@@ -50,9 +50,13 @@ public class Swagger2Config {
      * @return
      */
     private ApiInfo apiInfo() {
+        Contact contact = new Contact(
+                properties.getAuthor().getName(),
+                properties.getAuthor().getUrl(),
+                properties.getAuthor().getUrl());
         return new ApiInfoBuilder()
                 .title("Prototype-Admin")
-                .contact(new Contact(author, url, email))    //作者
+                .contact(contact)    //作者
                 .version("1.0")
                 .description("API 描述")
                 .build();
