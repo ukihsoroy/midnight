@@ -1,5 +1,7 @@
 package org.ko.prototype.conf;
 
+import org.ko.prototype.support.authentication.AuthenticationFailureHandlerImpl;
+import org.ko.prototype.support.authentication.AuthenticationSuccessHandlerImpl;
 import org.ko.prototype.support.security.AuthenticationFilter;
 import org.ko.prototype.support.security.handler.FailureHandler;
 import org.ko.prototype.support.security.handler.SuccessHandler;
@@ -10,18 +12,15 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    public SimpleUrlAuthenticationSuccessHandler authenticationSuccessHandler() {
-        SimpleUrlAuthenticationSuccessHandler successHandler = new SimpleUrlAuthenticationSuccessHandler();
-        return successHandler;
-    }
+    @Autowired private AuthenticationSuccessHandlerImpl authenticationSuccessHandler;
+
+    @Autowired private AuthenticationFailureHandlerImpl authenticationFailureHandler;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -38,7 +37,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .formLogin()
-                .successHandler(authenticationSuccessHandler())
+                .successHandler(authenticationSuccessHandler)
+                .failureHandler(authenticationFailureHandler)
 //                .failureHandler(authenticationFailureHandler())
                 .loginProcessingUrl("/login")
 //                .loginPage("/index.html")

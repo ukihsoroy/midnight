@@ -7,6 +7,6 @@ include 'prototype-support'
 include 'prototype-data'
 include 'prototype-sso'
 include 'prototype-admin'
-include 'prototype-api'
+include 'prototype-app'
 include 'prototype-generator'
 

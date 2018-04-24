@@ -19,11 +19,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 //boot 配置类
 @Configuration
-@ConditionalOnBean(PrototypeProperties.class)
 public class Swagger2Config {
 
 
-    @Autowired private PrototypeProperties properties;
+    @Autowired private PrototypeProperties prototypeProperties;
 
     /**
      * 通过 createRestApi函数来构建一个DocketBean
@@ -51,9 +50,9 @@ public class Swagger2Config {
      */
     private ApiInfo apiInfo() {
         Contact contact = new Contact(
-                properties.getAuthor().getName(),
-                properties.getAuthor().getUrl(),
-                properties.getAuthor().getUrl());
+                prototypeProperties.getAuthor().getName(),
+                prototypeProperties.getAuthor().getUrl(),
+                prototypeProperties.getAuthor().getUrl());
         return new ApiInfoBuilder()
                 .title("Prototype-Admin")
                 .contact(contact)    //作者
