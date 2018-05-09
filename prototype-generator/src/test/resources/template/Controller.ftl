@@ -34,7 +34,7 @@ import org.ko.prototype.support.bean.view.BeanView;
 import org.ko.prototype.support.bean.view.PageView;
 import org.ko.prototype.support.bean.view.View;
 import org.ko.prototype.support.builder.RequestParamBuilder;
-import org.ko.prototype.support.constants.RestfulConstraint.Id;
+import org.ko.prototype.core.constants.RestfulConstraint.Id;
 
 /**
  * 此文件初版由工具生成，请定制开发

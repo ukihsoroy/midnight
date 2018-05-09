@@ -2,8 +2,8 @@ package org.ko.prototype.admin.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.ko.prototype.support.type.AppCode;
-import org.ko.prototype.support.view.View;
+import org.ko.prototype.core.type.AppCode;
+import org.ko.prototype.core.view.View;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.annotation.Validated;

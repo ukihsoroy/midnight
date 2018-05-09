@@ -10,7 +10,7 @@ spring:
     config:
       server:
         native:   #使用本地文件系统可以指定文件目录
-          searchLocations: file:D:\tmp\conf-repo  #config搜索配置文件目录
+          searchLocations: classpath:\conf-repo  #config搜索配置文件目录
 
 #        使用svn需要引入pom依赖
 #        svn:     #SVN配置
