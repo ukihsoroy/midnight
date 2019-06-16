@@ -1,7 +1,0 @@
-dependencies {
-    compile project(':prototype-core')
-    compile 'org.mybatis.generator:mybatis-generator-core:1.3.6'
-    compile 'org.freemarker:freemarker'
-//    compile 'org.springframework:spring-context-support'
-//    compile 'org.springframework:spring-webmvc'
-}
