@@ -1,8 +1,8 @@
-package org.ko.spark.core
+package org.ko.example.core
 
 import org.apache.spark.SparkConf
 import org.slf4j.{Logger, LoggerFactory}
-import org.ko.spark.core.ASparkApplication.RunParamKeyConstants._
+import org.ko.example.core.ASparkApplication.RunParamKeyConstants._
 
 private [core] abstract class ASparkApplication(args: Array[String]) extends TSparkApplication {
 

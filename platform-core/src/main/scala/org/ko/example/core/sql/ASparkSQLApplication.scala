@@ -1,8 +1,8 @@
-package org.ko.spark.core.sql
+package org.ko.example.core.sql
 
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.SparkSession
-import org.ko.spark.core.ASparkApplication
+import org.ko.example.core.ASparkApplication
 
 abstract class ASparkSQLApplication(args: Array[String]) extends ASparkApplication(args) {
 

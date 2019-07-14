@@ -1,6 +1,6 @@
-package org.ko.spark;
+package org.ko.example.run;
 
-import org.ko.spark.core.TSparkApplication;
+import org.ko.example.core.TSparkApplication;
 
 public final class SparkApplication {
 

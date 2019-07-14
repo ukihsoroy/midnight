@@ -1,8 +1,8 @@
-package org.ko.spark.core.streaming
+package org.ko.example.core.streaming
 
 import org.apache.spark.SparkContext
 import org.apache.spark.streaming.{Seconds, StreamingContext}
-import org.ko.spark.core.ASparkApplication
+import org.ko.example.core.ASparkApplication
 
 abstract class ASparkStreamingApplication(args: Array[String]) extends ASparkApplication(args) {
 

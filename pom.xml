@@ -8,7 +8,7 @@
   <artifactId>sigma-bigdata</artifactId>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>_dist</module>
+    <module>quickstart</module>
     <module>insight</module>
     <module>platform-core</module>
   </modules>
@@ -52,6 +52,13 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <distributionManagement>
+    <repository>
+      <id>localRepository</id>
+      <url>file:C:\Users\koshe\.m2\repository</url>
+    </repository>
+  </distributionManagement>
 
   <repositories>
       <repository>

@@ -1,4 +1,4 @@
-package org.ko.spark.core
+package org.ko.example.core
 
 trait TSparkApplication extends Serializable {
 
