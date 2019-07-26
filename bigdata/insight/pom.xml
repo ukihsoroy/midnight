@@ -8,7 +8,7 @@
         <version>2.0.4.RELEASE</version>
         <relativePath/>
     </parent>
-    <groupId>org.ko.bigdata</groupId>
+    <groupId>org.ko.framework.bigdata</groupId>
     <artifactId>insight</artifactId>
     <modelVersion>4.0.0</modelVersion>
     <name>insight</name>

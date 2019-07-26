@@ -4,11 +4,11 @@
 
 	<parent>
         <artifactId>bigdata</artifactId>
-        <groupId>org.ko.bigdata</groupId>
+        <groupId>org.ko.framework.bigdata</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 	
-    <artifactId>platform-core</artifactId>
+    <artifactId>bigdata-core</artifactId>
     <packaging>jar</packaging>
 
     <distributionManagement>
