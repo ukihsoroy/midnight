@@ -12,7 +12,8 @@
   <name>sigma-framework</name>
 
   <modules>
-    <module>bigdata</module>
+    <module>commons-bigdata</module>
+    <module>commons-util</module>
   </modules>
 
 </project>
