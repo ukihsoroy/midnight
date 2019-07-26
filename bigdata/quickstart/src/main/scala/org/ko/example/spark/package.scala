@@ -1,4 +1,4 @@
-package org.ko.example
+package org.ko.spark
 
 package object spark {
 
