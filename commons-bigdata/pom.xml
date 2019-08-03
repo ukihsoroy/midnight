@@ -18,7 +18,6 @@
 
     <modules>
         <module>quickstart</module>
-        <module>insight</module>
         <module>bigdata-core</module>
     </modules>
 
