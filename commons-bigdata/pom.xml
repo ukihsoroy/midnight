@@ -19,6 +19,7 @@
     <modules>
         <module>quickstart</module>
         <module>bigdata-core</module>
+        <module>etl-expression</module>
     </modules>
 
     <properties>
