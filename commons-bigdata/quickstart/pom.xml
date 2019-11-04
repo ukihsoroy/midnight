@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>commons-bigdata</artifactId>
-        <groupId>org.ko.framework.bigdata</groupId>
+        <groupId>org.ko.bigdata</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
@@ -13,8 +13,8 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.ko</groupId>
-            <artifactId>platform-core</artifactId>
+            <groupId>org.ko.bigdata</groupId>
+            <artifactId>bigdata-core</artifactId>
         </dependency>
 
         <!--logback日志-->

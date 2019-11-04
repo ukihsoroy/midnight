@@ -3,12 +3,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>sigma-framework</artifactId>
-        <groupId>org.ko.framework</groupId>
+        <artifactId>sigma-tools</artifactId>
+        <groupId>org.ko</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>org.ko</groupId>
     <artifactId>commons-util</artifactId>
 
     <name>commons-util</name>
