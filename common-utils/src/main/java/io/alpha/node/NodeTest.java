@@ -1,6 +1,6 @@
 package io.alpha.node;
 
-import io.alpha.jackson.JsonUtil;
+import io.alpha.jackson.JsonHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class NodeTest {
 		list.add(new ForestNode(10, 9, "10"));
 		List<ForestNode> tns = ForestNodeMerger.merge(list);
 		tns.forEach(node ->
-			System.out.println(JsonUtil.toJson(node))
+			System.out.println(JsonHelper.toJson(node))
 		);
 	}
 

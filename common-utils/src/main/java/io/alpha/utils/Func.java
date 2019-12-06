@@ -3,7 +3,7 @@ package io.alpha.utils;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
-import io.alpha.jackson.JsonUtil;
+import io.alpha.jackson.JsonHelper;
 import org.springframework.beans.BeansException;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.AnnotatedElementUtils;
@@ -999,7 +999,7 @@ public class Func {
 	 * @return jsonString json字符串
 	 */
 	public static String toJson(Object object) {
-		return JsonUtil.toJson(object);
+		return JsonHelper.toJson(object);
 	}
 
 	/**
@@ -1009,7 +1009,7 @@ public class Func {
 	 * @return jsonString json字符串
 	 */
 	public static byte[] toJsonAsBytes(Object object) {
-		return JsonUtil.toJsonAsBytes(object);
+		return JsonHelper.toJsonAsBytes(object);
 	}
 
 	/**
@@ -1019,7 +1019,7 @@ public class Func {
 	 * @return jsonString json字符串
 	 */
 	public static JsonNode readTree(String jsonString) {
-		return JsonUtil.readTree(jsonString);
+		return JsonHelper.readTree(jsonString);
 	}
 
 	/**
@@ -1029,7 +1029,7 @@ public class Func {
 	 * @return jsonString json字符串
 	 */
 	public static JsonNode readTree(InputStream in) {
-		return JsonUtil.readTree(in);
+		return JsonHelper.readTree(in);
 	}
 
 	/**
@@ -1039,7 +1039,7 @@ public class Func {
 	 * @return jsonString json字符串
 	 */
 	public static JsonNode readTree(byte[] content) {
-		return JsonUtil.readTree(content);
+		return JsonHelper.readTree(content);
 	}
 
 	/**
@@ -1049,7 +1049,7 @@ public class Func {
 	 * @return jsonString json字符串
 	 */
 	public static JsonNode readTree(JsonParser jsonParser) {
-		return JsonUtil.readTree(jsonParser);
+		return JsonHelper.readTree(jsonParser);
 	}
 
 	/**
@@ -1061,7 +1061,7 @@ public class Func {
 	 * @return Bean
 	 */
 	public static <T> T parse(byte[] bytes, Class<T> valueType) {
-		return JsonUtil.parse(bytes, valueType);
+		return JsonHelper.parse(bytes, valueType);
 	}
 
 	/**
@@ -1073,7 +1073,7 @@ public class Func {
 	 * @return Bean
 	 */
 	public static <T> T parse(String jsonString, Class<T> valueType) {
-		return JsonUtil.parse(jsonString, valueType);
+		return JsonHelper.parse(jsonString, valueType);
 	}
 
 	/**
@@ -1085,7 +1085,7 @@ public class Func {
 	 * @return Bean
 	 */
 	public static <T> T parse(InputStream in, Class<T> valueType) {
-		return JsonUtil.parse(in, valueType);
+		return JsonHelper.parse(in, valueType);
 	}
 
 	/**
@@ -1097,7 +1097,7 @@ public class Func {
 	 * @return Bean
 	 */
 	public static <T> T parse(byte[] bytes, TypeReference<?> typeReference) {
-		return JsonUtil.parse(bytes, typeReference);
+		return JsonHelper.parse(bytes, typeReference);
 	}
 
 	/**
@@ -1109,7 +1109,7 @@ public class Func {
 	 * @return Bean
 	 */
 	public static <T> T parse(String jsonString, TypeReference<?> typeReference) {
-		return JsonUtil.parse(jsonString, typeReference);
+		return JsonHelper.parse(jsonString, typeReference);
 	}
 
 	/**
@@ -1121,7 +1121,7 @@ public class Func {
 	 * @return Bean
 	 */
 	public static <T> T parse(InputStream in, TypeReference<?> typeReference) {
-		return JsonUtil.parse(in, typeReference);
+		return JsonHelper.parse(in, typeReference);
 	}
 
 	/**
