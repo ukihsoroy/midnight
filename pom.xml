@@ -48,25 +48,27 @@
     <kafka.version>2.0.0-${cdh.version}</kafka.version>
     <zookeeper.version>3.4.5-${cdh.version}</zookeeper.version>
     <mysql.version>5.1.47</mysql.version>
-    <logger.version>2.6.19</logger.version>
     <poi.version>3.17</poi.version>
     <opencsv.version>4.2</opencsv.version>
     <dom4j.version>1.6.1</dom4j.version>
     <jupyter.version>5.3.0</jupyter.version>
     <streaming.kafka.version>1.6.3</streaming.kafka.version>
-    <io.version>2.6</io.version>
-    <lang3.version>3.9</lang3.version>
-    <beanutils.version>1.9.3</beanutils.version>
-    <collections4.version>4.4</collections4.version>
-    <math3.version>3.6.1</math3.version>
     <httpclient.version>3.1</httpclient.version>
 
     <!--工具类-->
     <guava.version>28.1-jre</guava.version>
     <commons-lang3.version>3.9</commons-lang3.version>
     <commons-io.version>2.6</commons-io.version>
+    <commons-codec.version>1.13</commons-codec.version>
     <commons-beanutils.version>1.9.4</commons-beanutils.version>
+    <commons-math3.version>3.6.1</commons-math3.version>
     <commons-collections4.version>4.4</commons-collections4.version>
+
+    <!--junit-->
+    <junit.version>5.5.2</junit.version>
+
+    <!--log-->
+    <slf4j.version>1.7.29</slf4j.version>
   </properties>
 
   <dependencyManagement>
@@ -104,6 +106,28 @@
       <version>${mica.auto.version}</version>
       <scope>provided</scope>
     </dependency>
+
+    <!-- junit -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- log -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -150,7 +174,6 @@
   </build>
 
   <repositories>
-
     <!--aliyun-->
     <repository>
       <id>aliyun-repos</id>

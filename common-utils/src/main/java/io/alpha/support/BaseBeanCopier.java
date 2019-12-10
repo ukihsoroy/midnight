@@ -1,6 +1,6 @@
 package io.alpha.support;
 
-import io.alpha.utils.BeanUtil;
+import io.alpha.help.BeanHelper;
 import org.springframework.asm.ClassVisitor;
 import org.springframework.asm.Type;
 import org.springframework.cglib.core.*;
@@ -129,8 +129,8 @@ public abstract class BaseBeanCopier {
 			CodeEmitter e = ce.begin_method(Constants.ACC_PUBLIC, COPY, null);
 
 			// 2018.12.27 by L.cm 支持链式 bean
-			PropertyDescriptor[] getters = BeanUtil.getBeanGetters(source);
-			PropertyDescriptor[] setters = BeanUtil.getBeanSetters(target);
+			PropertyDescriptor[] getters = BeanHelper.getBeanGetters(source);
+			PropertyDescriptor[] setters = BeanHelper.getBeanSetters(target);
 			Map<String, Object> names = new HashMap<>(16);
 			for (PropertyDescriptor getter : getters) {
 				names.put(getter.getName(), getter);

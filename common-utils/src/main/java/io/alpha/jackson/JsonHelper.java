@@ -7,10 +7,10 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import io.alpha.utils.DateUtil;
-import io.alpha.utils.Exceptions;
-import io.alpha.utils.StringPool;
-import io.alpha.utils.StringUtil;
+import io.alpha.help.DateHelper;
+import io.alpha.help.Exceptions;
+import io.alpha.help.StringPool;
+import io.alpha.help.StringHelper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -163,7 +163,7 @@ public class JsonHelper {
 	public static <T> List<T> parseArray(String content, Class<T> valueTypeRef) {
 		try {
 
-			if (!StringUtil.startsWithIgnoreCase(content, StringPool.LEFT_SQ_BRACKET)) {
+			if (!StringHelper.startsWithIgnoreCase(content, StringPool.LEFT_SQ_BRACKET)) {
 				content = StringPool.LEFT_SQ_BRACKET + content + StringPool.RIGHT_SQ_BRACKET;
 			}
 
@@ -286,7 +286,7 @@ public class JsonHelper {
 			//设置为中国上海时区
 			super.setTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
 			//序列化时，日期的统一格式
-			super.setDateFormat(new SimpleDateFormat(DateUtil.PATTERN_DATETIME, Locale.CHINA));
+			super.setDateFormat(new SimpleDateFormat(DateHelper.PATTERN_DATETIME, Locale.CHINA));
 			//序列化处理
 			super.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
 			super.configure(JsonParser.Feature.ALLOW_BACKSLASH_ESCAPING_ANY_CHARACTER, true);

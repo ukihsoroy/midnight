@@ -9,7 +9,7 @@ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.exc.InvalidDefinitionException;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
-import io.alpha.utils.Charsets;
+import io.alpha.help.Charsets;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConversionException;
@@ -32,6 +32,7 @@ public abstract class AbstractReadWriteJackson2HttpMessageConverter extends Abst
 	private static final java.nio.charset.Charset DEFAULT_CHARSET = Charsets.UTF_8;
 
 	private ObjectMapper writeObjectMapper;
+
 	@Nullable
 	private PrettyPrinter ssePrettyPrinter;
 

@@ -1,7 +1,7 @@
 package io.alpha.web.filter.xss;
 
 
-import io.alpha.utils.StringPool;
+import io.alpha.help.StringPool;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

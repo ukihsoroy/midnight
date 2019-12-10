@@ -1,7 +1,7 @@
 package io.alpha.support;
 
 
-import io.alpha.utils.Exceptions;
+import io.alpha.help.Exceptions;
 
 import java.util.Objects;
 import java.util.function.Function;

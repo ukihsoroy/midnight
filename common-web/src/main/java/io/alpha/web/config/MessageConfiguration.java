@@ -2,7 +2,7 @@ package io.alpha.web.config;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.alpha.utils.Charsets;
+import io.alpha.help.Charsets;
 import io.alpha.web.filter.xss.XssFilter;
 import io.alpha.web.filter.xss.XssProperties;
 import io.alpha.web.jackson.MappingApiJackson2HttpMessageConverter;

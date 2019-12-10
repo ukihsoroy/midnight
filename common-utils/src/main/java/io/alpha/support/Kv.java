@@ -1,6 +1,6 @@
 package io.alpha.support;
 
-import io.alpha.utils.Func;
+import io.alpha.help.Func;
 import org.springframework.util.LinkedCaseInsensitiveMap;
 
 import java.sql.Time;

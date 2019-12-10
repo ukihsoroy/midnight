@@ -1,8 +1,8 @@
 package io.alpha.web.filter.xss;
 
-import io.alpha.utils.Charsets;
-import io.alpha.utils.StringUtil;
-import io.alpha.web.utils.WebUtil;
+import io.alpha.help.Charsets;
+import io.alpha.help.StringHelper;
+import io.alpha.web.help.WebHelper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 
@@ -40,7 +40,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 	public XssHttpServletRequestWrapper(HttpServletRequest request) throws IOException {
 		super(request);
 		orgRequest = request;
-		body = WebUtil.getRequestBytes(request);
+		body = WebHelper.getRequestBytes(request);
 	}
 
 	@Override
@@ -63,8 +63,8 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 		}
 
 		//为空，直接返回
-		String requestStr = WebUtil.getRequestStr(orgRequest, body);
-		if (StringUtil.isBlank(requestStr)) {
+		String requestStr = WebHelper.getRequestStr(orgRequest, body);
+		if (StringHelper.isBlank(requestStr)) {
 			return super.getInputStream();
 		}
 
@@ -100,7 +100,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 	@Override
 	public String getParameter(String name) {
 		String value = super.getParameter(xssEncode(name));
-		if (StringUtil.isNotBlank(value)) {
+		if (StringHelper.isNotBlank(value)) {
 			value = xssEncode(value);
 		}
 		return value;
@@ -136,7 +136,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 	@Override
 	public String getHeader(String name) {
 		String value = super.getHeader(xssEncode(name));
-		if (StringUtil.isNotBlank(value)) {
+		if (StringHelper.isNotBlank(value)) {
 			value = xssEncode(value);
 		}
 		return value;

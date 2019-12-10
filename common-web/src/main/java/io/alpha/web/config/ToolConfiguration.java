@@ -1,7 +1,7 @@
 package io.alpha.web.config;
 
 
-import io.alpha.utils.SpringUtil;
+import io.alpha.web.help.SpringHelper;
 import io.alpha.web.filter.xss.XssProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -24,8 +24,8 @@ public class ToolConfiguration implements WebMvcConfigurer {
 	 * @return SpringUtil
 	 */
 	@Bean
-	public SpringUtil springUtils() {
-		return new SpringUtil();
+	public SpringHelper springUtils() {
+		return new SpringHelper();
 	}
 
 }

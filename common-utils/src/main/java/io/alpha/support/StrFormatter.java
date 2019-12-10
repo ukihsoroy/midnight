@@ -1,8 +1,8 @@
 package io.alpha.support;
 
 
-import io.alpha.utils.Func;
-import io.alpha.utils.StringPool;
+import io.alpha.help.Func;
+import io.alpha.help.StringPool;
 
 /**
  * 字符串格式化
