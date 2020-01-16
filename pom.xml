@@ -4,21 +4,22 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.alpha</groupId>
+  <groupId>io.github.sigmaol</groupId>
   <artifactId>alpha-commons</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.0.1</version>
   <modules>
     <module>common-utils</module>
     <module>common-web</module>
     <module>common-bigdata</module>
+    <module>common-boot</module>
   </modules>
 
   <packaging>pom</packaging>
   <name>alpha-io</name>
 
   <properties>
-    <project.version>1.0-SNAPSHOT</project.version>
-    <java.version>1.8</java.version>
+    <project.version>0.0.1</project.version>
+    <java.version>11</java.version>
     <maven.plugin.version>3.8.0</maven.plugin.version>
     <swagger.version>2.9.2</swagger.version>
     <swagger.models.version>1.5.21</swagger.models.version>
@@ -95,6 +96,7 @@
     <dependency>
       <groupId>org.springframework.retry</groupId>
       <artifactId>spring-retry</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
@@ -131,48 +133,57 @@
 
   </dependencies>
 
-  <build>
-    <finalName>${project.name}</finalName>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-      </resource>
-      <resource>
-        <directory>src/main/java</directory>
-        <includes>
-          <include>**/*.xml</include>
-        </includes>
-      </resource>
-    </resources>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven.plugin.version}</version>
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-          <encoding>UTF-8</encoding>
-          <compilerArgs>
-            <arg>-parameters</arg>
-          </compilerArgs>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.18.1</version>
-        <configuration>
-          <skipTests>true</skipTests>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+<!--  <build>-->
+<!--    <finalName>${project.name}</finalName>-->
+<!--    <resources>-->
+<!--      &lt;!&ndash;打包资源文件&ndash;&gt;-->
+<!--      <resource>-->
+<!--        <directory>src/main/resources</directory>-->
+<!--      </resource>-->
+<!--      &lt;!&ndash;打包java文件&ndash;&gt;-->
+<!--      <resource>-->
+<!--        <directory>src/main/java</directory>-->
+<!--        <includes>-->
+<!--          <include>**/*.xml</include>-->
+<!--        </includes>-->
+<!--      </resource>-->
+<!--      &lt;!&ndash;打包scala文件&ndash;&gt;-->
+<!--      <resource>-->
+<!--        <directory>src/main/scala</directory>-->
+<!--        <includes>-->
+<!--          <include>**/*.xml</include>-->
+<!--        </includes>-->
+<!--      </resource>-->
+<!--    </resources>-->
+<!--    <plugins>-->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-compiler-plugin</artifactId>-->
+<!--        <version>${maven.plugin.version}</version>-->
+<!--        <configuration>-->
+<!--          <source>${java.version}</source>-->
+<!--          <target>${java.version}</target>-->
+<!--          <encoding>UTF-8</encoding>-->
+<!--          <compilerArgs>-->
+<!--            <arg>-parameters</arg>-->
+<!--          </compilerArgs>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-javadoc-plugin</artifactId>-->
+<!--        <version>2.9.1</version>-->
+<!--      </plugin>-->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-surefire-plugin</artifactId>-->
+<!--        <version>2.18.1</version>-->
+<!--        <configuration>-->
+<!--          <skipTests>true</skipTests>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+<!--    </plugins>-->
+<!--  </build>-->
 
   <repositories>
     <!--aliyun-->
@@ -200,5 +211,13 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
+
+  <!--<distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub sigmaol Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/sigmaol</url>
+    </repository>
+  </distributionManagement>-->
 
 </project>
