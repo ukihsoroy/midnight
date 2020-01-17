@@ -4,6 +4,7 @@ import lombok.experimental.UtilityClass;
 import org.springframework.util.Assert;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.Temporal;
@@ -579,6 +580,27 @@ public class DateHelper {
 		} else {
 			return StringHelper.format("{}小时{}分{}秒", hours, minutes, second);
 		}
+	}
+
+	/**
+	 * 计算两个日期之间的天数差,日期格式为yyyy-MM-dd
+	 * @param first  减数
+	 * @param second 被减数
+	 * @return 天数差
+	 **/
+	public static Integer daysDiff(String first, String second) {
+		if ("".equals(first) || "".equals(second)) {
+			return -1;
+		}
+
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(parse(first, PATTERN_DATE));
+		Long time1 = cal.getTimeInMillis();
+		cal.setTime(parse(second, PATTERN_DATE));
+		Long time2 = cal.getTimeInMillis();
+		Long between_days = (time1 - time2) / (1000 * 3600 * 24);
+
+		return Integer.parseInt(String.valueOf(between_days));
 	}
 
 	/**

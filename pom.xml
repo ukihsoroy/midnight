@@ -20,6 +20,7 @@
   <properties>
     <project.version>1.0.0.SNAPSHOT</project.version>
     <java.version>11</java.version>
+    <scala.binary.version>2.11</scala.binary.version>
     <maven.plugin.version>3.8.0</maven.plugin.version>
     <swagger.version>2.9.2</swagger.version>
     <swagger.models.version>1.5.21</swagger.models.version>
@@ -47,6 +48,7 @@
     <hive.version>2.1.1-${cdh.version}</hive.version>
     <flume.version>1.8.0-${cdh.version}</flume.version>
     <kafka.version>2.0.0-${cdh.version}</kafka.version>
+    <flink.version>1.8.0</flink.version>
     <zookeeper.version>3.4.5-${cdh.version}</zookeeper.version>
     <mysql.version>5.1.47</mysql.version>
     <poi.version>3.17</poi.version>
