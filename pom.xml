@@ -6,7 +6,7 @@
 
   <groupId>io.github.sigmaol</groupId>
   <artifactId>alpha-commons</artifactId>
-  <version>0.0.1</version>
+  <version>1.0.0.SNAPSHOT</version>
   <modules>
     <module>common-utils</module>
     <module>common-web</module>
@@ -18,7 +18,7 @@
   <name>alpha-io</name>
 
   <properties>
-    <project.version>0.0.1</project.version>
+    <project.version>1.0.0.SNAPSHOT</project.version>
     <java.version>11</java.version>
     <maven.plugin.version>3.8.0</maven.plugin.version>
     <swagger.version>2.9.2</swagger.version>
@@ -133,58 +133,6 @@
 
   </dependencies>
 
-<!--  <build>-->
-<!--    <finalName>${project.name}</finalName>-->
-<!--    <resources>-->
-<!--      &lt;!&ndash;打包资源文件&ndash;&gt;-->
-<!--      <resource>-->
-<!--        <directory>src/main/resources</directory>-->
-<!--      </resource>-->
-<!--      &lt;!&ndash;打包java文件&ndash;&gt;-->
-<!--      <resource>-->
-<!--        <directory>src/main/java</directory>-->
-<!--        <includes>-->
-<!--          <include>**/*.xml</include>-->
-<!--        </includes>-->
-<!--      </resource>-->
-<!--      &lt;!&ndash;打包scala文件&ndash;&gt;-->
-<!--      <resource>-->
-<!--        <directory>src/main/scala</directory>-->
-<!--        <includes>-->
-<!--          <include>**/*.xml</include>-->
-<!--        </includes>-->
-<!--      </resource>-->
-<!--    </resources>-->
-<!--    <plugins>-->
-<!--      <plugin>-->
-<!--        <groupId>org.apache.maven.plugins</groupId>-->
-<!--        <artifactId>maven-compiler-plugin</artifactId>-->
-<!--        <version>${maven.plugin.version}</version>-->
-<!--        <configuration>-->
-<!--          <source>${java.version}</source>-->
-<!--          <target>${java.version}</target>-->
-<!--          <encoding>UTF-8</encoding>-->
-<!--          <compilerArgs>-->
-<!--            <arg>-parameters</arg>-->
-<!--          </compilerArgs>-->
-<!--        </configuration>-->
-<!--      </plugin>-->
-<!--      <plugin>-->
-<!--        <groupId>org.apache.maven.plugins</groupId>-->
-<!--        <artifactId>maven-javadoc-plugin</artifactId>-->
-<!--        <version>2.9.1</version>-->
-<!--      </plugin>-->
-<!--      <plugin>-->
-<!--        <groupId>org.apache.maven.plugins</groupId>-->
-<!--        <artifactId>maven-surefire-plugin</artifactId>-->
-<!--        <version>2.18.1</version>-->
-<!--        <configuration>-->
-<!--          <skipTests>true</skipTests>-->
-<!--        </configuration>-->
-<!--      </plugin>-->
-<!--    </plugins>-->
-<!--  </build>-->
-
   <repositories>
     <!--aliyun-->
     <repository>
@@ -212,12 +160,22 @@
     </pluginRepository>
   </pluginRepositories>
 
-  <!--<distributionManagement>
+  <distributionManagement>
+<!--    <repository>-->
+<!--      <id>github</id>-->
+<!--      <name>GitHub sigmaol Apache Maven Packages</name>-->
+<!--      <url>https://maven.pkg.github.com/sigmaol</url>-->
+<!--    </repository>-->
     <repository>
-      <id>github</id>
-      <name>GitHub sigmaol Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/sigmaol</url>
+      <id>releases</id>
+      <name>Nexus ReleaseRepository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
-  </distributionManagement>-->
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>Nexus SnapshotRepository</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
 </project>
