@@ -8,10 +8,6 @@ import org.apache.kafka.common.serialization.{StringDeserializer, StringSerializ
 import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.streaming.StreamingContext
 import org.apache.spark.streaming.dstream.DStream
-import org.apache.kafka.common.serialization.{StringDeserializer, StringSerializer}
-import org.apache.spark.broadcast.Broadcast
-import org.apache.spark.streaming.StreamingContext
-import org.apache.spark.streaming.dstream.DStream
 import org.apache.spark.streaming.kafka010.ConsumerStrategies._
 import org.apache.spark.streaming.kafka010.KafkaUtils
 import org.apache.spark.streaming.kafka010.LocationStrategies._

@@ -12,6 +12,18 @@ import org.apache.hadoop.hbase.{HBaseConfiguration, HConstants, KeyValue, TableN
 import org.apache.hadoop.mapreduce.Job
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
+import org.apache.commons.lang.StringUtils
+import org.apache.hadoop.fs.permission.{FsAction, FsPermission}
+import org.apache.hadoop.fs.{FileSystem, Path}
+import org.apache.hadoop.hbase.client.{Connection, ConnectionFactory, Table}
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable
+import org.apache.hadoop.hbase.mapreduce.HFileOutputFormat2
+import org.apache.hadoop.hbase.tool.LoadIncrementalHFiles
+import org.apache.hadoop.hbase.util.Bytes
+import org.apache.hadoop.hbase.{HBaseConfiguration, HConstants, KeyValue, TableName}
+import org.apache.hadoop.mapreduce.Job
+import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -245,7 +257,7 @@ class Bulkload(@transient spark: SparkSession) {
           try {
             result.append(defParse(RddUtil.row2Object(fieldNames, data.next())))
           } catch {
-            case ex =>
+            case ex: Exception =>
               println("Bulkload | removeReduances | Exception: {}", ex)
           }
         }
@@ -257,5 +269,5 @@ class Bulkload(@transient spark: SparkSession) {
 }
 
 object Bulkload {
-  implicit def convert2BulkLoad(spark: SparkSession) = new Bulkload(spark)
+  implicit def convert2BulkLoad(@transient spark: SparkSession) = new Bulkload(spark)
 }

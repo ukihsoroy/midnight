@@ -1,12 +1,10 @@
 package io.github.sigmaol.help;
 
-import com.sun.istack.internal.Nullable;
-
 public final class Strings {
     private Strings() {
     }
 
-    public static String nullToEmpty(@Nullable String string) {
+    public static String nullToEmpty(String string) {
         return string == null ? "" : string;
     }
 
