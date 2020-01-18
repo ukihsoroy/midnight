@@ -1,11 +1,5 @@
 package io.github.sigmaol.bigdata.common.security.sm;
 
-/**
- * Author: xiaohei
- * Date: 2019/9/20
- * Email: xiaohei.info@gmail.com
- * Host: xiaohei.info
- */
 public class SM3Digest {
     private static final int BYTE_LENGTH = 32;
     private static final int BLOCK_LENGTH = 64;

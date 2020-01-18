@@ -2,12 +2,19 @@ package io.github.sigmaol.bigdata.kafka.impl
 
 import java.util.Properties
 
+import io.github.sigmaol.bigdata.connector.realtime.sinks.KafkaSink
 import io.github.sigmaol.bigdata.kafka.IKafkaRepository
 import org.apache.kafka.common.serialization.{StringDeserializer, StringSerializer}
 import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.streaming.StreamingContext
 import org.apache.spark.streaming.dstream.DStream
-import org.apache.spark.streaming.kafka.KafkaUtils
+import org.apache.kafka.common.serialization.{StringDeserializer, StringSerializer}
+import org.apache.spark.broadcast.Broadcast
+import org.apache.spark.streaming.StreamingContext
+import org.apache.spark.streaming.dstream.DStream
+import org.apache.spark.streaming.kafka010.ConsumerStrategies._
+import org.apache.spark.streaming.kafka010.KafkaUtils
+import org.apache.spark.streaming.kafka010.LocationStrategies._
 
 
 trait SparkKafkaRepositoryImpl[B] extends IKafkaRepository[StreamingContext, DStream[B]] {

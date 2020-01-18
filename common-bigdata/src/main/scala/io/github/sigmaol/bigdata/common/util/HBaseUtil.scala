@@ -1,15 +1,10 @@
 package io.github.sigmaol.bigdata.common.util
 
-import org.aisql.bigdata.base.security.MD5Util
+
+import io.github.sigmaol.bigdata.common.security.MD5Util
 
 import scala.io.Source
 
-/**
-  * Author: xiaohei
-  * Date: 2019/9/18
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 object HBaseUtil {
   /**
     * hbase region预分区工具

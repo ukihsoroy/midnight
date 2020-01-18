@@ -1,15 +1,8 @@
 package io.github.sigmaol.bigdata.common.util
 
 import com.alibaba.fastjson.JSON
-import org.aisql.bigdata.base.constants.TypeMap
+import io.github.sigmaol.bigdata.common.constants.TypeMap
 import org.apache.spark.sql.SparkSession
-
-/**
-  * Author: xiaohei
-  * Date: 2019/9/15
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 
 //case class TableScheme(fieldName: String, fieldType: String, fieldComment: String)
 

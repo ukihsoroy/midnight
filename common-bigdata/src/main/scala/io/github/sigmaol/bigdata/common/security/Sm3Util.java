@@ -1,8 +1,8 @@
 package io.github.sigmaol.bigdata.common.security;
 
 
-import org.aisql.bigdata.base.security.sm.Hex;
-import org.aisql.bigdata.base.security.sm.SM3Digest;
+import io.github.sigmaol.bigdata.common.security.sm.Hex;
+import io.github.sigmaol.bigdata.common.security.sm.SM3Digest;
 
 /**
  * Author: xiaohei

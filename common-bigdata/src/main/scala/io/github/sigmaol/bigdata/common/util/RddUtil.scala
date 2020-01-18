@@ -4,12 +4,6 @@ import com.alibaba.fastjson.JSONObject
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.types.{StringType, StructField}
 
-/**
-  * Author: xiaohei
-  * Date: 2019/9/18
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 object RddUtil {
   /**
     * 随机划分rdd数据块

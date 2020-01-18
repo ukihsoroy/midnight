@@ -1,12 +1,5 @@
 package io.github.sigmaol.bigdata.common.security;
 
-/**
- * Author: xiaohei
- * Date: 2019/9/20
- * Email: xiaohei.info@gmail.com
- * Host: xiaohei.info
- */
-
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 

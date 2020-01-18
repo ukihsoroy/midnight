@@ -2,12 +2,7 @@ package io.github.sigmaol.bigdata.common.util
 
 import scalaj.http.{Http, HttpOptions}
 
-/**
-  * Author: xiaohei
-  * Date: 2019/9/18
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
+
 object NetUtil {
   def postRequest(host: String, params: String) = {
     Http(host).postData(params)

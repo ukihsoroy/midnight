@@ -1,9 +1,9 @@
 package io.github.sigmaol.bigdata.kafka.predefined
 
 import com.alibaba.fastjson.JSON
-import org.aisql.bigdata.base.framework.bean.StreamMsgBean
-import org.aisql.bigdata.base.framework.kafka.impl.SparkBaseKafkaDaoImpl
-import org.aisql.bigdata.base.util.JavaJsonUtil
+import io.github.sigmaol.bigdata.bean.StreamMsgBean
+import io.github.sigmaol.bigdata.common.util.JavaJsonUtil
+import io.github.sigmaol.bigdata.kafka.impl.SparkKafkaRepositoryImpl
 import org.apache.spark.streaming.dstream.DStream
 
 /**
@@ -12,7 +12,7 @@ import org.apache.spark.streaming.dstream.DStream
   * Email: xiaohei.info@gmail.com
   * Host: xiaohei.info
   */
-abstract class SparkStreamMsgKafkaDaoImpl extends SparkBaseKafkaDaoImpl[StreamMsgBean] {
+abstract class SparkStreamMsgKafkaRepositoryImpl extends SparkKafkaRepositoryImpl[StreamMsgBean] {
 
   override protected def transJson2Bean(jsonStream: DStream[String]): DStream[StreamMsgBean] = {
     jsonStream.flatMap {

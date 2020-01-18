@@ -1,8 +1,8 @@
 package io.github.sigmaol.bigdata.common.security;
 
-import org.aisql.bigdata.base.security.sm.SM4;
-import org.aisql.bigdata.base.security.sm.SM4_Context;
-import org.aisql.bigdata.base.security.sm.SMUtil;
+import io.github.sigmaol.bigdata.common.security.sm.SM4;
+import io.github.sigmaol.bigdata.common.security.sm.SM4_Context;
+import io.github.sigmaol.bigdata.common.security.sm.SMUtil;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 

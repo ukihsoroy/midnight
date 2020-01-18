@@ -1,11 +1,5 @@
 package io.github.sigmaol.bigdata.common.constants
 
-/**
-  * Author: xiaohei
-  * Date: 2019/10/12
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 object TypeMap {
 
   val hive2JavaType = Map[String, String](

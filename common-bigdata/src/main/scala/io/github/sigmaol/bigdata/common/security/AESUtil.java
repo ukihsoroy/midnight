@@ -1,7 +1,7 @@
 package io.github.sigmaol.bigdata.common.security;
 
 import com.sun.org.apache.xml.internal.security.utils.Base64;
-import org.aisql.bigdata.base.security.common.Strings;
+import io.github.sigmaol.help.Strings;
 import sun.misc.BASE64Decoder;
 
 import javax.crypto.Cipher;

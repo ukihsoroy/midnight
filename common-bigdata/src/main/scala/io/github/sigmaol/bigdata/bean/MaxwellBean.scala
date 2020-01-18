@@ -1,6 +1,7 @@
 package io.github.sigmaol.bigdata.bean
 
-import org.json.JSONObject
+
+import com.alibaba.fastjson.{JSON, JSONObject}
 
 import scala.beans.BeanProperty
 
@@ -62,7 +63,7 @@ class MaxwellBean extends Serializable {
     json.put("database", database)
     json.put("table", table)
     json.put("type", `type`)
-    json.put("data", data)
+    json.put("data", JSON.parseObject(data))
     json.put("ts", ts)
     json.put("xid", xid)
     json.put("commit", commit)

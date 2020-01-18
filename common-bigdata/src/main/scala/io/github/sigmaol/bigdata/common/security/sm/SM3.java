@@ -1,12 +1,6 @@
 package io.github.sigmaol.bigdata.common.security.sm;
 
 
-/**
- * Author: xiaohei
- * Date: 2019/9/20
- * Email: xiaohei.info@gmail.com
- * Host: xiaohei.info
- */
 public class SM3 {
     public static final byte[] iv = new byte[]{(byte)115, (byte)-128, (byte)22, (byte)111, (byte)73, (byte)20, (byte)-78, (byte)-71, (byte)23, (byte)36, (byte)66, (byte)-41, (byte)-38, (byte)-118, (byte)6, (byte)0, (byte)-87, (byte)111, (byte)48, (byte)-68, (byte)22, (byte)49, (byte)56, (byte)-86, (byte)-29, (byte)-115, (byte)-18, (byte)77, (byte)-80, (byte)-5, (byte)14, (byte)78};
     public static int[] Tj = new int[64];

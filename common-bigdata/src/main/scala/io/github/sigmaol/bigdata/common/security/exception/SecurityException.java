@@ -1,11 +1,5 @@
 package io.github.sigmaol.bigdata.common.security.exception;
 
-/**
- * Author: xiaohei
- * Date: 2019/9/20
- * Email: xiaohei.info@gmail.com
- * Host: xiaohei.info
- */
 
 public class SecurityException extends RuntimeException {
     private static final long serialVersionUID = 1L;

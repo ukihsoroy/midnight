@@ -1,4 +1,4 @@
-package io.github.sigmaol.bigdata.common.connector.realtime.sinks
+package io.github.sigmaol.bigdata.connector.realtime.sinks
 
 import com.alibaba.fastjson.JSONObject
 import org.apache.hadoop.hbase.client._
@@ -9,12 +9,6 @@ import scala.collection.JavaConversions._
 import scala.util.Try
 import scala.util.control.Breaks
 
-/**
-  * Author: xiaohei
-  * Date: 2018/4/12
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 class HBaseSink(zhHost: String, confFile: String) extends Serializable {
   lazy val connection = {
     val hbaseConf = HBaseConfiguration.create()

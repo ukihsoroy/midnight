@@ -4,15 +4,10 @@ import java.io.{ByteArrayInputStream, ObjectInputStream}
 import java.util.zip.GZIPInputStream
 
 import com.alibaba.fastjson.{JSON, JSONObject}
-import org.aisql.bigdata.base.java.CryptTool
+import io.github.sigmaol.help.CryptTool
 import org.apache.commons.lang.StringUtils
 
-/**
-  * Author: xiaohei
-  * Date: 2019/9/18
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
+
 object CompressUtil {
   def decompressData(str: String): JSONObject = {
     if(StringUtils.isBlank(str)) {

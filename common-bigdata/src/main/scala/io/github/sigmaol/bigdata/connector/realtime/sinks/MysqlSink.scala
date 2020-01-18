@@ -1,14 +1,8 @@
-package io.github.sigmaol.bigdata.common.connector.realtime.sinks
+package io.github.sigmaol.bigdata.connector.realtime.sinks
 
 import java.sql.DriverManager
 
 
-/**
-  * Author: xiaohei
-  * Date: 2018/4/17
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 class MysqlSink(host: String, port: String, db: String, user: String, pwd: String) extends Serializable {
   lazy val connection = {
     val connStr = s"jdbc:mysql://$host:$port/$db"

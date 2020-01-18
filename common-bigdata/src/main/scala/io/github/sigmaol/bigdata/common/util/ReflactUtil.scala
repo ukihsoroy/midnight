@@ -4,12 +4,6 @@ import java.lang.reflect.{Field, Modifier}
 import java.util.{Map => JMap}
 import java.lang.{Iterable => JIterable}
 
-/**
-  * Author: xiaohei
-  * Date: 2019/10/15
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 object ReflactUtil {
 
   // 注意在Scala中Map是Iterable的子类

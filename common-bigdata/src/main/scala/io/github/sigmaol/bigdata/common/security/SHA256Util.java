@@ -1,12 +1,5 @@
 package io.github.sigmaol.bigdata.common.security;
 
-/**
- * Author: xiaohei
- * Date: 2019/9/20
- * Email: xiaohei.info@gmail.com
- * Host: xiaohei.info
- */
-
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

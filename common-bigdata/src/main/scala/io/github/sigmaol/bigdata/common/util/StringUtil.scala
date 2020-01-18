@@ -4,12 +4,6 @@ import java.util.UUID
 
 import org.apache.commons.lang.StringUtils
 
-/**
-  * Author: xiaohei
-  * Date: 2019/9/18
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 object StringUtil {
   def isPurifiedNum(data: Any): Boolean = {
     if (data == null) {

@@ -1,16 +1,9 @@
-package io.github.sigmaol.bigdata.common.connector.realtime.sinks
+package io.github.sigmaol.bigdata.connector.realtime.sinks
 
 import java.util.concurrent.Future
 
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord, RecordMetadata}
 
-
-/**
-  * Author: xiaohei
-  * Date: 2018/4/8
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 class KafkaSink[K, V](createProducer: () => KafkaProducer[K, V]) extends Serializable {
   lazy val producer = createProducer()
 

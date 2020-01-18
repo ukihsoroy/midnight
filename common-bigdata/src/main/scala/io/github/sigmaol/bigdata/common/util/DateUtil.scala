@@ -3,12 +3,6 @@ package io.github.sigmaol.bigdata.common.util
 import java.text.SimpleDateFormat
 import java.util.{Calendar, Date}
 
-/**
-  * Author: xiaohei
-  * Date: 2017/5/14
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 object DateUtil {
   /**
     * 判断是否是周末

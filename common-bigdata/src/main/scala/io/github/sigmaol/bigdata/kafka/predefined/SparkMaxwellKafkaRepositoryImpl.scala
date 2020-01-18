@@ -1,18 +1,12 @@
 package io.github.sigmaol.bigdata.kafka.predefined
 
 import com.alibaba.fastjson.JSON
-import org.aisql.bigdata.base.framework.bean.MaxwellBean
-import org.aisql.bigdata.base.framework.kafka.impl.SparkBaseKafkaDaoImpl
-import org.aisql.bigdata.base.util.JavaJsonUtil
+import io.github.sigmaol.bigdata.bean.MaxwellBean
+import io.github.sigmaol.bigdata.common.util.JavaJsonUtil
+import io.github.sigmaol.bigdata.kafka.impl.SparkKafkaRepositoryImpl
 import org.apache.spark.streaming.dstream.DStream
 
-/**
-  * Author: xiaohei
-  * Date: 2019/10/22
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
-abstract class SparkMaxwellKafkaDaoImpl extends SparkBaseKafkaDaoImpl[MaxwellBean] {
+abstract class SparkMaxwellKafkaRepositoryImpl extends SparkKafkaRepositoryImpl[MaxwellBean] {
 
   override protected def transJson2Bean(jsonStream: DStream[String]): DStream[MaxwellBean] = {
     jsonStream.flatMap {

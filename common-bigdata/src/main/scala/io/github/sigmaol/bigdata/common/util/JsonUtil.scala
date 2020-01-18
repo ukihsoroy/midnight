@@ -4,12 +4,6 @@ import com.alibaba.fastjson.{JSON, JSONArray, JSONObject}
 
 import scala.collection.mutable.ArrayBuffer
 
-/**
-  * Author: xiaohei
-  * Date: 2019/9/18
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 object JsonUtil {
   def parseJsonSafe(str: String): Option[JSONObject] = {
     try {

@@ -1,11 +1,4 @@
-package io.github.sigmaol.bigdata.common.java;
-
-/**
- * Author: xiaohei
- * Date: 2019/10/12
- * Email: xiaohei.info@gmail.com
- * Host: xiaohei.info
- */
+package io.github.sigmaol.help;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

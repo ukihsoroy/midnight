@@ -1,18 +1,12 @@
 package io.github.sigmaol.bigdata.kafka.predefined
 
 import com.alibaba.fastjson.JSON
-import org.aisql.bigdata.base.framework.bean.StreamMsgBean
-import org.aisql.bigdata.base.framework.kafka.impl.FlinkBaseKafkaDaoImpl
-import org.aisql.bigdata.base.util.JavaJsonUtil
+import io.github.sigmaol.bigdata.bean.StreamMsgBean
+import io.github.sigmaol.bigdata.common.util.JavaJsonUtil
+import io.github.sigmaol.bigdata.kafka.impl.FlinkKafkaRepositoryImpl
 import org.apache.flink.streaming.api.scala._
 
-/**
-  * Author: xiaohei
-  * Date: 2019/10/24
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
-abstract class FlinkStreamMsgKafkaDaoImpl  extends FlinkBaseKafkaDaoImpl[StreamMsgBean] {
+abstract class FlinkStreamMsgKafkaRepositoryImpl  extends FlinkKafkaRepositoryImpl[StreamMsgBean] {
 
   override protected def transJson2Bean(jsonStream: DataStream[String]): DataStream[StreamMsgBean] = {
     jsonStream.flatMap {

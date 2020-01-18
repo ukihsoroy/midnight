@@ -6,7 +6,7 @@ import io.github.sigmaol.jackson.JsonHelper
 import org.apache.flink.streaming.api.scala._
 
 
-abstract class FlinkMaxwellKafkaDaoImpl extends FlinkKafkaRepositoryImpl[MaxwellBean] {
+abstract class FlinkMaxwellKafkaRepositoryImpl extends FlinkKafkaRepositoryImpl[MaxwellBean] {
 
   override protected def transJson2Bean(jsonStream: DataStream[String]): DataStream[MaxwellBean] = {
     jsonStream.flatMap {

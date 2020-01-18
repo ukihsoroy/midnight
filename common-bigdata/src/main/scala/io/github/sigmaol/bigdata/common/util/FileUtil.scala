@@ -3,11 +3,6 @@ package io.github.sigmaol.bigdata.common.util
 import java.io._
 import java.util.zip.{ZipEntry, ZipOutputStream}
 
-/**
-  * Author: chentianzeng
-  * Date: 2019/6/5
-  * Email: tianzeng_chen@xinyan.com
-  */
 object FileUtil {
 
   def mkdir(dirPath: String): Unit = {

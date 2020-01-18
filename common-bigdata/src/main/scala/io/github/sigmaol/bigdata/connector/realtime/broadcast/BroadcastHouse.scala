@@ -1,14 +1,7 @@
-package io.github.sigmaol.bigdata.common.connector.realtime.broadcast
+package io.github.sigmaol.bigdata.connector.realtime.broadcast
 
-import org.aisql.bigdata.base.connector.realtime.sinks.{HBaseSink, KafkaSink, MysqlSink}
+import io.github.sigmaol.bigdata.connector.realtime.sinks.{HBaseSink, KafkaSink, MysqlSink}
 import org.apache.spark.broadcast.Broadcast
-
-/**
-  * Author: xiaohei
-  * Date: 2018/6/4
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 
 /**
   * 存储各个需要广播的变量

@@ -3,13 +3,6 @@ package io.github.sigmaol.bigdata.common.security.sm;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
-/**
- * Author: xiaohei
- * Date: 2019/9/20
- * Email: xiaohei.info@gmail.com
- * Host: xiaohei.info
- */
-
 public class SM4 {
     public static final int SM4_ENCRYPT = 1;
     public static final int SM4_DECRYPT = 0;

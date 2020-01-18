@@ -1,18 +1,13 @@
-package io.github.sigmaol.bigdata.common.connector.realtime
+package io.github.sigmaol.bigdata.connector.realtime
 
 import java.util.Properties
 
-import org.aisql.bigdata.base.connector.realtime.sinks.{HBaseSink, KafkaSink, MysqlSink, RedisSink}
+import io.github.sigmaol.bigdata.connector.realtime.sinks.{HBaseSink, KafkaSink, MysqlSink, RedisSink}
 import org.apache.kafka.common.serialization.StringSerializer
 import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.{SparkConf, SparkContext}
 
-/**
-  * Author: xiaohei
-  * Date: 2018/4/8
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
+
 object StreamingUtil {
 
   def getKafkaPrdcerBroadcast(sc: SparkContext, zkHost: String): Broadcast[KafkaSink[String, String]] = {

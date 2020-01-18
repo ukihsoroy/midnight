@@ -1,17 +1,13 @@
-package io.github.sigmaol.bigdata.common.connector.realtime.worker
+package io.github.sigmaol.bigdata.connector.realtime.worker
 
 import com.alibaba.fastjson.JSONObject
-import org.aisql.bigdata.base.connector.realtime.sinks.KafkaSink
-import org.aisql.bigdata.base.util.DateUtil
+import io.github.sigmaol.bigdata.common.util.DateUtil
+import io.github.sigmaol.bigdata.connector.realtime.sinks.KafkaSink
 import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.streaming.Time
 import org.apache.spark.streaming.scheduler.{StreamingListener, StreamingListenerBatchStarted}
 
 /***
-  * Author: zhiyi
-  * Date: 2018/9/3
-  * Email: zhiyi_yao@xinyan.com
-  *
   * @param delayAlarmTime 延时阈值（单位为分钟
   * @param streamAppName 实时流app名字
   * @param producer kafka producer
@@ -34,14 +30,14 @@ class GutterStreamingListener(delayAlarmTime: Long, streamAppName: String, produ
     val isOvertime = if (overtime>0) true else false
 
     val json = new JSONObject
-    json.put("schedulingDelay",schedulingDelay)
+    json.put("schedulingDelay", schedulingDelay)
     json.put("type","stream-bigdata-monitor")
-    json.put("batchTime",batchTimeFormat)
-    json.put("streamAppName",streamAppName)
-    json.put("delayAlarmTime",delayAlarmTime)
-    json.put("inputSize",inputSize)
-    json.put("isOvertime",isOvertime)
-    json.put("overtime",overtime)
+    json.put("batchTime", batchTimeFormat)
+    json.put("streamAppName", streamAppName)
+    json.put("delayAlarmTime", delayAlarmTime)
+    json.put("inputSize", inputSize)
+    json.put("isOvertime", isOvertime)
+    json.put("overtime", overtime)
     json.put("schedulingDelayFloor2Minutes",schedulingDelayFloor2Minutes)
 
     producer.value.send("CREDIT-LOGPROCESSOR-ROCORD-STREAM-MONITOR-LOG",json.toJSONString)

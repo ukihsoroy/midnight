@@ -4,12 +4,6 @@ import sun.misc.BASE64Encoder;
 
 import java.security.MessageDigest;
 
-/**
- * Author: xiaohei
- * Date: 2019/9/20
- * Email: xiaohei.info@gmail.com
- * Host: xiaohei.info
- */
 public class MD5Util {
     private static final String ALGORITHM_MD5 = "MD5";
     private static final String UTF_8 = "UTF-8";

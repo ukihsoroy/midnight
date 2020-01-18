@@ -1,11 +1,4 @@
-package io.github.sigmaol.bigdata.common.security.common;
-
-/**
- * Author: xiaohei
- * Date: 2019/9/20
- * Email: xiaohei.info@gmail.com
- * Host: xiaohei.info
- */
+package io.github.sigmaol.help;
 
 import com.sun.istack.internal.Nullable;
 

@@ -1,4 +1,4 @@
-package io.github.sigmaol.bigdata.common.connector.realtime.sinks
+package io.github.sigmaol.bigdata.connector.realtime.sinks
 
 import java.util
 
@@ -8,12 +8,6 @@ import redis.clients.jedis.{HostAndPort, Jedis, JedisCluster, JedisSentinelPool}
 
 import scala.collection.JavaConversions._
 
-/**
-  * Author: xiaohei
-  * Date: 2018/8/23
-  * Email: xiaohei.info@gmail.com
-  * Host: xiaohei.info
-  */
 class RedisSink(masterName: String, hostAndPort: String) {
   lazy val sentinelPool = {
 

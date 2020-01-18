@@ -1,4 +1,4 @@
-package io.github.sigmaol.bigdata.common.java;
+package io.github.sigmaol.help;
 
 import org.apache.commons.codec.binary.Base64;
 
