@@ -162,11 +162,6 @@
   </pluginRepositories>
 
   <distributionManagement>
-<!--    <repository>-->
-<!--      <id>github</id>-->
-<!--      <name>GitHub sigmaol Apache Maven Packages</name>-->
-<!--      <url>https://maven.pkg.github.com/sigmaol</url>-->
-<!--    </repository>-->
     <repository>
       <id>releases</id>
       <name>Nexus ReleaseRepository</name>
