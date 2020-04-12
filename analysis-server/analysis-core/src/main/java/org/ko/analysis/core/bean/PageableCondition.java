@@ -1,8 +1,8 @@
-package org.ko.analysis.core.condition;
+package org.ko.analysis.core.bean;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.ko.sigma.core.bean.SerializeBean;
+import org.ko.analysis.core.bean.SerializeBean;
 
 @Data
 @EqualsAndHashCode(callSuper = true)

@@ -1,8 +1,8 @@
 package org.ko.analysis.core.validator;
 
 import com.google.common.base.Strings;
-import org.ko.sigma.core.exception.ValidateException;
-import org.ko.sigma.core.util.MessageI18nUtil;
+import org.ko.analysis.core.exception.ValidateException;
+import org.ko.analysis.core.help.MessageI18nUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

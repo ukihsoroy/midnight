@@ -1,4 +1,4 @@
-package org.ko.analysis.core.util;
+package org.ko.analysis.core.help;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

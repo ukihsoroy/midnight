@@ -1,4 +1,4 @@
-package org.ko.analysis.core.util;
+package org.ko.analysis.core.help;
 
 /**
  * 
