@@ -4,6 +4,8 @@
 
 ## 架构
 
+![architecture](D:\code\midnight\images\architecture.png)
+
 ## 选型
 
 ### 组件版本
