@@ -5,16 +5,16 @@ spring:
   datasource:
     druid:
       # 数据库 1
-      user: 
-        url: jdbc:mysql://127.0.0.1:3306/aidijing-1?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true
-        username: root
-        password: tiger
-        driver-class-name: com.mysql.jdbc.Driver
+      ods:
+        url: jdbc:postgresql://gp-2ze06nb5tczrs8r27o.gpdb.rds.aliyuncs.com:3432/greenplum
+        username: greenplum
+        password:
+        driver-class-name: org.postgresql.Driver
         initialSize: 5
         minIdle: 5
         maxActive: 20
       # 数据库 2
-      order:
+      ads:
         url: jdbc:mysql://127.0.0.1:3306/aidijing-2?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true
         username: root
         password: tiger

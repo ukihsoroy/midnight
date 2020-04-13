@@ -1,4 +1,4 @@
-package org.ko.config;
+package org.ko.store.config;
 
 import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
@@ -6,14 +6,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author : 披荆斩棘
- * @date : 2017/5/10
+ * @author : K.O
+ * @date : 2020/04/13
  */
 @Configuration
-@MapperScan( {
-        "org.ko.order.mapper",
-        "org.ko.user.mapper"
-} )
+@MapperScan({
+        "org.ko.store.ads.repository",
+        "org.ko.store.ods.repository"
+})
 public class MybatisPlusConfig {
 
 
