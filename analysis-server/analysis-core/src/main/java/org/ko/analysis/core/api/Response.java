@@ -1,6 +1,5 @@
 package org.ko.analysis.core.api;
 
-
 import java.io.Serializable;
 import java.util.Date;
 

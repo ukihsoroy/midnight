@@ -12,6 +12,12 @@
     <artifactId>analysis-core</artifactId>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
         <!--Servlet API-->
         <dependency>
             <groupId>javax.servlet</groupId>

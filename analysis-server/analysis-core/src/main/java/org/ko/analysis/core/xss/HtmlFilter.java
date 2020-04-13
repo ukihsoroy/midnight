@@ -1,7 +1,7 @@
 package org.ko.analysis.core.xss;
 
 
-import io.github.sigmaol.help.StringPool;
+import org.ko.analysis.core.help.StringPool;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

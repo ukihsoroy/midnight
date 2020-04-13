@@ -1,6 +1,6 @@
 package org.ko.analysis.core.exception;
 
-import io.github.sigmaol.web.api.Response;
+import org.ko.analysis.core.api.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;

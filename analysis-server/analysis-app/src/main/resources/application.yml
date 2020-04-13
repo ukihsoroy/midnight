@@ -1,0 +1,48 @@
+server.servlet:
+  context-path: /api
+
+#配置文件默认dev
+spring:
+  application.name: sigma-browser
+  profiles:
+    active: dev,secu
+  data:
+    redis:
+      repositories:
+        enabled: false
+  mail:
+    host: smtp.qq.com
+    username: 814777765@qq.com
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+management:
+  health:
+    redis:
+      enabled: false # 禁用Redis健康检查
+
+
+mybatis.configuration.mapUnderscoreToCamelCase: true
+
+# 通用mapper配置
+mapper:
+  not-empty: true #
+  before: true #
+  mappers: tk.mybatis.mapper.common.Mapper #配置的mapper
+
+sigma:
+  security:
+
+sms:
+  aliyun:
+    regionId: cn-hangzhou
+    signName: sigma
+  dictKey: sms_template
+
+
+

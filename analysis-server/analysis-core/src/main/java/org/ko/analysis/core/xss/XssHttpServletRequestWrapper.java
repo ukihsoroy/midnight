@@ -1,5 +1,7 @@
 package org.ko.analysis.core.xss;
 
+import org.ko.analysis.core.help.Charsets;
+import org.ko.analysis.core.help.StringHelper;
 import org.ko.analysis.core.help.WebHelper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;

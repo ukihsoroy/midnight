@@ -1,6 +1,6 @@
 package org.ko.analysis.core.exception;
 
-import io.github.sigmaol.web.api.IResponseCode;
+import org.ko.analysis.core.api.IResponseCode;
 
 /**
  * GeneralException

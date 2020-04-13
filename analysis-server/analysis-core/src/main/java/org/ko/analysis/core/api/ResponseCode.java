@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Getter
 @AllArgsConstructor
-public enum  ResponseCode implements IResponseCode {
+public enum ResponseCode implements IResponseCode {
 
     /**
      * 操作成功
