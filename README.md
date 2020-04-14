@@ -4,7 +4,7 @@
 
 ## 架构
 
-![architecture](D:\code\midnight\images\architecture.png)
+![architecture](./images/architecture.png)
 
 ## 选型
 
