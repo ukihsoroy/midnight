@@ -1,13 +1,10 @@
-server.servlet:
-  context-path: /api
-
 #配置文件默认dev
 spring:
-  application.name: analysis-app
+  application.name: analysis-schedule
   profiles:
     active: dev
 server:
-  port: 8081
+  port: 8082
 
 mybatis.configuration.mapUnderscoreToCamelCase: true
 

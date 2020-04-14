@@ -1,4 +1,5 @@
 CREATE TABLE `t_ads_dashboard` (
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 	`dash_id` VARCHAR(20) NOT NULL COMMENT '屏幕ID',
 	`board_id` VARCHAR(20) NOT NULL COMMENT '模块ID',
 	`data` JSON NOT NULL COMMENT '数据',
@@ -8,7 +9,7 @@ CREATE TABLE `t_ads_dashboard` (
 	`gmt_created` DATETIME NULL DEFAULT NULL COMMENT '创建时间',
 	`modified_user` VARCHAR(50) NOT NULL COMMENT '更新用户',
 	`gmt_modified` DATETIME NULL DEFAULT NULL COMMENT '更新时间',
-	PRIMARY KEY (`dash_id`, `board_id`)
+	PRIMARY KEY (`id`)
 )
 COMMENT='指标数据库'
 COLLATE='utf8_general_ci'

@@ -9,19 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>analysis-schedule</artifactId>
+    <artifactId>analysis-codegen</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.ko</groupId>
-            <artifactId>analysis-store</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ko</groupId>
-            <artifactId>analysis-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 
 </project>
