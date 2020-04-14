@@ -2,7 +2,7 @@
 spring:
   application.name: analysis-schedule
   profiles:
-    active: dev
+    active: local
 server:
   port: 8082
 
