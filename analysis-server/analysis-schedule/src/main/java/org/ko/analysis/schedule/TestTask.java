@@ -1,13 +1,11 @@
 package org.ko.analysis.schedule;
 
 import org.ko.analysis.core.help.JsonHelper;
-import org.ko.analysis.store.ads.domain.AdsDashboard;
-import org.ko.analysis.store.ads.repository.AdsDashboardRepository;
-import org.ko.analysis.store.ads.service.AdsDashboardService;
-import org.ko.analysis.store.ads.view.TestAdsView;
-import org.ko.analysis.store.ods.domain.Produce;
-import org.ko.analysis.store.ods.repository.ProduceRepository;
-import org.ko.analysis.store.ods.service.ProduceService;
+import org.ko.analysis.store.master.domain.AdsDashboard;
+import org.ko.analysis.store.master.service.AdsDashboardService;
+import org.ko.analysis.store.master.view.TestAdsView;
+import org.ko.analysis.store.mpp.domain.Produce;
+import org.ko.analysis.store.mpp.service.ProduceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

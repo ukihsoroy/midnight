@@ -7,7 +7,7 @@ import org.ko.analysis.rest.user.condition.QueryUserCondition;
 import org.ko.analysis.rest.user.dto.UserDTO;
 import org.ko.analysis.rest.user.repository.UserRepository;
 import org.ko.analysis.rest.user.service.UserService;
-import org.ko.analysis.store.ads.domain.User;
+import org.ko.analysis.store.master.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

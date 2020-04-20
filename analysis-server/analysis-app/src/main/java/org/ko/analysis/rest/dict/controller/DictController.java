@@ -8,7 +8,7 @@ import org.ko.analysis.conf.api.Response;
 import org.ko.analysis.rest.dict.condition.QueryDictCondition;
 import org.ko.analysis.rest.dict.dto.DictDTO;
 import org.ko.analysis.rest.dict.service.DictService;
-import org.ko.analysis.store.ads.domain.Dict;
+import org.ko.analysis.store.master.domain.Dict;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;

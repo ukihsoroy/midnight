@@ -3,7 +3,7 @@ package org.ko.analysis.rest.menu.repository;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.ko.analysis.rest.menu.condition.QueryMenuCondition;
 import org.ko.analysis.rest.menu.dto.MenuDTO;
-import org.ko.analysis.store.ads.domain.Menu;
+import org.ko.analysis.store.master.domain.Menu;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

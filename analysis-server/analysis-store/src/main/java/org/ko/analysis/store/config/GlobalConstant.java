@@ -11,11 +11,11 @@ public abstract class GlobalConstant {
     /**
      * 多数据源key : 应用数据层
      */
-    public static final String ADS_DATA_SOURCE_KEY = "dataSourceAds";
+    public static final String MASTER_DATA_SOURCE_KEY = "masterDataSource";
 
     /**
      * 多数据源key : 操作数据层
      */
-    public static final String ODS_DATA_SOURCE_KEY  = "dataSourceOds";
+    public static final String MPP_DATA_SOURCE_KEY  = "mppDataSource";
 
 }

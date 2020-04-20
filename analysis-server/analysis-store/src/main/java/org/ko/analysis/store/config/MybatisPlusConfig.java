@@ -15,8 +15,7 @@ import java.util.Date;
  */
 @Configuration
 @MapperScan({
-        "org.ko.analysis.store.ads.**.repository",
-        "org.ko.analysis.store.ods.**.repository"
+        "org.ko.analysis.**.repository"
 })
 public class MybatisPlusConfig extends MetaObjectHandler {
 

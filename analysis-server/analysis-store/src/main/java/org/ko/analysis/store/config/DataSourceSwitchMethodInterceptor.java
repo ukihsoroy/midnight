@@ -15,11 +15,11 @@ public class DataSourceSwitchMethodInterceptor implements MethodInterceptor {
     @Override
     public Object invoke (MethodInvocation invocation) throws Throwable {
         final String packageName = invocation.getThis().getClass().getPackage().getName();
-        if (packageName.contains("ods")) {
-            setDataSourceKey(invocation.getMethod(), GlobalConstant.ODS_DATA_SOURCE_KEY);
+        if (packageName.contains("master")) {
+            setDataSourceKey(invocation.getMethod(), GlobalConstant.MASTER_DATA_SOURCE_KEY);
         }
-        if (packageName.contains("ads")) {
-            setDataSourceKey(invocation.getMethod(), GlobalConstant.ADS_DATA_SOURCE_KEY);
+        if (packageName.contains("mpp")) {
+            setDataSourceKey(invocation.getMethod(), GlobalConstant.MPP_DATA_SOURCE_KEY);
         }
         return invocation.proceed();
     }

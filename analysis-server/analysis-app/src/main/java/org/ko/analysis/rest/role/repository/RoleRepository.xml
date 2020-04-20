@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.ko.sigma.rest.role.repository.RoleRepository">
+<mapper namespace="org.ko.analysis.rest.role.repository.RoleRepository">
 
-    <resultMap id="BaseRoleResultMap" type="org.ko.sigma.data.entity.Role">
+    <resultMap id="BaseRoleResultMap" type="org.ko.analysis.store.master.domain.Role">
         <id column="id" property="id" jdbcType="BIGINT"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="disable" property="disable" jdbcType="SMALLINT"/>
@@ -13,7 +13,7 @@
         <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
     </resultMap>
 
-    <resultMap id="BaseRoleMenuResultMap" type="org.ko.sigma.data.entity.RoleMenu">
+    <resultMap id="BaseRoleMenuResultMap" type="org.ko.analysis.store.master.domain.RoleMenu">
         <id column="id" property="id" jdbcType="BIGINT"/>
         <result column="role_id" property="roleId" jdbcType="BIGINT"/>
         <result column="menu_id" property="menuId" jdbcType="BIGINT"/>
@@ -26,11 +26,11 @@
     </resultMap>
     
     <resultMap id="ResultMapWithRoleMenu" 
-               type="org.ko.sigma.rest.role.dto.RoleMenuDTO"
+               type="org.ko.analysis.rest.role.dto.RoleMenuDTO"
                extends="BaseRoleMenuResultMap">
         <association property="role"
                      resultMap="BaseRoleResultMap"
-                     javaType="org.ko.sigma.data.entity.Role"/>
+                     javaType="org.ko.analysis.store.master.domain.Role"/>
         <!--<collection property="menus"
                     javaType="java.lang.List"
                     ofType="org.ko.prototype.rest.menu.dto.MenuDTO"

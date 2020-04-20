@@ -3,7 +3,7 @@ package org.ko.analysis.rest.user.dto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.ko.analysis.rest.role.dto.RoleDTO;
-import org.ko.analysis.store.ads.domain.User;
+import org.ko.analysis.store.master.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

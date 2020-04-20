@@ -17,5 +17,6 @@ mapper:
   mappers: tk.mybatis.mapper.common.Mapper #配置的mapper
 
 mybatis-plus:
-  mapper-locations: classpath:org/ko/**/*.xml
+  mapper-locations: classpath:org/ko/segma/rest/**/repository/*.xml  #mapper xml扫描
   type-aliases-package: org.ko.**.domain
+

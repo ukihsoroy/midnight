@@ -1,12 +1,12 @@
 package org.ko.analysis.rest.system.controller;
 
-import io.github.sigmaol.web.api.Response;
-import io.github.sigmaol.web.api.ResponseCode;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.ko.sigma.rest.system.service.SystemService;
-import org.ko.sigma.rest.user.dto.UserDTO;
+import org.ko.analysis.conf.api.Response;
+import org.ko.analysis.conf.api.ResponseCode;
+import org.ko.analysis.rest.system.service.SystemService;
+import org.ko.analysis.rest.user.dto.UserDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
-import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,9 +31,6 @@ public class SystemController {
 
     @Autowired
     private SystemService systemService;
-
-    @Autowired
-    private ProviderSignInUtils providerSignInUtils;
 
     /**
      * 请求的缓存

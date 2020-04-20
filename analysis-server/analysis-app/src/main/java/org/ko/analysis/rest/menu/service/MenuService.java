@@ -4,7 +4,7 @@ package org.ko.analysis.rest.menu.service;
 import com.baomidou.mybatisplus.service.IService;
 import org.ko.analysis.rest.menu.condition.QueryMenuCondition;
 import org.ko.analysis.rest.menu.dto.MenuDTO;
-import org.ko.analysis.store.ads.domain.Menu;
+import org.ko.analysis.store.master.domain.Menu;
 
 import java.util.List;
 

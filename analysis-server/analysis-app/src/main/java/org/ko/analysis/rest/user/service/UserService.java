@@ -4,7 +4,7 @@ package org.ko.analysis.rest.user.service;
 import com.baomidou.mybatisplus.service.IService;
 import org.ko.analysis.rest.user.condition.QueryUserCondition;
 import org.ko.analysis.rest.user.dto.UserDTO;
-import org.ko.analysis.store.ads.domain.User;
+import org.ko.analysis.store.master.domain.User;
 
 import java.util.List;
 

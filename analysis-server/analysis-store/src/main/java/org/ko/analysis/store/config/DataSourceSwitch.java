@@ -9,14 +9,14 @@ import java.util.Objects;
 
 public class DataSourceSwitch {
 
-    @Before("execution(* org.ko.**.ads.*.*Service.*(..))")
+    @Before("execution(* org.ko.**.master.*.*Service.*(..))")
     public void dataPlatform (JoinPoint joinPoint){
-        setDataSourceKey(joinPoint, GlobalConstant.ADS_DATA_SOURCE_KEY);
+        setDataSourceKey(joinPoint, GlobalConstant.MASTER_DATA_SOURCE_KEY);
     }
 
-    @Before("execution(* org.ko.**.ods.*.*Service.*(..))")
+    @Before("execution(* org.ko.**.mpp.*.*Service.*(..))")
     public void shop(JoinPoint joinPoint) {
-        setDataSourceKey(joinPoint, GlobalConstant.ODS_DATA_SOURCE_KEY);
+        setDataSourceKey(joinPoint, GlobalConstant.MPP_DATA_SOURCE_KEY);
     }
 
     /**

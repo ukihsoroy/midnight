@@ -3,7 +3,7 @@ package org.ko.analysis.rest.user.repository;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.ko.analysis.rest.role.dto.RoleDTO;
-import org.ko.analysis.store.ads.domain.UserRole;
+import org.ko.analysis.store.master.domain.UserRole;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

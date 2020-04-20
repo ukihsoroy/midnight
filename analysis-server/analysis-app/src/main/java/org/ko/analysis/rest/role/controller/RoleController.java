@@ -1,17 +1,17 @@
 package org.ko.analysis.rest.role.controller;
 
 
-import io.github.sigmaol.web.api.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.ko.sigma.data.entity.Role;
-import org.ko.sigma.rest.menu.dto.MenuDTO;
-import org.ko.sigma.rest.menu.service.MenuService;
-import org.ko.sigma.rest.role.condition.QueryRoleCondition;
-import org.ko.sigma.rest.role.dto.RoleDTO;
-import org.ko.sigma.rest.role.service.RoleMenuService;
-import org.ko.sigma.rest.role.service.RoleService;
+import org.ko.analysis.conf.api.Response;
+import org.ko.analysis.rest.menu.dto.MenuDTO;
+import org.ko.analysis.rest.menu.service.MenuService;
+import org.ko.analysis.rest.role.condition.QueryRoleCondition;
+import org.ko.analysis.rest.role.dto.RoleDTO;
+import org.ko.analysis.rest.role.service.RoleMenuService;
+import org.ko.analysis.rest.role.service.RoleService;
+import org.ko.analysis.store.master.domain.Role;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

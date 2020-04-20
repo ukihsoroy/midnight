@@ -3,7 +3,7 @@ package org.ko.analysis.rest.user.repository;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.ko.analysis.rest.user.condition.QueryUserCondition;
 import org.ko.analysis.rest.user.dto.UserDTO;
-import org.ko.analysis.store.ads.domain.User;
+import org.ko.analysis.store.master.domain.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

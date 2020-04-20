@@ -1,9 +1,9 @@
 package org.ko.analysis.rest.role.dto;
 
 
-import org.ko.analysis.store.ads.domain.Menu;
-import org.ko.analysis.store.ads.domain.Role;
-import org.ko.analysis.store.ads.domain.RoleMenu;
+import org.ko.analysis.store.master.domain.Menu;
+import org.ko.analysis.store.master.domain.Role;
+import org.ko.analysis.store.master.domain.RoleMenu;
 
 import java.util.List;
 

@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.mapper.Condition;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.ko.analysis.rest.role.repository.RoleMenuRepository;
 import org.ko.analysis.rest.role.service.RoleMenuService;
-import org.ko.analysis.store.ads.domain.RoleMenu;
+import org.ko.analysis.store.master.domain.RoleMenu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

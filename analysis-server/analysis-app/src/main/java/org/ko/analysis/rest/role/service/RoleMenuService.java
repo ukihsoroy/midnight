@@ -2,7 +2,7 @@ package org.ko.analysis.rest.role.service;
 
 
 import com.baomidou.mybatisplus.service.IService;
-import org.ko.analysis.store.ads.domain.RoleMenu;
+import org.ko.analysis.store.master.domain.RoleMenu;
 
 import java.util.List;
 

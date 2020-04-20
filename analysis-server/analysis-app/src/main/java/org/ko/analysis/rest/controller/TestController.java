@@ -1,10 +1,10 @@
 package org.ko.analysis.rest.controller;
 
 import org.ko.analysis.conf.api.Response;
-import org.ko.analysis.store.ads.service.AdsDashboardService;
-import org.ko.analysis.store.ods.service.ProduceService;
-import org.ko.analysis.store.ads.domain.AdsDashboard;
-import org.ko.analysis.store.ods.domain.Produce;
+import org.ko.analysis.store.master.service.AdsDashboardService;
+import org.ko.analysis.store.mpp.service.ProduceService;
+import org.ko.analysis.store.master.domain.AdsDashboard;
+import org.ko.analysis.store.mpp.domain.Produce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -25,38 +25,38 @@ public class DataSourceConfig {
     /**
      * 动态数据源配置
      *
-     * @param dataSourceAds : 应用数据源
-     * @param dataSourceOds  : 操作数据源
+     * @param masterDataSource : 应用数据源
+     * @param mppDataSource  : 操作数据源
      * @return
      */
     @Bean
-    public DynamicMultipleDataSource multipleDataSource(@Qualifier(GlobalConstant.ADS_DATA_SOURCE_KEY) DataSource dataSourceAds,
-                                                        @Qualifier(GlobalConstant.ODS_DATA_SOURCE_KEY) DataSource dataSourceOds) {
+    public DynamicMultipleDataSource multipleDataSource(@Qualifier(GlobalConstant.MASTER_DATA_SOURCE_KEY) DataSource masterDataSource,
+                                                        @Qualifier(GlobalConstant.MPP_DATA_SOURCE_KEY) DataSource mppDataSource) {
         DynamicMultipleDataSource dynamicMultipleDataSource = new DynamicMultipleDataSource();
         Map<Object, Object> targetDataSources = new HashMap<>();
-        targetDataSources.put(GlobalConstant.ADS_DATA_SOURCE_KEY, dataSourceAds);
-        targetDataSources.put(GlobalConstant.ODS_DATA_SOURCE_KEY, dataSourceOds);
+        targetDataSources.put(GlobalConstant.MASTER_DATA_SOURCE_KEY, masterDataSource);
+        targetDataSources.put(GlobalConstant.MPP_DATA_SOURCE_KEY, mppDataSource);
         dynamicMultipleDataSource.setTargetDataSources(targetDataSources);
-        dynamicMultipleDataSource.setDefaultTargetDataSource(dataSourceAds);
+        dynamicMultipleDataSource.setDefaultTargetDataSource(masterDataSource);
         return dynamicMultipleDataSource;
     }
 
     @Primary
     @Bean
-    @ConfigurationProperties(prefix = "spring.datasource.druid.ads" )
-    public DataSource dataSourceAds() {
+    @ConfigurationProperties(prefix = "spring.datasource.druid.master" )
+    public DataSource masterDataSource() {
         return DruidDataSourceBuilder.create().build();
     }
 
     @Bean
-    @ConfigurationProperties(prefix = "spring.datasource.druid.ods" )
-    public DataSource dataSourceOds() {
+    @ConfigurationProperties(prefix = "spring.datasource.druid.mpp" )
+    public DataSource mppDataSource() {
         return DruidDataSourceBuilder.create().build();
     }
 
 
     @Bean
-    public SqlSessionFactory sqlSessionFactory(DynamicMultipleDataSource dynamicMultipleDataSource ) throws Exception {
+    public SqlSessionFactory sqlSessionFactory(DynamicMultipleDataSource dynamicMultipleDataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dynamicMultipleDataSource );
         return sqlSessionFactoryBean.getObject();

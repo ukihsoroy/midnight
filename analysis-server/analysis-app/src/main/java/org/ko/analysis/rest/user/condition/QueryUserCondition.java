@@ -2,11 +2,10 @@ package org.ko.analysis.rest.user.condition;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.ko.analysis.store.bean.PageCondition;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class QueryUserCondition<User> extends PageCondition<User> {
+public class QueryUserCondition<User> extends com.baomidou.mybatisplus.plugins.Page<User> {
 
     private String username;
 

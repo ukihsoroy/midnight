@@ -8,7 +8,7 @@ import org.ko.analysis.conf.api.Response;
 import org.ko.analysis.rest.menu.condition.QueryMenuCondition;
 import org.ko.analysis.rest.menu.dto.MenuDTO;
 import org.ko.analysis.rest.menu.service.MenuService;
-import org.ko.analysis.store.ads.domain.Menu;
+import org.ko.analysis.store.master.domain.Menu;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
