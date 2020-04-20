@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ko.sigma.rest.department.repository.DepartmentRepository">
+
+    <select id="queryList" resultType="org.ko.sigma.rest.department.dto.DepartmentDTO">
+        SELECT
+            d.id,
+            d.code,
+            d.name,
+            d.parent_code,
+            d.disable
+        FROM t_department d
+    </select>
+
+    <insert id="insertList">
+        INSERT INTO t_department d
+          (
+            d.id,
+            d.code,
+            d.name,
+            d.parent_code,
+            d.disable
+          )
+        <foreach collection="departments" item="department" open="VALUES (" separator="), (" close=")">
+            #{department.id, jdbcType=BIGINT},
+            #{department.code, jdbcType=VARCHAR},
+            #{department.name, jdbcType=VARCHAR},
+            #{department.parentCode, jdbcType=VARCHAR},
+            #{department.disable, jdbcType=SMALLINT}
+        </foreach>
+    </insert>
+</mapper>

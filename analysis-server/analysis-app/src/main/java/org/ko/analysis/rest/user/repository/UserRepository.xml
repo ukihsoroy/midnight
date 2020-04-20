@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ko.sigma.rest.user.repository.UserRepository">
+
+    <resultMap id="BaseResultMap" type="org.ko.sigma.data.entity.User">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="avatar" property="avatar" jdbcType="VARCHAR"/>
+        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
+        <result column="birthday" property="birthday" jdbcType="VARCHAR"/>
+        <result column="gender" property="gender" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="wechat" property="wechat" jdbcType="VARCHAR"/>
+        <result column="weibo" property="weibo" jdbcType="VARCHAR"/>
+        <result column="qq" property="qq" jdbcType="VARCHAR"/>
+        <result column="signature" property="signature" jdbcType="VARCHAR"/>
+        <result column="balance" property="balance" jdbcType="VARCHAR"/>
+        <result column="disable" property="disable" jdbcType="SMALLINT"/>
+        <result column="version" property="version" jdbcType="BIGINT"/>
+        <result column="create_user" property="createUser" jdbcType="BIGINT"/>
+        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="modified_user" property="modifiedUser" jdbcType="BIGINT"/>
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="basicColumn">
+        id, username, password, nickname, birthday, gender, mobile, email, wechat, weibo, qq, signature, balance, version
+    </sql>
+
+    <select id="queryUserList" resultType="org.ko.sigma.rest.user.dto.UserDTO">
+        SELECT
+            u.id,
+            u.username,
+            u.nickname,
+            u.birthday,
+            u.gender,
+            u.mobile,
+            u.email,
+            u.balance,
+            u.signature,
+            r.name roleName
+        FROM t_user u
+        JOIN t_user_role ur ON u.id = ur.user_id AND ur.`disable` = 0
+        JOIN t_role r ON ur.role_code = r.code AND r.`disable` = 0
+        WHERE u.`disable` = 0
+        <if test="username != null and username != ''">
+            AND u.username LIKE CONCAT('%', #{username}, '%')
+        </if>
+        <if test="nickname != null and nickname != ''">
+            AND u.nickname LIKE CONCAT('%', #{nickname}, '%')
+        </if>
+<!--        <if test="birthday != null">
+            AND u.birthday &gt; #{birthday} AND u.birthday &lt; #{birthday}
+        </if>-->
+        <if test="gender != null">
+            AND u.gender = #{gender}
+        </if>
+        <if test="mobile != null and mobile != ''">
+            AND u.mobile LIKE CONCAT('%', #{mobile}, '%')
+        </if>
+        <if test="email != null and email != ''">
+            AND u.email LIKE CONCAT('%', #{email}, '%')
+        </if>
+        <if test="roleCode != null and roleCode != ''">
+            AND ur.role_code = #{roleCode}
+        </if>
+    </select>
+
+    <resultMap id="ResultMapWithRoles" type="org.ko.sigma.rest.user.dto.UserDTO" extends="BaseResultMap">
+        <collection property="roleDTOS"
+                    javaType="java.util.List"
+                    ofType="org.ko.sigma.rest.role.dto.RoleDTO"
+                    column="id"
+                    select="org.ko.sigma.rest.user.repository.UserRoleRepository.findRolesByUserId"/>
+    </resultMap>
+
+
+    <select id="loadUserByUsername" resultMap="ResultMapWithRoles" parameterType="string">
+        SELECT 
+        <include refid="basicColumn"></include>
+        FROM t_user t WHERE t.username = #{username} AND t.disable = 0;
+    </select>
+
+    <select id="loadUserByMobile" resultMap="ResultMapWithRoles" parameterType="string">
+        SELECT
+        <include refid="basicColumn"></include>
+        FROM t_user t WHERE t.mobile = #{mobile} AND t.disable = 0;
+    </select>
+</mapper>

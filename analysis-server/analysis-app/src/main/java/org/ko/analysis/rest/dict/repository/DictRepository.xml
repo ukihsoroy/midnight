@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ko.sigma.rest.dict.repository.DictRepository">
+
+    <select id="queryList" resultType="org.ko.sigma.rest.dict.dto.DictDTO">
+        SELECT
+            d.id,
+            d.code,
+            d.value,
+            d.type,
+            d.description,
+            d.disable
+        FROM t_dict d
+    </select>
+
+    <insert id="insertList">
+        INSERT INTO t_dict d
+          (
+            d.id,
+            d.code,
+            d.value,
+            d.type,
+            d.description,
+            d.disable
+          )
+        <foreach collection="dicts" item="dict" open="VALUES (" separator="), (" close=")">
+            #{dict.id, jdbcType=BIGINT},
+            #{dict.code, jdbcType=VARCHAR},
+            #{dict.value, jdbcType=VARCHAR},
+            #{dict.type, jdbcType=VARCHAR},
+            #{dict.description, jdbcType=VARCHAR},
+            #{dict.disable, jdbcType=SMALLINT}
+        </foreach>
+    </insert>
+</mapper>
