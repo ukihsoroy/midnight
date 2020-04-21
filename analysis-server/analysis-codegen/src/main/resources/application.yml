@@ -1,0 +1,23 @@
+server.port: 1337
+
+spring:
+  profiles.active: dev
+  application.name: sigma-generator
+  freemarker.template-loader-path: classpath:/templates/
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    username: root
+#    password: sunniwell
+#    url: jdbc:h2:~/data/db
+
+# 生成工具配置
+sigma.generator:
+  prefix: t_
+  entity:
+    module: sigma-mysql
+    rootPackage: org.ko.sigma.data
+    entityTemplate: entity.java.ftl
+    constantsTemplate: constants.java.ftl
+
+
+
