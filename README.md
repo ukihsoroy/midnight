@@ -12,16 +12,19 @@
 
 |name|version|
 |-|-|
+|Java|1.8.231|
 |MySql|5.7|
+|greenplum|Greenplum Database 6.1.0 build dev|
+
 
 ### 前端
 
 |name|version|
 |-|-|
-|vue||
 
 ### 后端
 
 |name|version|
 |-|-|
-|Spring Boot||
+|Spring Boot|2.2.6.RELEASE|
+|Mybatis Plus|1.0.4|
