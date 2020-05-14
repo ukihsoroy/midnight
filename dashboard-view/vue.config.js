@@ -1,19 +1,31 @@
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
+const argv = require('yargs').argv;
 
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = defaultSettings.title || 'vue Admin Template' // page title
+const name = defaultSettings.title || 'dashboard_view' // page title
 
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
 // For example, Mac: sudo npm run
 // You can change the port by the following methods:
 // port = 9528 npm run dev OR npm run dev --port = 9528
+
+
 const port = process.env.port || process.env.npm_config_port || 9528 // dev port
+
+let address
+if (argv.ADDRESS === 'prod') {
+  address = 'http:///api';
+} else if (argv.ADDRESS === 'stag'){
+  address = 'http:///api';
+} else {
+  address = `http://localhost:${port}/mock/`;
+}
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
@@ -35,6 +47,17 @@ module.exports = {
     overlay: {
       warnings: false,
       errors: true
+    },
+    proxy: {
+      // change xxx-api/login => mock/login
+      // detail: https://cli.vuejs.org/config/#devserver-proxy
+      [process.env.VUE_APP_BASE_API]: {
+        target: address + process.env.VUE_APP_BASE_API,
+        changeOrigin: true,
+        pathRewrite: {
+          ['^' + process.env.VUE_APP_BASE_API]: ''
+        }
+      }
     },
     before: require('./mock/mock-server.js')
   },
