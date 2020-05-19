@@ -1,6 +1,6 @@
 package org.ko.analysis.rest.user.repository;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.ko.analysis.rest.role.dto.RoleDTO;
 import org.ko.analysis.store.master.domain.UserRole;

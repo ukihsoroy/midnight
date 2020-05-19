@@ -21,18 +21,18 @@ import java.util.List;
 @RestController
 public class TestController {
 
-    @Autowired private AdsDashboardService adsDashboardService;
+    @Autowired private AdsDashboardService dashboardService;
 
     @Autowired private ProduceService produceService;
 
-    @GetMapping("ads")
+    @GetMapping("dashboard")
     public Response<List<AdsDashboard>> getAds() {
-        return Response.ok(adsDashboardService.selectList(null));
+        return Response.ok(dashboardService.list());
     }
 
-    @GetMapping("ods")
+    @GetMapping("mpp")
     public Response<List<Produce>> getOds() {
-        return Response.ok(produceService.selectList(null));
+        return Response.ok(produceService.list());
     }
 
 }

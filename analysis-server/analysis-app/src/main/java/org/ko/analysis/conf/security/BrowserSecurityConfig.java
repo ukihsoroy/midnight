@@ -3,7 +3,7 @@ package org.ko.analysis.conf.security;
 import org.ko.analysis.conf.security.handler.AuthenticationFailureHandlerImpl;
 import org.ko.analysis.conf.security.handler.AuthenticationSuccessHandlerImpl;
 import org.ko.analysis.conf.security.handler.LogoutSuccessHandlerImpl;
-import org.ko.analysis.rest.user.service.impl.UserServiceImpl;
+import org.ko.analysis.conf.security.session.ExpiredSessionStrategyImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +13,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 @Configuration

@@ -1,12 +1,11 @@
 package org.ko.analysis.rest.user.repository;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.ko.analysis.rest.user.condition.QueryUserCondition;
 import org.ko.analysis.rest.user.dto.UserDTO;
 import org.ko.analysis.store.master.domain.User;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface UserRepository extends BaseMapper<User> {
@@ -30,6 +29,6 @@ public interface UserRepository extends BaseMapper<User> {
      * @param condition 搜索条件
      * @return
      */
-    List<UserDTO> queryUserList(QueryUserCondition<User> condition);
+    IPage<UserDTO> queryUserList(QueryUserCondition<User> condition);
 
 }

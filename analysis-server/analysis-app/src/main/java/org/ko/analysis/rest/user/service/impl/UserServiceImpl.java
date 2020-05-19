@@ -1,6 +1,7 @@
 package org.ko.analysis.rest.user.service.impl;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.ko.analysis.conf.api.ResponseCode;
 import org.ko.analysis.conf.exp.BusinessException;
 import org.ko.analysis.rest.user.condition.QueryUserCondition;
@@ -35,7 +36,7 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public List<UserDTO> queryUserList(QueryUserCondition<User> condition) {
+    public IPage<UserDTO> queryUserList(QueryUserCondition<User> condition) {
         return userRepository.queryUserList(condition);
     }
 

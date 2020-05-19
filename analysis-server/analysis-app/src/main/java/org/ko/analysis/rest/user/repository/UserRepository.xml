@@ -19,8 +19,8 @@
         <result column="balance" property="balance" jdbcType="VARCHAR"/>
         <result column="disable" property="disable" jdbcType="SMALLINT"/>
         <result column="version" property="version" jdbcType="BIGINT"/>
-        <result column="create_user" property="createUser" jdbcType="BIGINT"/>
-        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="created_user" property="createdUser" jdbcType="BIGINT"/>
+        <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP"/>
         <result column="modified_user" property="modifiedUser" jdbcType="BIGINT"/>
         <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
     </resultMap>

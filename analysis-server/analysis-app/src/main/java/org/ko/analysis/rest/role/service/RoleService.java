@@ -1,7 +1,6 @@
 package org.ko.analysis.rest.role.service;
 
-
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import org.ko.analysis.rest.role.condition.QueryRoleCondition;
 import org.ko.analysis.store.master.domain.Role;
 

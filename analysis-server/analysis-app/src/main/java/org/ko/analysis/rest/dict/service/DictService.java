@@ -1,7 +1,7 @@
 package org.ko.analysis.rest.dict.service;
 
 
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import org.ko.analysis.rest.dict.condition.QueryDictCondition;
 import org.ko.analysis.store.master.domain.Dict;
 

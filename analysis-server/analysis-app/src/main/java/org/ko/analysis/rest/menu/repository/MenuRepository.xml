@@ -12,8 +12,8 @@
         <result column="parent_id" property="parentId" jdbcType="VARCHAR"/>
         <result column="disable" property="disable" jdbcType="SMALLINT"/>
         <result column="version" property="version" jdbcType="BIGINT"/>
-        <result column="create_user" property="createUser" jdbcType="BIGINT"/>
-        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="created_user" property="createdUser" jdbcType="BIGINT"/>
+        <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP"/>
         <result column="modified_user" property="modifiedUser" jdbcType="BIGINT"/>
         <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
     </resultMap>
@@ -54,8 +54,8 @@
             parent_id,
             disable,
             version,
-            create_user,
-            gmt_create,
+            created_user,
+            gmt_created,
             modified_user,
             gmt_modified
         FROM t_menu
@@ -76,8 +76,8 @@
             parent_id,
             disable,
             version,
-            create_user,
-            gmt_create,
+            created_user,
+            gmt_created,
             modified_user,
             gmt_modified
         FROM t_menu
@@ -97,8 +97,8 @@
             m.parent_id,
             m.disable,
             m.version,
-            m.create_user,
-            m.gmt_create,
+            m.created_user,
+            m.gmt_created,
             m.modified_user,
             m.gmt_modified
         FROM t_role_menu rm

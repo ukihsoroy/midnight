@@ -8,8 +8,8 @@
         <result column="role_code" property="password" jdbcType="VARCHAR"/>
         <result column="disable" property="disable" jdbcType="SMALLINT"/>
         <result column="version" property="version" jdbcType="BIGINT"/>
-        <result column="create_user" property="createUser" jdbcType="BIGINT"/>
-        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="created_user" property="createdUser" jdbcType="BIGINT"/>
+        <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP"/>
         <result column="modified_user" property="modifiedUser" jdbcType="BIGINT"/>
         <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
     </resultMap>
@@ -21,8 +21,8 @@
         <result column="user_id" property="userId" jdbcType="BIGINT"/>
         <result column="disable" property="disable" jdbcType="SMALLINT"/>
         <result column="version" property="version" jdbcType="BIGINT"/>
-        <result column="create_user" property="createUser" jdbcType="BIGINT"/>
-        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="created_user" property="createdUser" jdbcType="BIGINT"/>
+        <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP"/>
         <result column="modified_user" property="modifiedUser" jdbcType="BIGINT"/>
         <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
     </resultMap>
@@ -32,8 +32,8 @@
             r.code,
             r.name,
             r.version,
-            r.create_user,
-            r.gmt_create,
+            r.created_user,
+            r.gmt_created,
             r.modified_user,
             r.modified_user
         FROM t_user_role ur

@@ -1,6 +1,6 @@
 package org.ko.analysis.rest.dict.repository;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.ko.analysis.rest.dict.condition.QueryDictCondition;
 import org.ko.analysis.rest.dict.dto.DictDTO;
 import org.ko.analysis.store.master.domain.Dict;

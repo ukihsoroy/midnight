@@ -28,7 +28,7 @@ public class TestTask {
 
     @Scheduled(cron = "1 * * * * *")    //单位：毫秒
     public void compute () {
-        List<Produce> produces = produceService.selectList(null);
+        List<Produce> produces = produceService.list();
         double asDouble = produces.stream().mapToInt(Produce::getId).average().getAsDouble();
 
         AdsDashboard adsDashboard = new AdsDashboard();
@@ -41,7 +41,7 @@ public class TestTask {
 
         adsDashboard.setData(JsonHelper.toJson(view));
 
-        adsDashboardService.insert(adsDashboard);
+        adsDashboardService.save(adsDashboard);
     }
 
 }

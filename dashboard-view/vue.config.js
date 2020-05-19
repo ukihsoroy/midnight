@@ -9,21 +9,21 @@ function resolve(dir) {
 
 const name = defaultSettings.title || 'vue Admin Template' // page title
 
-let devServer
-if (argv.DEV_SERVER === 'local') {
-  devServer = `http://localhost:${port}/mock/`;
-} else if (argv.DEV_SERVER === 'sigma'){
-  devServer = 'http://39.105.164.165:1337/api';
-} else {
-  devServer = 'http://127.0.0.1:1337/api';
-}
-
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
 // For example, Mac: sudo npm run
 // You can change the port by the following methods:
 // port = 9528 npm run dev OR npm run dev --port = 9528
 const port = process.env.port || process.env.npm_config_port || 8080 // dev port
+
+let devServer
+if (argv.DEV_SERVER === 'local') {
+  devServer = `http://localhost:${port}/mock/`;
+} else if (argv.DEV_SERVER === 'sigma'){
+  devServer = 'http://39.105.164.165:1337/api';
+} else {
+  devServer = 'http://127.0.0.1:8081/api';
+}
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {

@@ -1,6 +1,6 @@
 package org.ko.analysis.rest.menu.service.impl;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.ko.analysis.conf.api.ResponseCode;
 import org.ko.analysis.conf.exp.BusinessException;
 import org.ko.analysis.rest.menu.condition.QueryMenuCondition;

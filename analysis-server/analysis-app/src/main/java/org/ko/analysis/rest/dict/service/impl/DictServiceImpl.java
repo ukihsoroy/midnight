@@ -1,7 +1,7 @@
 package org.ko.analysis.rest.dict.service.impl;
 
-import com.baomidou.mybatisplus.mapper.Condition;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.ko.analysis.conf.api.ResponseCode;
 import org.ko.analysis.conf.exp.BusinessException;
 import org.ko.analysis.rest.dict.condition.QueryDictCondition;
@@ -61,12 +61,12 @@ public class DictServiceImpl extends ServiceImpl<DictRepository, Dict> implement
 
     @Override
     public Dict findDictByCodeAndType(String code, String type) {
-        return dictRepository.selectOne(Dict.builder().code(code).type(type).build());
+        return dictRepository.selectOne(new QueryWrapper<Dict>().eq("code", code).eq("type", type));
     }
 
     @Override
     public List<Dict> findDictByCode(String code) {
-        return dictRepository.selectList(Condition.create().eq("code", code));
+        return dictRepository.selectList(new QueryWrapper<Dict>().eq("code", code));
     }
 
 }

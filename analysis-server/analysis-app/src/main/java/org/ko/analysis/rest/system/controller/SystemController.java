@@ -41,7 +41,9 @@ public class SystemController {
     @ApiOperation("账号密码登录")
     public void login (
             @ApiParam("用户名") @RequestParam String username,
-            @ApiParam("用户口令") @RequestParam String password) {}
+            @ApiParam("用户口令") @RequestParam String password) {
+        logger.info("----");
+    }
 
     @PostMapping("/authentication/mobile")
     @ApiOperation("手机号码登陆")

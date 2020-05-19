@@ -5,12 +5,11 @@
       :model="loginForm"
       :rules="loginRules"
       class="login-form"
-      :class="registerType ? 'animated zoomInRight' : 'animated zoomInLeft'"
       label-position="left"
     >
 
       <div class="title-container">
-        <h3 class="title">Sigma {{ todoInfo }}</h3>
+        <h3 class="title">Dashboard</h3>
       </div>
 
       <el-form-item prop="username">
@@ -20,7 +19,7 @@
         <el-input
           ref="username"
           v-model="loginForm.username"
-          :placeholder="registerType ? '请输入用户名' : 'Username'"
+          placeholder="Username"
           name="username"
           type="text"
           tabindex="1"
@@ -37,14 +36,14 @@
           ref="password"
           v-model="loginForm.password"
           :type="passwordType"
-          :placeholder="registerType ? '请输入密码（不少于6位）' : 'Password'"
+          placeholder="Password"
           name="password"
           tabindex="2"
           autocomplete="new-password"
           @keyup.enter.native="handleLogin"
         />
         <span class="show-pwd" @click="showPwd">
-          <svg-icon :icon-class="registerType ? 'eye' : 'eye-open'" />
+          <svg-icon :icon-class="passwordType == 'password' ? 'eye' : 'eye-open'" />
         </span>
       </el-form-item>
 
@@ -54,26 +53,14 @@
         style="width:100%;margin-bottom:10px;"
         @click.native.prevent="handleLogin"
       >
-        {{ todoInfo }}
+        登录
       </el-button>
-
-      <div :class="[registerType ? 'center' : '','register']">
-        <template v-if="registerType">
-          <span class="clcikRegister" @click="handleRegister">已有账号登录</span>
-        </template>
-        <template v-else>
-          没有账号？
-          <span class="clcikRegister" @click="handleRegister">注册</span>
-          <a href="#" class="right clcikRegister">忘记密码</a>
-        </template>
-      </div>
-
     </el-form>
   </div>
 </template>
 
 <script>
-import { login, register, validateUser } from '@/api/user'
+import { login } from '@/api/user'
 import { setToken } from '@/utils/auth'
 
 export default {
@@ -82,9 +69,6 @@ export default {
     const validateUsername = (rule, value, callback) => {
       if (value.length < 4) {
         callback(new Error('请输入用户名'))
-      } else if (this.todoInfo === 'Register') {
-        validateUser({ value: this.loginForm.username })
-        callback()
       } else {
         callback()
       }
@@ -107,29 +91,7 @@ export default {
       },
       loading: false,
       passwordType: 'password',
-      redirect: undefined,
-      todoInfo: 'Login',
-      registerModel: {
-        'avatar': 'string',
-        'birthday': '2019-08-03T06:33:34.161Z',
-        'email': 'string',
-        'enabled': true,
-        'gender': 0,
-        'nickname': 'string',
-        'password': '',
-        'mobile': '1360312313',
-        'roleDTOS': [
-          {
-            'code': 'ROLE_USER'
-          }
-        ],
-        'username': ''
-      }
-    }
-  },
-  computed: {
-    registerType() {
-      return this.todoInfo === 'Register'
+      redirect: undefined
     }
   },
   watch: {
@@ -155,34 +117,18 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          if (this.registerType) {
-            const tempData = Object.assign(this.registerModel, this.loginForm)
-            register(tempData).then((response) => {
-              this.$message({
-                message: '恭喜你，注册成功！快去登录吧！',
-                type: 'success'
-              })
-              this.todoInfo = 'Login'
-              this.loading = false
-            })
-          } else {
-            login(this.loginForm).then((response) => {
-              setToken(response.data.principal.password)
-              this.$router.push({ path: this.redirect || '/' })
-              this.loading = false
-            }).catch((e) => {
-              this.loading = false
-            })
-          }
+          login(this.loginForm).then((response) => {
+            setToken(response.data.principal.password)
+            this.$router.push({ path: this.redirect || '/' })
+            this.loading = false
+          }).catch((e) => {
+            this.loading = false
+          })
         } else {
           console.log('error submit!!')
           return false
         }
       })
-    },
-    handleRegister() { // 注册
-      this.todoInfo = this.registerType ? 'Login' : 'Register'
-      this.$refs['loginForm'].resetFields()
     }
   }
 }

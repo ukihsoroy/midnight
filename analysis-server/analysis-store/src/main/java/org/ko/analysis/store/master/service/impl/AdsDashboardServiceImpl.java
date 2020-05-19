@@ -1,6 +1,6 @@
 package org.ko.analysis.store.master.service.impl;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.ko.analysis.store.master.service.AdsDashboardService;
 import org.ko.analysis.store.master.domain.AdsDashboard;
 import org.ko.analysis.store.master.repository.AdsDashboardRepository;

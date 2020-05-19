@@ -1,9 +1,10 @@
 package org.ko.analysis.rest.role.service.impl;
 
-import com.baomidou.mybatisplus.mapper.Condition;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.ko.analysis.rest.role.repository.RoleMenuRepository;
 import org.ko.analysis.rest.role.service.RoleMenuService;
+import org.ko.analysis.store.master.constants.RoleMenuConstants;
 import org.ko.analysis.store.master.domain.RoleMenu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class RoleMenuServiceImpl extends ServiceImpl<RoleMenuRepository, RoleMen
 
     @Override
     public Integer removeRoleMenu(String roleCode) {
-        return roleMenuRepository.delete(Condition.create().eq("role_code", roleCode));
+        return roleMenuRepository.delete(new QueryWrapper<RoleMenu>().eq(RoleMenuConstants.Columns.ROLE_CODE, roleCode));
     }
 
     private RoleMenu buildRoleMenu (String roleCode, Long menuId) {

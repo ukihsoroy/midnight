@@ -1,6 +1,6 @@
 package org.ko.analysis.store.mpp.service.impl;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.ko.analysis.store.mpp.domain.Produce;
 import org.ko.analysis.store.mpp.repository.ProduceRepository;
 import org.ko.analysis.store.mpp.service.ProduceService;

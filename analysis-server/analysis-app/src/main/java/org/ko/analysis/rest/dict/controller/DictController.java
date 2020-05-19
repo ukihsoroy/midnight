@@ -1,6 +1,5 @@
 package org.ko.analysis.rest.dict.controller;
 
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

@@ -1,6 +1,6 @@
 package org.ko.analysis.rest.system.service.impl;
 
-import com.baomidou.mybatisplus.mapper.Condition;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.commons.collections.CollectionUtils;
 import org.ko.analysis.conf.api.ResponseCode;
 import org.ko.analysis.conf.exp.BusinessException;
@@ -10,7 +10,7 @@ import org.ko.analysis.rest.user.dto.UserDTO;
 import org.ko.analysis.rest.user.repository.UserRepository;
 import org.ko.analysis.rest.user.repository.UserRoleRepository;
 import org.ko.analysis.rest.user.service.UserService;
-import org.ko.analysis.store.master.domain.Role;
+import org.ko.analysis.store.master.constants.UserConstants;
 import org.ko.analysis.store.master.domain.User;
 import org.ko.analysis.store.master.domain.UserRole;
 import org.slf4j.Logger;
@@ -21,8 +21,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
@@ -51,9 +49,6 @@ public class SystemServiceImpl implements SystemService {
 
     private static final Logger logger = LoggerFactory.getLogger(SystemServiceImpl.class);
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
     @Override
     public Long register(UserDTO userDTO, HttpServletRequest request) {
 
@@ -61,7 +56,6 @@ public class SystemServiceImpl implements SystemService {
         validatorRegister(userDTO);
         
         Long userId = userService.createUser(map(userDTO));
-
 
         List<UserRole> userRoles;
         if (CollectionUtils.isNotEmpty(userDTO.getRoles())) {
@@ -78,12 +72,6 @@ public class SystemServiceImpl implements SystemService {
                 userRole.setUserId(userId);
                 return userRole;
             }).collect(Collectors.toList());
-//                  userRoles =  Stream.of(RoleCodeEnum.ROLE_USER).map(roleDTO -> {
-//                UserRole userRole = new UserRole();
-//                userRole.setRoleCode(roleDTO.getCode());
-//                userRole.setUserId(userId);
-//                return userRole;
-//            }).collect(Collectors.toList());
         }
 
         Long count = userRoleRepository.insertList(userRoles);
@@ -99,27 +87,27 @@ public class SystemServiceImpl implements SystemService {
 
     @Override
     public void validUserUnique(String column, String value) {
-        List<User> users = userRepository.selectList(Condition.create().eq(column, value));
-        if (!users.isEmpty()) {
+        User user = userRepository.selectOne(new QueryWrapper<User>().eq(column, value));
+        if (user != null) {
             throw new UniqueException(column + "重复!");
         }
     }
 
     private void validatorRegister(UserDTO userDTO) {
         Integer countUsername = userRepository.selectCount(
-                Condition.create().eq("username", userDTO.getUsername()));
+                new QueryWrapper<User>().eq(UserConstants.Columns.USERNAME, userDTO.getUsername()));
         if (countUsername > 0) {
             throw new BusinessException(ResponseCode.INTERNAL_SERVER_ERROR);
         }
 
         Integer countMobile = userRepository.selectCount(
-                Condition.create().eq("mobile", userDTO.getMobile()));
+                new QueryWrapper<User>().eq(UserConstants.Columns.MOBILE, userDTO.getMobile()));
         if (countMobile > 0) {
             throw new BusinessException(ResponseCode.INTERNAL_SERVER_ERROR);
         }
 
         Integer countEmail = userRepository.selectCount(
-                Condition.create().eq("email", userDTO.getEmail()));
+                new QueryWrapper<User>().eq(UserConstants.Columns.EMAIL, userDTO.getEmail()));
         if (countEmail > 0) {
             throw new BusinessException(ResponseCode.INTERNAL_SERVER_ERROR);
         }

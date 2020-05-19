@@ -1,6 +1,6 @@
 package org.ko.analysis.rest.menu.repository;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.ko.analysis.rest.menu.condition.QueryMenuCondition;
 import org.ko.analysis.rest.menu.dto.MenuDTO;
 import org.ko.analysis.store.master.domain.Menu;

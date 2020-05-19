@@ -1,7 +1,7 @@
 package org.ko.analysis.store.config;
 
-import com.baomidou.mybatisplus.mapper.MetaObjectHandler;
-import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import org.apache.ibatis.reflection.MetaObject;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,7 @@ import java.util.Date;
 @MapperScan({
         "org.ko.analysis.**.repository"
 })
-public class MybatisPlusConfig extends MetaObjectHandler {
+public class MybatisPlusConfig implements MetaObjectHandler {
 
     /**
      * mybatis-plus 性能分析拦截器<br>

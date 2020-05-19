@@ -1,9 +1,11 @@
 package org.ko.analysis.rest.user.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.ko.analysis.conf.api.Response;
+import org.ko.analysis.help.SessionHolder;
 import org.ko.analysis.rest.user.condition.QueryUserCondition;
 import org.ko.analysis.rest.user.dto.UserDTO;
 import org.ko.analysis.rest.user.service.UserService;
@@ -14,8 +16,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Api(tags = "用户接口")
 @RestController
@@ -30,9 +30,9 @@ public class UserController {
 
     @GetMapping
     @ApiOperation("查询用户列表")
-    public Response<List<UserDTO>> queryUserList(@ApiParam("列表查询参数") @ModelAttribute QueryUserCondition<User> condition) {
+    public Response<IPage<UserDTO>> queryUserList(@ApiParam("列表查询参数") @ModelAttribute QueryUserCondition<User> condition) {
         //1. 查询用户列表数据
-        List<UserDTO> page = userService.queryUserList(condition);
+        IPage<UserDTO> page = userService.queryUserList(condition);
 
         //2. 如果不为空
         return Response.ok(page);
@@ -50,7 +50,7 @@ public class UserController {
     @GetMapping("info")
     @ApiOperation("获取当前登录用户信息")
     public Response<UserDTO> loginUser () {
-        return Response.ok(null);
+        return Response.ok(SessionHolder.loginUser());
     }
 
     @PostMapping

@@ -1,6 +1,6 @@
 package org.ko.analysis.store.mpp.service;
 
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import org.ko.analysis.store.mpp.domain.Produce;
 
 /**

@@ -1,12 +1,11 @@
 package org.ko.analysis.rest.user.service;
 
 
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.service.IService;
 import org.ko.analysis.rest.user.condition.QueryUserCondition;
 import org.ko.analysis.rest.user.dto.UserDTO;
 import org.ko.analysis.store.master.domain.User;
-
-import java.util.List;
 
 public interface UserService extends IService<User> {
 
@@ -15,7 +14,7 @@ public interface UserService extends IService<User> {
      * @param condition
      * @return
      */
-    List<UserDTO> queryUserList(QueryUserCondition<User> condition);
+    IPage<UserDTO>  queryUserList(QueryUserCondition<User> condition);
 
     /**
      * <p>查询用户详细</p>
