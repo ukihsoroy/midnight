@@ -3,7 +3,7 @@ package org.ko.analysis.conf.security;
 import org.ko.analysis.conf.security.handler.AuthenticationFailureHandlerImpl;
 import org.ko.analysis.conf.security.handler.AuthenticationSuccessHandlerImpl;
 import org.ko.analysis.conf.security.handler.LogoutSuccessHandlerImpl;
-import org.ko.analysis.rest.system.service.SystemService;
+import org.ko.analysis.rest.user.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,8 +15,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import javax.sql.DataSource;
 
 
 @Configuration
@@ -43,7 +41,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     private LogoutSuccessHandlerImpl logoutSuccessHandler;
 
     @Autowired
-    private SystemService systemService;
+    private UserDetailsService userServiceImpl;
 
     private String[] permitAll = new String[]{
             //swagger requests
@@ -80,16 +78,8 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        //使用security默认的加密规则
-        return new BCryptPasswordEncoder();
-    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-
         http
                 .formLogin() //表单登录
                     .loginPage("/authentication/require")
@@ -97,7 +87,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                     .successHandler(authenticationSuccessHandlerImpl)
                     .failureHandler(authenticationFailureHandlerImpl)
                     .and()
-                .userDetailsService(systemService)
+                .userDetailsService(userServiceImpl)
                     .sessionManagement()
                     .invalidSessionUrl("/session/invalid")
 //                    .maximumSessions(1) //同时存在最大session数为1

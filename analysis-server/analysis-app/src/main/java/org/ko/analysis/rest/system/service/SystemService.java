@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import javax.servlet.http.HttpServletRequest;
 
-public interface SystemService extends UserDetailsService {
+public interface SystemService {
 
     /**
      * 注册

@@ -154,8 +154,8 @@
                 </executions>
                 <configuration>
                     <skip>true</skip>
-                    <source>9</source>
-                    <target>9</target>
+                    <source>8</source>
+                    <target>8</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
