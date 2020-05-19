@@ -49,24 +49,10 @@ public class SystemServiceImpl implements SystemService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-
     private static final Logger logger = LoggerFactory.getLogger(SystemServiceImpl.class);
-
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserDTO userDTO = userRepository.loadUserByUsername(username);
-        if (userDTO != null) {
-            List<String> roles = userDTO.getRoleDTOS().stream().map(Role::getCode).collect(Collectors.toList());
-            userDTO.setRoles(roles);
-            return userDTO;
-        }
-        throw new UsernameNotFoundException("用户不存在");
-    }
-
 
     @Override
     public Long register(UserDTO userDTO, HttpServletRequest request) {

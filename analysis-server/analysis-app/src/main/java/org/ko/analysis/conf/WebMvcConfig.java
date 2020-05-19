@@ -4,6 +4,8 @@ import org.ko.analysis.conf.api.ApiHandlerMapping;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.support.FormattingConversionService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -85,5 +87,11 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         registry.addResourceHandler("/swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
         // 解决swagger的js文件无法访问
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        //使用security默认的加密规则
+        return new BCryptPasswordEncoder();
     }
 }

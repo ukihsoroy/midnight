@@ -7,19 +7,24 @@ import org.ko.analysis.rest.user.condition.QueryUserCondition;
 import org.ko.analysis.rest.user.dto.UserDTO;
 import org.ko.analysis.rest.user.repository.UserRepository;
 import org.ko.analysis.rest.user.service.UserService;
+import org.ko.analysis.store.master.domain.Role;
 import org.ko.analysis.store.master.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional(rollbackFor = Throwable.class)
-public class UserServiceImpl extends ServiceImpl<UserRepository, User> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserRepository, User> implements UserService, UserDetailsService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
@@ -66,4 +71,14 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
         return id;
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserDTO userDTO = userRepository.loadUserByUsername(username);
+        if (userDTO != null) {
+            List<String> roles = userDTO.getRoleDTOS().stream().map(Role::getCode).collect(Collectors.toList());
+            userDTO.setRoles(roles);
+            return userDTO;
+        }
+        throw new UsernameNotFoundException("用户不存在");
+    }
 }

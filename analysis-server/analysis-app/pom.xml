@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.ko</groupId>
             <artifactId>analysis-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
@@ -23,7 +28,6 @@
             <artifactId>analysis-store</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
 
         <!-- Spring Security 安全框架 -->
         <dependency>
@@ -42,7 +46,6 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -74,5 +77,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

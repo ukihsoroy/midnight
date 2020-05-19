@@ -24,14 +24,10 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -78,24 +74,20 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
         <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
-                    <include>**</include>
+                    <include>**/*</include>
                 </includes>
             </resource>
         </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>org.ko.Application</mainClass>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 
 </project>
