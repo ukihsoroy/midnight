@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'dashboard-view',
+  title: 'Sigma-Server',
 
   /**
    * @type {boolean} true | false
