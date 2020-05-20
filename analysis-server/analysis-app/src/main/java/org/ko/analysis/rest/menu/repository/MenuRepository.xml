@@ -102,7 +102,7 @@
             m.modified_user,
             m.gmt_modified
         FROM t_role_menu rm
-        LEFT JOIN t_menu m ON rm.menu_id = m.id AND m.`disable` = 0
+        JOIN t_menu m ON rm.menu_id = m.id AND m.`disable` = 0
         WHERE rm.`disable` = 0 AND rm.role_code = #{roleCode}
     </select>
 

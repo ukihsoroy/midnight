@@ -36,7 +36,7 @@ module.exports = {
    */
   publicPath: '/',
   outputDir: 'dist',
-  assetsDir: 'sigma',
+  assetsDir: 'static',
   // publicPath: '/',
   // outputDir: 'resources',
   // assetsDir: 'static',

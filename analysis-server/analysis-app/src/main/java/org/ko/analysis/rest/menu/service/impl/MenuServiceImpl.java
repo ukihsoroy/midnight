@@ -39,8 +39,14 @@ public class MenuServiceImpl extends ServiceImpl<MenuRepository, Menu> implement
         // 查询该权限下的全部菜单
         List<MenuDTO> menuDTOS = menuRepository.queryMenuByRoleCode(roleCode);
 
+        if (null == menuDTOS || menuDTOS.isEmpty()) {
+            throw new BusinessException(ResponseCode.INTERNAL_SERVER_ERROR);
+        }
+
         // 取出一级
-        List<MenuDTO> parentMenus = menuDTOS.stream().filter(menuDTO -> menuDTO.getParentId() == null)
+        List<MenuDTO> parentMenus = menuDTOS.stream().filter(menuDTO -> {
+            return null == menuDTO.getParentId();
+        })
                 .collect(Collectors.toList());
 
         // 对菜单按照parent_id分组

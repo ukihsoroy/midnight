@@ -23,7 +23,7 @@ function hasPermission(roles, route) {
  */
 export function filterAsyncRoutes(routes, roles) {
   const res = []
-
+  debugger
   routes.forEach(route => {
     const tmp = { ...route }
     if (hasPermission(roles, tmp)) {
@@ -58,6 +58,7 @@ const actions = {
       let accessedRoutes = asyncRoutes || []
       roles.forEach(role => getUserMenu(role).then((response) => {
         if (response.success) {
+          debugger;
           accessedRoutes = accessedRoutes.concat(filterAsyncRoutes(response.data, roles))
           commit('SET_ROUTES', accessedRoutes)
           resolve(accessedRoutes)
