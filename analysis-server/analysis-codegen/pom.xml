@@ -19,7 +19,7 @@
         <apache.lang3>3.7</apache.lang3>
         <apache.collection4>4.1</apache.collection4>
         <apache.io>2.6</apache.io>
-        <mysql.driver>5.1.45</mysql.driver>
+        <mysql.driver>8.0.16</mysql.driver>
         <mybatis.spring>1.3.1</mybatis.spring>
         <alibaba.druid>1.1.8</alibaba.druid>
         <scala.version>2.11.12</scala.version>
